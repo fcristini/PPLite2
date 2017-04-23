@@ -100,20 +100,6 @@ C_Polyhedron::C_Polyhedron(const Box<Interval>& box, Complexity_Class)
 
 template <typename U>
 inline
-C_Polyhedron::C_Polyhedron(const BD_Shape<U>& bd, Complexity_Class)
-  : Polyhedron(NECESSARILY_CLOSED,
-               check_space_dimension_overflow(bd.space_dimension(),
-                                              NECESSARILY_CLOSED,
-                                              "C_Polyhedron(bd)",
-                                              "the space dimension of bd "
-                                              "exceeds the maximum allowed "
-                                              "space dimension"),
-               UNIVERSE) {
-  add_constraints(bd.constraints());
-}
-
-template <typename U>
-inline
 C_Polyhedron::C_Polyhedron(const Octagonal_Shape<U>& os, Complexity_Class)
   : Polyhedron(NECESSARILY_CLOSED,
                check_space_dimension_overflow(os.space_dimension(),

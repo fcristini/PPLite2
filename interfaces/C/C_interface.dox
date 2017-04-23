@@ -237,8 +237,7 @@ ppl_assign_NNC_Polyhedron_from_NNC_Polyhedron
   Besides the conversions listed here below, the library also
   provides conversion operators that build a semantic geometric
   description starting from \b any other semantic geometric
-  description (e.g., ppl_new_Grid_from_C_Polyhedron,
-  ppl_new_C_Polyhedron_from_BD_Shape_mpq_class, etc.).
+  description (e.g., ppl_new_Grid_from_C_Polyhedron, etc.).
   Clearly, the conversion operators are only available if both
   the source and the target semantic geometric descriptions have
   been enabled when configuring the library.

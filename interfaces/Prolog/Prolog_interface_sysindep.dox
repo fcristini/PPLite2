@@ -46,8 +46,7 @@ on the use of the interface.
   - The simple domains are:
      - convex polyhedra, which consist of C_Polyhedron and
        NNC_Polyhedron;<BR>
-     - weakly relational, which consist of BD_Shape_N and
-       Octagonal_Shape_N
+     - weakly relational, which consist of Octagonal_Shape_N
        where N is one of the numeric types
        int8, int16, int32, int64, mpz_class, mpq_class,
        float, double, long_double;<BR>

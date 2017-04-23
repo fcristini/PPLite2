@@ -257,94 +257,10 @@ public:
 };
 
 template <typename T>
-bool
-valid_BD_Shape_argument(void);
-
-template <>
-bool
-valid_BD_Shape_argument<signed char>() {
-  return true;
-}
-
-template <>
-bool
-valid_BD_Shape_argument<short>() {
-  return true;
-}
-
-template <>
-bool
-valid_BD_Shape_argument<int>() {
-  return true;
-}
-
-template <>
-bool
-valid_BD_Shape_argument<long>() {
-  return true;
-}
-
-template <>
-bool
-valid_BD_Shape_argument<long long>() {
-  return true;
-}
-
-#if PPL_SUPPORTED_FLOAT
-template <>
-bool
-valid_BD_Shape_argument<float>() {
-  return true;
-}
-#endif // PPL_SUPPORTED_FLOAT
-
-#if PPL_SUPPORTED_DOUBLE
-template <>
-bool
-valid_BD_Shape_argument<double>() {
-  return true;
-}
-#endif // PPL_SUPPORTED_DOUBLE
-
-#if PPL_SUPPORTED_LONG_DOUBLE
-template <>
-bool
-valid_BD_Shape_argument<long double>() {
-  return true;
-}
-#endif // PPL_SUPPORTED_LONG_DOUBLE
-
-template <>
-bool
-valid_BD_Shape_argument<mpz_class>() {
-  return true;
-}
-
-template <>
-bool
-valid_BD_Shape_argument<mpq_class>() {
-  return true;
-}
-
-template <typename T>
-class BD_Shape {
-public:
-  static bool valid_instantiation() {
-    return valid_BD_Shape_argument<T>();
-  }
-  static bool valid_Pointset_Powerset_argument() {
-    return true;
-  }
-  static bool valid_Product_argument() {
-    return true;
-  }
-};
-
-template <typename T>
 class Octagonal_Shape {
 public:
   static bool valid_instantiation() {
-    return valid_BD_Shape_argument<T>();
+      return false;
   }
   static bool valid_Pointset_Powerset_argument() {
     return true;

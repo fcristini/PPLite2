@@ -95,74 +95,6 @@ test03() {
   return ok;
 }
 
-// Constructs the powerset of bd shapes from a grid.
-bool
-test04() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<TBD_Shape> pps(gr);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2);
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBD_Shape>::const_iterator i = pps.begin();
-  TBD_Shape bdsi = i->pointset();
-  print_constraints(bdsi, "*** bdsi ***");
-
-  return ok;
-}
-
-// Constructs the powerset of bd shapes from an empty grid.
-bool
-test05() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2, EMPTY);
-
-  Pointset_Powerset<TBD_Shape> pps(gr);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of bd shapes from a powerset of grids.
-bool
-test06() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<Grid> pps_gr(gr);
-
-  Pointset_Powerset<TBD_Shape> pps(pps_gr);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2);
-
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBD_Shape>::const_iterator i = pps.begin();
-  TBD_Shape bdsi = i->pointset();
-  print_constraints(bdsi, "*** bdsi ***");
-
-  return ok;
-}
-
 // Constructs the powerset of octagonal_shapes from a grid.
 bool
 test07() {
@@ -419,9 +351,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test04);
-  DO_TEST(test05);
-  DO_TEST(test06);
   DO_TEST(test07);
   DO_TEST(test08);
   DO_TEST(test09);

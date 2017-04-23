@@ -94,7 +94,6 @@ identified by their C++ class name, together with the class template
 parameters, if any. These classes include the <EM>simple classes</EM>:
   - \link Parma_Polyhedra_Library::C_Polyhedron \c C_Polyhedron \endlink,
   - \link Parma_Polyhedra_Library::NNC_Polyhedron \c NNC_Polyhedron \endlink,
-  - \link Parma_Polyhedra_Library::BD_Shape \c BD_Shape\<T\> \endlink,
   - \link Parma_Polyhedra_Library::Octagonal_Shape \c Octagonal_Shape\<T\> \endlink,
   - \link Parma_Polyhedra_Library::Box \c Box\<ITV\> \endlink, and
   - \link Parma_Polyhedra_Library::Grid \c Grid \endlink,
@@ -2828,8 +2827,7 @@ be denoted by \f$\linexprenv{e}{\rho^{\#}}{\rho^{\#}_l}\f$. There are two ways a
 
 \subsection fp_abstract_domains Use of other abstract domains for floating point analysis
 
-Three of the other abstract domains of the PPL (
-\link Parma_Polyhedra_Library::BD_Shape \c BD_Shape \endlink,
+Two of the other abstract domains of the PPL (
 \link Parma_Polyhedra_Library::Octagonal_Shape \c Octagonal_Shape \endlink,
 and \link Parma_Polyhedra_Library::Polyhedron \c Polyhedron \endlink)
 provide a few optimized methods to be used in the analysis of floating point
@@ -2899,7 +2897,6 @@ templates \p D1 and \p D2:
 <CODE>NNC_Polyhedron</CODE>,
 <CODE>Grid</CODE>,
 <CODE>Octagonal_Shape<T></CODE>,
-<CODE>BD_Shape<T></CODE>,
 <CODE>Box<T></CODE>.
 
 \subsection On_Object_Orientation_and_Polymorphism_A_Disclaimer On Object-Orientation and Polymorphism: A Disclaimer

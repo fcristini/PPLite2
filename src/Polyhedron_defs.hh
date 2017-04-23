@@ -44,7 +44,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "BHRZ03_Certificate_types.hh"
 #include "H79_Certificate_types.hh"
 #include "Box_types.hh"
-#include "BD_Shape_types.hh"
 #include "Octagonal_Shape_types.hh"
 #include "Interval_types.hh"
 #include "Linear_Form_types.hh"
@@ -2618,7 +2617,6 @@ private:
   static size_t simplify_num_saturators_size;
 
   template <typename Interval> friend class Parma_Polyhedra_Library::Box;
-  template <typename T> friend class Parma_Polyhedra_Library::BD_Shape;
   template <typename T> friend class Parma_Polyhedra_Library::Octagonal_Shape;
   friend class Parma_Polyhedra_Library::Grid;
   friend class Parma_Polyhedra_Library::BHRZ03_Certificate;

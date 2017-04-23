@@ -189,22 +189,6 @@ public:
   explicit NNC_Polyhedron(const Grid& grid,
                           Complexity_Class complexity = ANY_COMPLEXITY);
 
-  //! Builds a NNC polyhedron out of a BD shape.
-  /*!
-    The polyhedron inherits the space dimension of the BD shape
-    and is the most precise that includes the BD shape.
-
-    \param bd
-    The BD shape used to build the polyhedron.
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-  */
-  template <typename U>
-  explicit NNC_Polyhedron(const BD_Shape<U>& bd,
-                          Complexity_Class complexity = ANY_COMPLEXITY);
-
   //! Builds a NNC polyhedron out of an octagonal shape.
   /*!
     The polyhedron inherits the space dimension of the octagonal shape

@@ -28,7 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Constraint_System_inlines.hh"
 #include "C_Polyhedron_defs.hh"
 #include "Grid_defs.hh"
-#include "BD_Shape_defs.hh"
 #include "Poly_Con_Relation_defs.hh"
 #include "Poly_Gen_Relation_defs.hh"
 #include "wrap_assign.hh"
@@ -200,26 +199,7 @@ Octagonal_Shape<T>::Octagonal_Shape(const Grid& grid,
   }
   // Taking minimized congruences ensures maximum precision.
   refine_with_congruences(grid.minimized_congruences());
-}
 
-template <typename T>
-template <typename U>
-inline
-Octagonal_Shape<T>::Octagonal_Shape(const BD_Shape<U>& bd,
-                                    Complexity_Class)
-  : matrix(bd.space_dimension()),
-    space_dim(bd.space_dimension()),
-    status() {
-  // Check for emptiness for maximum precision.
-  if (bd.is_empty()) {
-    set_empty();
-  }
-  else if (bd.space_dimension() > 0) {
-    // A (non zero-dim) universe OS is strongly closed.
-    set_strongly_closed();
-    refine_with_constraints(bd.constraints());
-  }
-}
 
 template <typename T>
 inline Congruence_System

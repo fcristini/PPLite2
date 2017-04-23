@@ -39,7 +39,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Polyhedron_types.hh"
 #include "Box_types.hh"
 #include "Grid_types.hh"
-#include "BD_Shape_types.hh"
 #include "Variable_defs.hh"
 #include "Variables_Set_types.hh"
 #include "Checked_Number_defs.hh"
@@ -565,26 +564,6 @@ public:
     allowed space dimension.
   */
   explicit Octagonal_Shape(const Grid& grid,
-                           Complexity_Class complexity = ANY_COMPLEXITY);
-
-  //! Builds an OS from a BD shape.
-  /*!
-    The OS inherits the space dimension of the BD shape.
-    The built OS is the most precise OS that includes the BD shape.
-
-    \param bd
-    The BD shape used to build the OS.
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p bd exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename U>
-  explicit Octagonal_Shape(const BD_Shape<U>& bd,
                            Complexity_Class complexity = ANY_COMPLEXITY);
 
   /*! \brief

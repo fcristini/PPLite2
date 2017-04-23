@@ -75,8 +75,7 @@ m4_define(`m4_subcategory_convert', `dnl
   description starting from a \b friend;
   that is`,' a semantic geometric description in different class
 m4_ifelse(m4_this_interface_class, Polyhedron, `dnl
-  (e.g.`,' ppl_new_Grid_from_C_Polyhedron`,'
-  ppl_new_C_Polyhedron_from_BD_Shape_mpq_class`,' etc.)').<BR>
+  (e.g.`,' ppl_new_Grid_from_C_Polyhedron`,' etc.)').<BR>
 
   The copy and conversion predicates have two versions,
   one with arity 2 for the source and target handles and one

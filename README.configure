@@ -291,8 +291,6 @@ by default.  Currently this set is given by
   Polyhedron (which stands for both C_Polyhedron and NNC_Polyhedron),
   Grid,
   Rational_Box,
-  BD_Shape<mpz_class>,
-  BD_Shape<mpq_class>,
   Octagonal_Shape<mpz_class>,
   Octagonal_Shape<mpq_class>,
   Constraints_Product<C_Polyhedron, Grid>,
@@ -303,7 +301,6 @@ plus, if the host architecture supports double precision floating point
 numbers conforming to the IEEE 754 standard,
 
   Double_Box,
-  BD_Shape<double>,
   Octagonal_Shape<double>.
 
 To enable a different set of instantiations, the configure option

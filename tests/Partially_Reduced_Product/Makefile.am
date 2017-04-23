@@ -74,7 +74,6 @@ discrete1 \
 disjoint1 \
 dropsomenonintegerpoints1 \
 equals1 \
-frombdshape1 \
 frombox1 \
 fromgrid1 \
 fromoctagonalshape1 \
@@ -151,8 +150,6 @@ disjoint1_SOURCES = disjoint1.cc
 dropsomenonintegerpoints1_SOURCES = dropsomenonintegerpoints1.cc
 
 equals1_SOURCES = equals1.cc
-
-frombdshape1_SOURCES = frombdshape1.cc
 
 frombox1_SOURCES = frombox1.cc
 

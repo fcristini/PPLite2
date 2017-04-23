@@ -188,21 +188,6 @@ Grid::Grid(Grid_Generator_System& ggs, Recycle_Input)
 
 template <typename U>
 inline
-Grid::Grid(const BD_Shape<U>& bd, Complexity_Class)
-  : con_sys(check_space_dimension_overflow(bd.space_dimension(),
-                                           max_space_dimension(),
-                                           "PPL::Grid::",
-                                           "Grid(bd)",
-                                           "the space dimension of bd "
-                                           "exceeds the maximum allowed "
-                                           "space dimension")),
-    gen_sys(bd.space_dimension()) {
-  Congruence_System cgs = bd.congruences();
-  construct(cgs);
-}
-
-template <typename U>
-inline
 Grid::Grid(const Octagonal_Shape<U>& os, Complexity_Class)
   : con_sys(check_space_dimension_overflow(os.space_dimension(),
                                            max_space_dimension(),

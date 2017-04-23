@@ -718,14 +718,6 @@ ppl-1.2
 |-- ppl-config.sed
 |-- ppl.lsm.in
 |-- src
-|   |-- BDS_Status.cc
-|   |-- BDS_Status_idefs.hh
-|   |-- BDS_Status_inlines.hh
-|   |-- BD_Shape.cc
-|   |-- BD_Shape_defs.hh
-|   |-- BD_Shape_inlines.hh
-|   |-- BD_Shape_templates.hh
-|   |-- BD_Shape_types.hh
 |   |-- BHRZ03_Certificate.cc
 |   |-- BHRZ03_Certificate_defs.hh
 |   |-- BHRZ03_Certificate_inlines.hh
@@ -1146,80 +1138,6 @@ ppl-1.2
 |   `-- wrap_string.hh
 |-- test-driver
 |-- tests
-|   |-- BD_Shape
-|   |   |-- Makefile.am
-|   |   |-- Makefile.in
-|   |   |-- addconstraints1.cc
-|   |   |-- addspacedims1.cc
-|   |   |-- affinedimension1.cc
-|   |   |-- affineimage1.cc
-|   |   |-- affineimage2.cc
-|   |   |-- affinepreimage1.cc
-|   |   |-- ascii_dump_load1.cc
-|   |   |-- bgp99extrapolation1.cc
-|   |   |-- bhmz05widening1.cc
-|   |   |-- bhz03widening1.cc
-|   |   |-- bounded1.cc
-|   |   |-- boundedaffineimage1.cc
-|   |   |-- boundedaffinepreimage1.cc
-|   |   |-- bounds1.cc
-|   |   |-- cc76extrapolation1.cc
-|   |   |-- cc76narrowing1.cc
-|   |   |-- closure1.cc
-|   |   |-- concatenate1.cc
-|   |   |-- congruences1.cc
-|   |   |-- constrains1.cc
-|   |   |-- constraints1.cc
-|   |   |-- contains1.cc
-|   |   |-- containsintegerpoint1.cc
-|   |   |-- difference1.cc
-|   |   |-- discrete1.cc
-|   |   |-- disjoint1.cc
-|   |   |-- dropsomenonintegerpoints1.cc
-|   |   |-- empty1.cc
-|   |   |-- equality1.cc
-|   |   |-- expandspacedim1.cc
-|   |   |-- foldspacedims1.cc
-|   |   |-- frequency1.cc
-|   |   |-- frombdshape1.cc
-|   |   |-- frombox1.cc
-|   |   |-- fromgensys1.cc
-|   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
-|   |   |-- frompolyhedron1.cc
-|   |   |-- fromspacedim1.cc
-|   |   |-- generalizedaffineimage1.cc
-|   |   |-- generalizedaffineimage2.cc
-|   |   |-- generalizedaffinepreimage1.cc
-|   |   |-- generalizedaffinepreimage2.cc
-|   |   |-- generalizedaffinepreimage3.cc
-|   |   |-- geomcovers1.cc
-|   |   |-- h79widening1.cc
-|   |   |-- integerupperboundifexact1.cc
-|   |   |-- intersection1.cc
-|   |   |-- limitedbhmz05extrapolation1.cc
-|   |   |-- limitedcc76extrapolation1.cc
-|   |   |-- limitedh79extrapolation1.cc
-|   |   |-- mapspacedims1.cc
-|   |   |-- max_min1.cc
-|   |   |-- max_min2.cc
-|   |   |-- maxspacedim1.cc
-|   |   |-- membytes1.cc
-|   |   |-- minconstraints1.cc
-|   |   |-- relations1.cc
-|   |   |-- relations2.cc
-|   |   |-- relations3.cc
-|   |   |-- relations4.cc
-|   |   |-- removespacedims1.cc
-|   |   |-- run_tests
-|   |   |-- simplifyusingcontext1.cc
-|   |   |-- timeelapse1.cc
-|   |   |-- unconstrain1.cc
-|   |   |-- universe1.cc
-|   |   |-- upperbound1.cc
-|   |   |-- upperboundifexact1.cc
-|   |   |-- wrap1.cc
-|   |   `-- writebdshape1.cc
 |   |-- Box
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in
@@ -1250,7 +1168,6 @@ ppl-1.2
 |   |   |-- expandspacedim1.cc
 |   |   |-- foldspacedims1.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgensys1.cc
 |   |   |-- fromgrid1.cc
@@ -1303,8 +1220,6 @@ ppl-1.2
 |   |   |-- C_Expr_inlines.hh
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in
-|   |   |-- bdshape1.cc
-|   |   |-- bdshape2.cc
 |   |   |-- digitalfilters1.cc
 |   |   |-- linearform1.cc
 |   |   |-- linearize.cc
@@ -1355,7 +1270,6 @@ ppl-1.2
 |   |   |-- expandspacedim1.cc
 |   |   |-- foldspacedims1.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
 |   |   |-- fromoctagonalshape1.cc
@@ -1454,7 +1368,6 @@ ppl-1.2
 |   |   |-- expandspacedim1.cc
 |   |   |-- foldspacedims1.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgensys1.cc
 |   |   |-- fromgrid1.cc
@@ -1525,7 +1438,6 @@ ppl-1.2
 |   |   |-- disjoint1.cc
 |   |   |-- dropsomenonintegerpoints1.cc
 |   |   |-- equals1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
 |   |   |-- fromoctagonalshape1.cc
@@ -1605,7 +1517,6 @@ ppl-1.2
 |   |   |-- foldspacedims1.cc
 |   |   |-- foldspacedims2.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- frombox2.cc
 |   |   |-- fromgrid1.cc
@@ -1707,7 +1618,6 @@ ppl-1.2
 |   |   |-- empty1.cc
 |   |   |-- entails1.cc
 |   |   |-- equals1.cc
-|   |   |-- frombdshape1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromcongruences1.cc
 |   |   |-- fromconstraints1.cc

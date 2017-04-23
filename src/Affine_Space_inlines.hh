@@ -67,13 +67,6 @@ Affine_Space::Affine_Space(Generator_System& gs, Recycle_Input)
 
 template <typename U>
 inline
-Affine_Space::Affine_Space(const BD_Shape<U>& bd,
-                           Complexity_Class complexity)
-  : gr(bd, complexity) {
-}
-
-template <typename U>
-inline
 Affine_Space::Affine_Space(const Octagonal_Shape<U>& os,
                            Complexity_Class complexity)
   : gr(os, complexity) {

@@ -37,7 +37,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Generator_System_types.hh"
 #include "Congruence_types.hh"
 #include "Congruence_System_types.hh"
-#include "BD_Shape_types.hh"
 #include "Octagonal_Shape_types.hh"
 #include "Poly_Con_Relation_types.hh"
 #include "Poly_Gen_Relation_types.hh"
@@ -425,15 +424,6 @@ public:
     from the other constructors.
   */
   Box(const Congruence_System& cgs, Recycle_Input dummy);
-
-  //! Builds a box containing the BDS \p bds.
-  /*!
-    Builds the smallest box containing \p bds using a polynomial algorithm.
-    The \p complexity argument is ignored.
-  */
-  template <typename T>
-  explicit Box(const BD_Shape<T>& bds,
-               Complexity_Class complexity = POLYNOMIAL_COMPLEXITY);
 
   //! Builds a box containing the octagonal shape \p oct.
   /*!

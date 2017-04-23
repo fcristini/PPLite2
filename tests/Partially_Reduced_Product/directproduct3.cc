@@ -28,7 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define BD_Shape_Class 0
 #define Octagonal_Shape_Class 0
 #define Box_Class 0
 
@@ -38,10 +37,6 @@ typedef TBox Poly;
 
 #if Octagonal_Shape_Class
 typedef TOctagonal_Shape Poly;
-#endif
-
-#if BD_Shape_Class
-typedef BD_Shape<mpq_class> Poly;
 #endif
 
 #if NNC_Poly_Class

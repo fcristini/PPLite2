@@ -49,14 +49,6 @@ test02() {
   return ps.OK() && ps.space_dimension() == 3;
 }
 
-// Construct powerset of bd shapes from a 0 dimension empty constraint system.
-bool
-test03() {
-  Constraint_System cs = Constraint_System::zero_dim_empty();
-  Pointset_Powerset<TBD_Shape> ps(cs);
-  return ps.OK() && ps.is_empty() && ps.space_dimension() == 0;
-}
-
 // Construct powerset of bd shapes from non-empty constraint system.
 bool
 test04() {
@@ -169,7 +161,6 @@ test12() {
 BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
-  DO_TEST(test03);
   DO_TEST(test04);
   DO_TEST(test05);
   DO_TEST(test06);

@@ -163,18 +163,6 @@ Pointset_Powerset<PSET>::Pointset_Powerset(const Octagonal_Shape<T>& os,
 }
 
 template <typename PSET>
-template <typename T>
-Pointset_Powerset<PSET>::Pointset_Powerset(const BD_Shape<T>& bds,
-                                           Complexity_Class)
-  : Base(), space_dim(bds.space_dimension()) {
-  Pointset_Powerset& x = *this;
-  if (!bds.is_empty()) {
-    x.sequence.push_back(Determinate<PSET>(PSET(bds)));
-  }
-  PPL_ASSERT_HEAVY(OK());
-}
-
-template <typename PSET>
 inline
 Pointset_Powerset<PSET>::Pointset_Powerset(const Constraint_System& cs)
   : Base(Determinate<PSET>(cs)), space_dim(cs.space_dimension()) {

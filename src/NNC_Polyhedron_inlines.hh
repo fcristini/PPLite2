@@ -99,20 +99,6 @@ NNC_Polyhedron::NNC_Polyhedron(const Box<Interval>& box, Complexity_Class)
 
 template <typename U>
 inline
-NNC_Polyhedron::NNC_Polyhedron(const BD_Shape<U>& bd, Complexity_Class)
-  : Polyhedron(NOT_NECESSARILY_CLOSED,
-               check_space_dimension_overflow(bd.space_dimension(),
-                                              NOT_NECESSARILY_CLOSED,
-                                              "NNC_Polyhedron(bd)",
-                                              "the space dimension of bd "
-                                              "exceeds the maximum allowed "
-                                              "space dimension"),
-               UNIVERSE) {
-  add_constraints(bd.constraints());
-}
-
-template <typename U>
-inline
 NNC_Polyhedron::NNC_Polyhedron(const Octagonal_Shape<U>& os, Complexity_Class)
   : Polyhedron(NOT_NECESSARILY_CLOSED,
                check_space_dimension_overflow(os.space_dimension(),

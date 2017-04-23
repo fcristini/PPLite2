@@ -153,7 +153,6 @@ Bugfixes
 
 o  Fixed a bug affecting methods
 
-     bool BD_Shape<T>::contains(const BD_Shape& y) const;
      bool Octagonal_Shape<T>::contains(const Octagonal_Shape& y) const;
 
    whereby the wrong result was obtained when *this is an empty
@@ -841,8 +840,8 @@ o  The use of methods having a name ending in `_and_minimize' (e.g.,
    is now deprecated (see the core library documentation for an
    explanation); their complete removal is planned for version 0.11.
 
-o  Class BD_Shape and Grid no longer provide methods such as
-   bds_hull_*, join_*, bds_difference_* and grid_difference_*. The
+o  Class Grid no longer provide methods such as
+   grid_difference_*. The
    uniformly named methods upper_bound_* and difference_assign should
    be used instead.  For (C and NNC) polyhedra, the poly_hull_* and
    poly_difference_assign methods have been kept for backward
@@ -1025,14 +1024,6 @@ NEWS for version 0.8  (released on January 20, 2006)
 New and Changed Features
 ========================
 
-o  The class template BD_Shape<T> provides an implementation of the
-   abstract domain of bounded difference shapes. The template type
-   parameter T specifies the basic type used for the inhomogeneous term
-   of bounded difference constraints; it can be instantiated to either
-   GMP's unbounded precision types (mpq_class, mpz_class), native
-   floating point types (float, double), or native integer types
-   (8, 16, 32 and 64 bits wide).
-
 o  New class LP_Problem provides an implementation of the
    primal simplex algorithm using exact arithmetic.
 
@@ -1145,7 +1136,7 @@ o  The function template
      bool check_containment(const PH&, const Polyhedra_Powerset<PH>&)
 
    now works whenever there exists a lossless conversion mapping an
-   object of type PH into an NNC_Polyhedron (e.g., when PH = BD_Shape).
+   object of type PH into an NNC_Polyhedron.
    The same holds for methods
 
      bool Polyhedra_Powerset<PH>::geometrically_covers()
@@ -1300,7 +1291,7 @@ o  The `ppl_lpsol' demo has now two more options: with `--enumerate' it
 o  Manual pages have been added for the ppl_lpsol and ppl_lcdd
    programs.
 
-o  The new class BD_Shape<T> as well as the "checked" native
+o  The "checked" native
    coefficients selectable with the `--enable-coefficients' configure
    options, are based on a very general and powerful notion of "number
    family with a policy".  This is made available to the users of the

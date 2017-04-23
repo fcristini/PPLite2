@@ -101,81 +101,6 @@ test03() {
   return ok;
 }
 
-// Constructs the powerset of bd shapes from an octagonal shape.
-bool
-test04() {
-  Variable x(0);
-  Variable y(1);
-
-  TOctagonal_Shape os(2);
-  os.add_constraint(x == 0);
-  os.add_constraint(x + y <= 3);
-  os.add_constraint(y >= 1);
-
-  Pointset_Powerset<TBD_Shape> pps(os);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2);
-  known_pps.add_constraint(x == 0);
-  known_pps.add_constraint(y >= 1);
-  known_pps.add_constraint(y <= 3);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBD_Shape>::const_iterator i = pps.begin();
-  TBD_Shape bdsi = i->pointset();
-  print_constraints(bdsi, "*** bdsi ***");
-
-  return ok;
-}
-
-// Constructs the powerset of bd shapes from an empty octagonal shape.
-bool
-test05() {
-  Variable x(0);
-  Variable y(1);
-
-  TOctagonal_Shape os(2, EMPTY);
-
-  Pointset_Powerset<TBD_Shape> pps(os);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of bd shapes from a powerset of octagonal shapes.
-bool
-test06() {
-  Variable x(0);
-  Variable y(1);
-
-  Constraint_System cs;
-  cs.insert(x >= 1);
-  cs.insert(x - y <= 1);
-  cs.insert(y <= 0);
-  TOctagonal_Shape os(cs);
-
-  // The complexity should be ignored.
-  Pointset_Powerset<TOctagonal_Shape> pps_os(os, POLYNOMIAL_COMPLEXITY);
-
-  // The complexity should be ignored.
-  Pointset_Powerset<TBD_Shape> pps(pps_os, POLYNOMIAL_COMPLEXITY);
-
-  Pointset_Powerset<TBD_Shape> known_pps(2);
-  known_pps.add_constraint(x == 1);
-  known_pps.add_constraint(y == 0);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBD_Shape>::const_iterator i_bds = pps.begin();
-  TBD_Shape bdsi = i_bds->pointset();
-  print_constraints(bdsi, "*** bdsi ***");
-
-  return ok;
-}
-
 // Constructs the powerset of octagonal_shapes from an octagonal shape.
 bool
 test07() {
@@ -417,9 +342,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test04);
-  DO_TEST(test05);
-  DO_TEST(test06);
   DO_TEST(test07);
   DO_TEST(test08);
   DO_TEST(test09);

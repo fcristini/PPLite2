@@ -341,10 +341,6 @@ catch (const std::exception& e) {                                       \
 #define BOX_INSTANCE rt_r_oc
 #endif
 
-#ifndef BD_SHAPE_INSTANCE
-#define BD_SHAPE_INSTANCE mpq_class
-#endif
-
 #ifndef OCTAGONAL_SHAPE_INSTANCE
 #define OCTAGONAL_SHAPE_INSTANCE mpq_class
 #endif
@@ -459,9 +455,6 @@ typedef Interval<mpq_class, Rational_Real_Open_Interval_Info> rt_r_oc;
 //! The incarnation of Box under test.
 typedef Box<BOX_INSTANCE> TBox;
 
-//! The incarnation of BD_Shape under test.
-typedef BD_Shape<BD_SHAPE_INSTANCE> TBD_Shape;
-
 //! The incarnation of Octagonal_Shape under test.
 typedef Octagonal_Shape<OCTAGONAL_SHAPE_INSTANCE> TOctagonal_Shape;
 
@@ -481,12 +474,6 @@ typedef Box<FP_Interval> FP_Interval_Abstract_Store;
 //! The type of a linear form abstract store.
 typedef std::map<dimension_type, FP_Linear_Form>
                                  FP_Linear_Form_Abstract_Store;
-
-/*! \brief
-  The incarnation of BD_Shape under test for analyzing
-  floating point computations.
-*/
-typedef BD_Shape<ANALYZER_FP_FORMAT> FP_BD_Shape;
 
 /*! \brief
   The incarnation of Octagonal_Shape under test for analyzing
@@ -511,107 +498,6 @@ has_exact_coefficient_type(const Box<Interval>&) {
 bool
 check_distance(const Checked_Number<mpq_class, Extended_Number_Policy>& d,
                const char* max_d_s, const char* d_name);
-
-template <typename T>
-bool
-check_result_i(const BD_Shape<T>& computed_result,
-               const BD_Shape<mpq_class>& known_result,
-               const char* max_r_d_s,
-               const char* max_e_d_s,
-               const char* max_l_d_s) {
-  BD_Shape<mpq_class> q_computed_result(computed_result);
-  // Handle in a more efficient way the case where equality is expected.
-  if (max_r_d_s == 0 && max_e_d_s == 0 && max_l_d_s == 0) {
-    if (q_computed_result != known_result) {
-      using IO_Operators::operator<<;
-      nout << "Equality does not hold:"
-           << "\ncomputed result is\n"
-           << q_computed_result
-           << "\nknown result is\n"
-           << known_result
-           << std::endl;
-      return false;
-    }
-    else
-      return true;
-  }
-
-  if (!q_computed_result.contains(known_result)) {
-    using IO_Operators::operator<<;
-    nout << "Containment does not hold:"
-         << "\ncomputed result is\n"
-         << q_computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-    return false;
-  }
-
-  Checked_Number<mpq_class, Extended_Number_Policy> r_d;
-  rectilinear_distance_assign(r_d, known_result, q_computed_result, ROUND_UP);
-  Checked_Number<mpq_class, Extended_Number_Policy> e_d;
-  euclidean_distance_assign(e_d, known_result, q_computed_result, ROUND_UP);
-  Checked_Number<mpq_class, Extended_Number_Policy> l_d;
-  l_infinity_distance_assign(l_d, known_result, q_computed_result, ROUND_UP);
-  bool ok_r = check_distance(r_d, max_r_d_s, "rectilinear");
-  bool ok_e = check_distance(e_d, max_e_d_s, "euclidean");
-  bool ok_l = check_distance(l_d, max_l_d_s, "l_infinity");
-  bool ok = ok_r && ok_e && ok_l;
-  if (!ok) {
-    using IO_Operators::operator<<;
-    nout << "Computed result is\n"
-         << q_computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-  }
-  return ok;
-}
-
-template <typename T>
-bool
-check_result(const BD_Shape<T>& computed_result,
-             const BD_Shape<mpq_class>& known_result,
-             const char* max_r_d_s,
-             const char* max_e_d_s,
-             const char* max_l_d_s) {
-  return std::numeric_limits<T>::is_integer
-    ? check_result_i(computed_result, known_result,
-                     "+inf", "+inf", "+inf")
-    : check_result_i(computed_result, known_result,
-                     max_r_d_s, max_e_d_s, max_l_d_s);
-}
-
-template <typename T>
-bool
-check_result(const BD_Shape<T>& computed_result,
-             const BD_Shape<T>& known_result) {
-  if (computed_result == known_result)
-    return true;
-  else {
-    using IO_Operators::operator<<;
-    nout << "Equality does not hold:"
-         << "\ncomputed result is\n"
-         << computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-    return false;
-  }
-}
-
-template <typename T>
-bool
-check_result(const BD_Shape<T>& computed_result,
-             const BD_Shape<mpq_class>& known_result) {
-  return std::numeric_limits<T>::is_integer
-    ? check_result_i(computed_result, known_result, "+inf", "+inf", "+inf")
-    : check_result_i(computed_result, known_result, 0, 0, 0);
-}
-
-bool
-check_result(const BD_Shape<mpq_class>& computed_result,
-             const BD_Shape<mpq_class>& known_result);
 
 template <typename T>
 bool
@@ -1021,17 +907,6 @@ print_constraints(const Box<Interval>& box,
     s << intro << std::endl;
   using IO_Operators::operator<<;
   s << box << std::endl;
-}
-
-template <typename T>
-void
-print_constraints(const BD_Shape<T>& bd,
-                  const std::string& intro = "",
-                  std::ostream& s = nout) {
-  if (!intro.empty())
-    s << intro << std::endl;
-  using IO_Operators::operator<<;
-  s << bd << std::endl;
 }
 
 template <typename T>

@@ -59,8 +59,6 @@ C_Expr \
 linearform1 \
 linearize \
 digitalfilters1 \
-bdshape1 \
-bdshape2 \
 octagonalshape1 \
 octagonalshape2 \
 polyhedron1 \
@@ -143,10 +141,6 @@ print_INSTANCES:
 #
 
 C_Expr_SOURCES = C_Expr_defs.hh C_Expr_inlines.hh C_Expr.cc
-
-bdshape1_SOURCES = bdshape1.cc
-
-bdshape2_SOURCES = bdshape2.cc
 
 digitalfilters1_SOURCES = digitalfilters1.cc
 

@@ -85,7 +85,6 @@ empty1 \
 expandspacedim1 \
 frequency1 \
 foldspacedims1 \
-frombdshape1 \
 frombox1 \
 fromgensys1 \
 fromgrid1 \
@@ -231,7 +230,6 @@ foldspacedims1_SOURCES = foldspacedims1.cc
 
 frequency1_SOURCES = frequency1.cc
 
-frombdshape1_SOURCES = frombdshape1.cc
 
 frombox1_SOURCES = frombox1.cc
 

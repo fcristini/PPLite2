@@ -212,23 +212,6 @@ check_distance(const Checked_Number<mpq_class, Extended_Number_Policy>& d,
 }
 
 bool
-check_result(const BD_Shape<mpq_class>& computed_result,
-             const BD_Shape<mpq_class>& known_result) {
-  if (computed_result == known_result)
-    return true;
-  else {
-    using IO_Operators::operator<<;
-    nout << "Equality does not hold:"
-         << "\ncomputed result is\n"
-         << computed_result
-         << "\nknown result is\n"
-         << known_result
-         << endl;
-    return false;
-  }
-}
-
-bool
 check_result(const Rational_Box& computed_result,
              const Rational_Box& known_result) {
   if (computed_result == known_result)

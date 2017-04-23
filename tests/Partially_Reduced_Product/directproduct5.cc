@@ -28,7 +28,6 @@ using namespace IO_Operators;
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define BD_Shape_Class 0
 #define Octagonal_Shape_Class 0
 #define Box_Class 0
 
@@ -38,10 +37,6 @@ typedef TBox Poly;
 
 #if Octagonal_Shape_Class
 typedef TOctagonal_Shape Poly;
-#endif
-
-#if BD_Shape_Class
-typedef BD_Shape<mpq_class> Poly;
 #endif
 
 #if NNC_Poly_Class
@@ -356,7 +351,7 @@ test11() {
 }
 #endif
 
-#if !Octagonal_Shape_Class && !BD_Shape_Class && !Box_Class
+#if !Octagonal_Shape_Class && !Box_Class
 // A product in 3D; relation_with a constraint.
 bool
 test12() {
@@ -591,7 +586,7 @@ BEGIN_MAIN
   DO_TEST(test10);
   DO_TEST(test11);
 #endif
-#if !BD_Shape_Class && !Octagonal_Shape_Class && !Box_Class
+#if !Octagonal_Shape_Class && !Box_Class
   DO_TEST(test12);
   DO_TEST(test13);
   DO_TEST(test14);

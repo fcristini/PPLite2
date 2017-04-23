@@ -191,7 +191,6 @@ Grid_types.hh \
 Ptr_Iterator_types.hh \
 DB_Row_types.hh \
 DB_Matrix_types.hh \
-BD_Shape_types.hh \
 OR_Matrix_types.hh \
 Octagonal_Shape_types.hh \
 fpu_types.hh \
@@ -364,10 +363,6 @@ DB_Row_templates.hh \
 DB_Matrix_defs.hh \
 DB_Matrix_inlines.hh \
 DB_Matrix_templates.hh \
-BD_Shape_defs.hh \
-BDS_Status_inlines.hh \
-BD_Shape_inlines.hh \
-BD_Shape_templates.hh \
 OR_Matrix_defs.hh \
 OR_Matrix_inlines.hh \
 OR_Matrix_templates.hh \
@@ -475,7 +470,6 @@ NESTED_INCLUDE_FILES = \
 Ph_Status_idefs.hh \
 Grid_Status_idefs.hh \
 Box_Status_idefs.hh \
-BDS_Status_idefs.hh \
 Og_Status_idefs.hh
 
 libppl_la_SOURCES = \
@@ -485,7 +479,6 @@ checked.cc \
 Checked_Number.cc \
 Float.cc \
 fpu-ia32.cc \
-BDS_Status.cc \
 Box_Status.cc \
 Og_Status.cc \
 Concrete_Expression.cc \
@@ -524,7 +517,6 @@ Grid_nonpublic.cc \
 Grid_public.cc \
 Grid_chdims.cc \
 Grid_widenings.cc \
-BD_Shape.cc \
 Octagonal_Shape.cc \
 Pointset_Powerset.cc \
 CO_Tree.cc \

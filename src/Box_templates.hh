@@ -35,7 +35,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Grid_defs.hh"
 #include "Interval_defs.hh"
 #include "Linear_Form_defs.hh"
-#include "BD_Shape_defs.hh"
 #include "Octagonal_Shape_defs.hh"
 #include "MIP_Problem_defs.hh"
 #include "Rational_Interval.hh"
@@ -239,59 +238,6 @@ Box<ITV>::Box(const Generator_System& gs)
       // Points already dealt with.
       break;
     }
-  }
-  PPL_ASSERT(OK());
-}
-
-template <typename ITV>
-template <typename T>
-Box<ITV>::Box(const BD_Shape<T>& bds, Complexity_Class)
-  : seq(check_space_dimension_overflow(bds.space_dimension(),
-                                       max_space_dimension(),
-                                       "PPL::Box::",
-                                       "Box(bds)",
-                                       "bds exceeds the maximum "
-                                       "allowed space dimension")),
-    status() {
-  // Expose all the interval constraints.
-  bds.shortest_path_closure_assign();
-  if (bds.marked_empty()) {
-    set_empty();
-    PPL_ASSERT(OK());
-    return;
-  }
-
-  // The empty flag will be meaningful, whatever happens from now on.
-  set_empty_up_to_date();
-
-  const dimension_type space_dim = space_dimension();
-  if (space_dim == 0) {
-    PPL_ASSERT(OK());
-    return;
-  }
-
-  typedef typename BD_Shape<T>::coefficient_type Coeff;
-  PPL_DIRTY_TEMP(Coeff, tmp);
-  const DB_Row<Coeff>& dbm_0 = bds.dbm[0];
-  for (dimension_type i = space_dim; i-- > 0; ) {
-    I_Constraint<Coeff> lower;
-    I_Constraint<Coeff> upper;
-    ITV& seq_i = seq[i];
-
-    // Set the upper bound.
-    const Coeff& u = dbm_0[i+1];
-    if (!is_plus_infinity(u)) {
-      upper.set(LESS_OR_EQUAL, u, true);
-    }
-
-    // Set the lower bound.
-    const Coeff& negated_l = bds.dbm[i+1][0];
-    if (!is_plus_infinity(negated_l)) {
-      neg_assign_r(tmp, negated_l, ROUND_DOWN);
-      lower.set(GREATER_OR_EQUAL, tmp);
-    }
-
-    seq_i.build(lower, upper);
   }
   PPL_ASSERT(OK());
 }
