@@ -84,7 +84,7 @@ site: http://bugseng.com/products/ppl/ . */
     - The simple domains are:
       - convex polyhedra, which consist of C_Polyhedron and
         NNC_Polyhedron;<BR>
-      - weakly relational, which consist of BD_Shape_N and
+      - weakly relational, which consist of 
         Octagonal_Shape_N
         where N is one of the numeric types
         signed_char, short, int, long, long_long,
