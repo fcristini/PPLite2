@@ -35,7 +35,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Grid_defs.hh"
 #include "Interval_defs.hh"
 #include "Linear_Form_defs.hh"
-#include "Octagonal_Shape_defs.hh"
 #include "MIP_Problem_defs.hh"
 #include "Rational_Interval.hh"
 #include <vector>
@@ -240,61 +239,6 @@ Box<ITV>::Box(const Generator_System& gs)
     }
   }
   PPL_ASSERT(OK());
-}
-
-template <typename ITV>
-template <typename T>
-Box<ITV>::Box(const Octagonal_Shape<T>& oct, Complexity_Class)
-  : seq(check_space_dimension_overflow(oct.space_dimension(),
-                                       max_space_dimension(),
-                                       "PPL::Box::",
-                                       "Box(oct)",
-                                       "oct exceeds the maximum "
-                                       "allowed space dimension")),
-    status() {
-  // Expose all the interval constraints.
-  oct.strong_closure_assign();
-  if (oct.marked_empty()) {
-    set_empty();
-    return;
-  }
-
-  // The empty flag will be meaningful, whatever happens from now on.
-  set_empty_up_to_date();
-
-  const dimension_type space_dim = space_dimension();
-  if (space_dim == 0) {
-    return;
-  }
-
-  PPL_DIRTY_TEMP(mpq_class, lower_bound);
-  PPL_DIRTY_TEMP(mpq_class, upper_bound);
-  for (dimension_type i = space_dim; i-- > 0; ) {
-    typedef typename Octagonal_Shape<T>::coefficient_type Coeff;
-    I_Constraint<mpq_class> lower;
-    I_Constraint<mpq_class> upper;
-    ITV& seq_i = seq[i];
-    const dimension_type ii = 2*i;
-    const dimension_type cii = ii + 1;
-
-    // Set the upper bound.
-    const Coeff& twice_ub = oct.matrix[cii][ii];
-    if (!is_plus_infinity(twice_ub)) {
-      assign_r(upper_bound, twice_ub, ROUND_NOT_NEEDED);
-      div_2exp_assign_r(upper_bound, upper_bound, 1, ROUND_NOT_NEEDED);
-      upper.set(LESS_OR_EQUAL, upper_bound);
-    }
-
-    // Set the lower bound.
-    const Coeff& twice_lb = oct.matrix[ii][cii];
-    if (!is_plus_infinity(twice_lb)) {
-      assign_r(lower_bound, twice_lb, ROUND_NOT_NEEDED);
-      neg_assign_r(lower_bound, lower_bound, ROUND_NOT_NEEDED);
-      div_2exp_assign_r(lower_bound, lower_bound, 1, ROUND_NOT_NEEDED);
-      lower.set(GREATER_OR_EQUAL, lower_bound);
-    }
-    seq_i.build(lower, upper);
-  }
 }
 
 template <typename ITV>

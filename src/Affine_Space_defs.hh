@@ -37,7 +37,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Poly_Gen_Relation_defs.hh"
 #include "Box_types.hh"
 #include "Polyhedron_types.hh"
-#include "Octagonal_Shape_types.hh"
 #include "Grid_defs.hh"
 #include <iosfwd>
 
@@ -482,27 +481,6 @@ public:
   */
   template <typename Interval>
   explicit Affine_Space(const Box<Interval>& box,
-                        Complexity_Class complexity = ANY_COMPLEXITY);
-
-  //! Builds an affine space out of an octagonal shape.
-  /*!
-    The affine space inherits the space dimension of the octagonal shape.
-    The built affine space is the most precise affine space that
-    includes the octagonal shape.
-
-    \param os
-    The octagonal shape representing the affine space to be built.
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p os exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename U>
-  explicit Affine_Space(const Octagonal_Shape<U>& os,
                         Complexity_Class complexity = ANY_COMPLEXITY);
 
   /*! \brief

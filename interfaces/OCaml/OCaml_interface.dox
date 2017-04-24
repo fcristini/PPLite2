@@ -50,8 +50,7 @@ or <CODE>/usr/local</CODE>).
 <H1>OCaml Interface Features</H1>
 
 The OCaml interface provides access to the numerical abstractions
-(convex polyhedra, BD shapes, octagonal shapes, etc.) implemented
-by the PPL library.
+(convex polyhedra, etc.) implemented by the PPL library.
 A general introduction to the numerical abstractions,
 their representation in the PPL and the operations provided
 by the PPL is given in the main \extref{preamble, PPL user manual}.
@@ -69,10 +68,6 @@ on the use of the OCaml interface.
   - The simple domains are:
      - convex polyhedra, which consist of C_Polyhedron and
        NNC_Polyhedron;<BR>
-     - weakly relational, which consist of Octagonal_Shape_N
-       where N is one of the numeric types
-       short, signed_char, int, long, long_long,
-       mpz_class, mpq_class;<BR>
      - boxes which consist of
        Int8_Box, Int16_Box,
        Int32_Box, Int64_Box,

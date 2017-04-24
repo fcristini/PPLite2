@@ -30,7 +30,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Variables_Set_types.hh"
 #include "Polyhedron_types.hh"
 #include "termination_types.hh"
-#include "Octagonal_Shape_types.hh"
 #include "Grid_types.hh"
 
 #include "Linear_Expression_defs.hh"
@@ -738,8 +737,6 @@ private:
   friend class Topology_Adjusted_Scalar_Product_Sign;
   friend class Termination_Helpers;
   friend class Grid;
-  template <typename T>
-  friend class Octagonal_Shape;
 
   friend Constraint
   operator<(const Linear_Expression& e1, const Linear_Expression& e2);

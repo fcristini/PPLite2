@@ -438,7 +438,7 @@ dnl all class kinds for group_names preceded by - are filtered away.
 dnl For instance, with:
 dnl "+shape -bd_shape"
 dnl following a procedure name, only code (for that procedure)
-dnl for the Polyhedron and Octagonal_Shape class will be generated.
+dnl for the Polyhedron class will be generated.
 m4_define(`m4_group_names', `dnl
 all,
 simple_pps,
@@ -447,7 +447,6 @@ shape,
 wr_shape,
 polyhedron,
 grid,
-octagonal_shape,
 box,
 pointset_powerset,
 product')
@@ -464,15 +463,13 @@ pointset_powerset,
 product')
 
 m4_define(`m4_all_group',
-  `Polyhedron, Grid, Octagonal_Shape, m4_box_group,
+  `Polyhedron, Grid, m4_box_group,
    Pointset_Powerset, m4_product_group')
 m4_define(`m4_simple_pps_group', `m4_simple_group, Pointset_Powerset')
 m4_define(`m4_simple_group', `Grid, m4_shape_group')
 m4_define(`m4_shape_group', `Polyhedron, m4_wr_shape_group, m4_box_group')
-m4_define(`m4_wr_shape_group', `Octagonal_Shape')
 m4_define(`m4_polyhedron_group', Polyhedron)
 m4_define(`m4_grid_group', Grid)
-m4_define(`m4_octagonal_shape_group', Octagonal_Shape)
 m4_define(`m4_box_group',
   `Rational_Box, Z_Box, Float_Box, Double_Box, Long_Double_Box,
    Int8_Box, Int16_Box, Int32_Box, Int64_Box,
@@ -655,7 +652,7 @@ m4_cplusplus_class$1, m4_cplusplus_class_body$1`'dnl
 ')
 
 dnl For product class kinds, C_Polyhedron, NNC_Polyhedron,
-dnl Octagonal_Shape and other products are all friends.
+dnl and other products are all friends.
 dnl
 m4_define(`m4_product_friend_replacements',
   `m4_all_friends(interface), m4_interface_class$1`'dnl
@@ -686,12 +683,10 @@ dnl The widening operators.
 m4_define(`m4_widen_replacements', `')
 m4_define(`m4_Polyhedron_widen_replacements', `BHRZ03, H79')
 m4_define(`m4_Grid_widen_replacements', `congruence, generator')
-m4_define(`m4_Octagonal_Shape_widen_replacements', `BHMZ05')
 m4_define(`m4_box_widen_replacements', `CC76')
 m4_define(`m4_Pointset_Powerset_widen_replacements', `BHZ03')
 dnl The a replacement defines the certificates for the widenings
 m4_define(`m4_Polyhedron_a_widen_replacements', `BHRZ03, H79')
-m4_define(`m4_Octagonal_Shape_a_widen_replacements', `H79')
 m4_define(`m4_Grid_a_widen_replacements', `Grid, Grid')
 dnl FIXME: This is not in the C++ box domain and will fail if used.
 m4_define(`m4_box_a_widen_replacements', `CC76')
@@ -700,8 +695,6 @@ dnl ---------------------------------------------------------------------
 dnl pattern == extrapolation
 dnl ---------------------------------------------------------------------
 m4_define(`m4_extrapolation_replacements', `NONE')
-m4_define(`m4_Octagonal_Shape_extrapolation_replacements',
-  `CC76')
 m4_define(`m4_box_extrapolation_replacements',
   `CC76')
 
@@ -713,9 +706,6 @@ m4_define(`m4_widenexpn_replacements', `m4_widen_replacements')
 m4_define(`m4_Polyhedron_widenexpn_replacements',
   `m4_Polyhedron_widen_replacements')
 m4_define(`m4_Grid_widenexpn_replacements', `m4_Grid_widen_replacements')
-m4_define(`m4_Octagonal_Shape_widenexpn_replacements',
-   `m4_Octagonal_Shape_widen_replacements,
-    m4_Octagonal_Shape_extrapolation_replacements')
 m4_define(`m4_box_widenexpn_replacements', `m4_box_widen_replacements')
 m4_define(`m4_Pointset_Powerset_widenexpn_replacements',
   `m4_Pointset_Powerset_widen_replacements')

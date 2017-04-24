@@ -91,7 +91,6 @@ foldspacedims1 foldspacedims2 \
 frequency1 \
 frombox1 frombox2 \
 fromgrid1 \
-fromoctagonalshape1 \
 generalizedaffineimage1 generalizedaffineimage2 \
 generalizedaffinepreimage1 generalizedaffinepreimage2 \
 generators1 \
@@ -184,7 +183,6 @@ nnc_expandspacedim1 \
 nnc_foldspacedims1 \
 nnc_frombox1 \
 nnc_fromgrid1 \
-nnc_fromoctagonalshape1 \
 nnc_generalizedaffineimage1 \
 nnc_generalizedaffinepreimage1 \
 nnc_generators1 \
@@ -316,8 +314,6 @@ frombox1_SOURCES = frombox1.cc
 frombox2_SOURCES = frombox2.cc
 
 fromgrid1_SOURCES = fromgrid1.cc
-
-fromoctagonalshape1_SOURCES = fromoctagonalshape1.cc
 
 generalizedaffineimage1_SOURCES = generalizedaffineimage1.cc
 generalizedaffineimage2_SOURCES = generalizedaffineimage2.cc
@@ -563,9 +559,6 @@ nnc_frombox1_CXXFLAGS = $(DERIVED_CXXFLAGS)
 
 nnc_fromgrid1_SOURCES = fromgrid1.cc
 nnc_fromgrid1_CXXFLAGS = $(DERIVED_CXXFLAGS)
-
-nnc_fromoctagonalshape1_SOURCES = fromoctagonalshape1.cc
-nnc_fromoctagonalshape1_CXXFLAGS = $(DERIVED_CXXFLAGS)
 
 nnc_generalizedaffineimage1_SOURCES = generalizedaffineimage1.cc
 nnc_generalizedaffineimage1_CXXFLAGS = $(DERIVED_CXXFLAGS)

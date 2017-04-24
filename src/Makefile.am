@@ -192,7 +192,6 @@ Ptr_Iterator_types.hh \
 DB_Row_types.hh \
 DB_Matrix_types.hh \
 OR_Matrix_types.hh \
-Octagonal_Shape_types.hh \
 fpu_types.hh \
 Float_defs.hh \
 Float_inlines.hh \
@@ -366,10 +365,6 @@ DB_Matrix_templates.hh \
 OR_Matrix_defs.hh \
 OR_Matrix_inlines.hh \
 OR_Matrix_templates.hh \
-Octagonal_Shape_defs.hh \
-Og_Status_inlines.hh \
-Octagonal_Shape_inlines.hh \
-Octagonal_Shape_templates.hh \
 Determinate_types.hh \
 Determinate_defs.hh \
 Determinate_inlines.hh \
@@ -469,8 +464,7 @@ Threshold_Watcher_templates.hh
 NESTED_INCLUDE_FILES = \
 Ph_Status_idefs.hh \
 Grid_Status_idefs.hh \
-Box_Status_idefs.hh \
-Og_Status_idefs.hh
+Box_Status_idefs.hh
 
 libppl_la_SOURCES = \
 assertions.cc \
@@ -480,7 +474,6 @@ Checked_Number.cc \
 Float.cc \
 fpu-ia32.cc \
 Box_Status.cc \
-Og_Status.cc \
 Concrete_Expression.cc \
 Constraint.cc \
 Constraint_System.cc \
@@ -517,7 +510,6 @@ Grid_nonpublic.cc \
 Grid_public.cc \
 Grid_chdims.cc \
 Grid_widenings.cc \
-Octagonal_Shape.cc \
 Pointset_Powerset.cc \
 CO_Tree.cc \
 Sparse_Row.cc \

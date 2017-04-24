@@ -256,20 +256,6 @@ public:
   }
 };
 
-template <typename T>
-class Octagonal_Shape {
-public:
-  static bool valid_instantiation() {
-      return false;
-  }
-  static bool valid_Pointset_Powerset_argument() {
-    return true;
-  }
-  static bool valid_Product_argument() {
-    return true;
-  }
-};
-
 template <typename D1, typename D2>
 class Direct_Product {
 public:

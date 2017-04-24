@@ -94,7 +94,6 @@ identified by their C++ class name, together with the class template
 parameters, if any. These classes include the <EM>simple classes</EM>:
   - \link Parma_Polyhedra_Library::C_Polyhedron \c C_Polyhedron \endlink,
   - \link Parma_Polyhedra_Library::NNC_Polyhedron \c NNC_Polyhedron \endlink,
-  - \link Parma_Polyhedra_Library::Octagonal_Shape \c Octagonal_Shape\<T\> \endlink,
   - \link Parma_Polyhedra_Library::Box \c Box\<ITV\> \endlink, and
   - \link Parma_Polyhedra_Library::Grid \c Grid \endlink,
 
@@ -165,7 +164,6 @@ of the following syntactic subclasses:
   - tautological constraints (e.g., \f$0 \leq 2\f$);
   - interval constraints (e.g., \f$x \leq 2\f$);
   - bounded-difference constraints (e.g., \f$x - y \leq 2\f$);
-  - octagonal constraints (e.g., \f$x + y \leq 2\f$);
   - linear equality constraints (e.g., \f$x = 2\f$);
   - non-strict linear inequality constraints (e.g., \f$x - 3y \leq 2\f$);
   - strict linear inequality constraints (e.g., \f$x - 3y < 2\f$).
@@ -1633,7 +1631,7 @@ meet-preserving enlargement simplification of its first argument
 using the second argument as context.
 
 The concept of meet-preserving enlargement and simplification also
-applies to the other basic domains (boxes, grids, BD and octagonal shapes).
+applies to the other basic domains (boxes, grids).
 See below for a definition of the concept of
 \ref Powerset_Meet_Preserving_Simplification "meet-preserving simplification for powerset domains".
 
@@ -1864,26 +1862,6 @@ A convex polyhedron \f$\cP \in \CPset_n\f$ is said to be a
 <EM>bounded difference shape</EM> (BDS, for short) if and only if
 either \f$\cP\f$ can be expressed as the intersection of a finite number
 of bounded difference constraints or \f$n = 0\f$ and \f$\cP = \emptyset\f$.
-
-\subsection Octagonal_Shapes Octagonal Shapes
-
-For each vector \f$\vect{a} \in \Rset^n\f$ and scalar \f$b \in \Rset\f$,
-and for each relation symbol \f$\mathord{\relsym} \in \{ =, \geq\}\f$,
-the linear constraint \f$\langle \vect{a}, \vect{x} \rangle \relsym b\f$
-is said to be an <EM>octagonal</EM> if there exist two indices
-\f$i, j \in \{ 0, \ldots, n-1 \}\f$ such that:
-  - \f$a_i, a_j \in \{ -1, 0, 1 \}\f$;
-  - \f$a_k = 0\f$, for all \f$k \notin \{ i, j \}\f$.
-
-A convex polyhedron \f$\cP \in \CPset_n\f$ is said to be an
-<EM>octagonal shape</EM> (OS, for short) if and only if
-either \f$\cP\f$ can be expressed as the intersection of a finite number
-of octagonal constraints or \f$n = 0\f$ and \f$\cP = \emptyset\f$.
-
-Note that, since any bounded difference is also an octagonal constraint,
-any BDS is also an OS. The name ``octagonal'' comes from the fact that,
-in a vector space of dimension 2, a bounded OS can have eight sides
-at most.
 
 \subsection Weakly_Relational_Shape_Interface Weakly-Relational Shapes Interface
 By construction, any BDS or OS is always topologically closed.
@@ -2263,7 +2241,7 @@ where \f$\vect{w} \in \cL\f$ and
 \f]
 
 Observe that the above definition is also applied to other simple objects in
-the library like polyhedra, octagonal shapes, bd-shapes and boxes
+the library like polyhedra and boxes
 and in such cases the definition of frequency can be simplified.
 For instance, the frequency for an object \f$\cP \in \Pset_n\f$ is
 defined if and only if there is a unique value \f$c\f$ such that
@@ -2827,9 +2805,8 @@ be denoted by \f$\linexprenv{e}{\rho^{\#}}{\rho^{\#}_l}\f$. There are two ways a
 
 \subsection fp_abstract_domains Use of other abstract domains for floating point analysis
 
-Two of the other abstract domains of the PPL (
-\link Parma_Polyhedra_Library::Octagonal_Shape \c Octagonal_Shape \endlink,
-and \link Parma_Polyhedra_Library::Polyhedron \c Polyhedron \endlink)
+One of the other abstract domains of the PPL (
+\link Parma_Polyhedra_Library::Polyhedron \c Polyhedron \endlink)
 provide a few optimized methods to be used in the analysis of floating point
 computations. They are recognized by the fact that they take interval
 linear forms and/or an interval abstract stores as their parameters.
@@ -2896,7 +2873,6 @@ templates \p D1 and \p D2:
 <CODE>C_Polyhedron</CODE>,
 <CODE>NNC_Polyhedron</CODE>,
 <CODE>Grid</CODE>,
-<CODE>Octagonal_Shape<T></CODE>,
 <CODE>Box<T></CODE>.
 
 \subsection On_Object_Orientation_and_Polymorphism_A_Disclaimer On Object-Orientation and Polymorphism: A Disclaimer

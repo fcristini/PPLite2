@@ -189,22 +189,6 @@ public:
   explicit NNC_Polyhedron(const Grid& grid,
                           Complexity_Class complexity = ANY_COMPLEXITY);
 
-  //! Builds a NNC polyhedron out of an octagonal shape.
-  /*!
-    The polyhedron inherits the space dimension of the octagonal shape
-    and is the most precise that includes the octagonal shape.
-
-    \param os
-    The octagonal shape used to build the polyhedron.
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-  */
-  template <typename U>
-  explicit NNC_Polyhedron(const Octagonal_Shape<U>& os,
-                          Complexity_Class complexity = ANY_COMPLEXITY);
-
   //! Ordinary copy constructor.
   NNC_Polyhedron(const NNC_Polyhedron& y,
                  Complexity_Class complexity = ANY_COMPLEXITY);

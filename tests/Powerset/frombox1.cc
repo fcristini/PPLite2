@@ -101,79 +101,6 @@ test03() {
   return ok;
 }
 
-// Constructs the powerset of octagonal_shapes from a box.
-bool
-test07() {
-  Variable x(0);
-  Variable y(1);
-
-  TBox box(2);
-  box.add_constraint(x >= 0);
-  box.add_constraint(y >= 0);
-
-  // Complexity should be ignored.
-  Pointset_Powerset<TOctagonal_Shape> pps(box, POLYNOMIAL_COMPLEXITY);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2);
-  known_pps.add_constraint(x >= 0);
-  known_pps.add_constraint(y >= 0);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TOctagonal_Shape>::const_iterator i = pps.begin();
-  TOctagonal_Shape osi = i->pointset();
-  print_constraints(osi, "*** osi ***");
-
-  return ok;
-}
-
-// Constructs the powerset of octagonal_shapes from an empty box.
-bool
-test08() {
-  Variable x(0);
-  Variable y(1);
-
-  TBox box(2, EMPTY);
-
-  Pointset_Powerset<TOctagonal_Shape> pps(box);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of octagonal_shapes from a powerset of boxes.
-bool
-test09() {
-  Variable x(0);
-  Variable y(1);
-
-  Constraint_System cs;
-  cs.insert(x >= 1);
-  cs.insert(y <= 0);
-  TBox box(cs);
-
-  // The complexity should be ignored.
-  Pointset_Powerset<TBox> pps_box(box, POLYNOMIAL_COMPLEXITY);
-
-  // The complexity should be ignored.
-  Pointset_Powerset<TOctagonal_Shape> pps(pps_box, POLYNOMIAL_COMPLEXITY);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2);
-  known_pps.add_constraint(x >= 1);
-  known_pps.add_constraint(y <= 0);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TOctagonal_Shape>::const_iterator i_os = pps.begin();
-  TOctagonal_Shape osi = i_os->pointset();
-  print_constraints(osi, "*** osi ***");
-
-  return ok;
-}
-
 // Constructs the powerset of boxes from a box.
 bool
 test10() {
@@ -333,9 +260,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test07);
-  DO_TEST(test08);
-  DO_TEST(test09);
   DO_TEST(test10);
   DO_TEST(test11);
   DO_TEST(test12);

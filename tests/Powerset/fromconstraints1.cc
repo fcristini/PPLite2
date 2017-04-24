@@ -64,30 +64,6 @@ test04() {
   return ps.OK() && ps.space_dimension() == 3;
 }
 
-// Construct powerset of octagonal shapes from a 0 dimension empty constraint system.
-bool
-test05() {
-  Constraint_System cs = Constraint_System::zero_dim_empty();
-  Pointset_Powerset<TOctagonal_Shape> ps(cs);
-  return ps.OK() && ps.is_empty() && ps.space_dimension() == 0;
-}
-
-// Construct powerset of octagonal shapes from non-empty constraint system.
-bool
-test06() {
-  Variable x(0);
-  Variable y(1);
-  Variable z(2);
-  Constraint_System cs;
-
-  cs.insert(x + y >= -2);
-  cs.insert(x - y <= 2);
-  cs.insert(z == 2);
-  Pointset_Powerset<TOctagonal_Shape> ps(cs);
-
-  return ps.OK() && ps.space_dimension() == 3;
-}
-
 // Construct powerset of boxes from a 0 dimension empty constraint system.
 bool
 test07() {
@@ -162,8 +138,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test04);
-  DO_TEST(test05);
-  DO_TEST(test06);
   DO_TEST(test07);
   DO_TEST(test08);
   DO_TEST(test09);

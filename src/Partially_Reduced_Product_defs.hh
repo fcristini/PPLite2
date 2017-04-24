@@ -44,7 +44,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "NNC_Polyhedron_types.hh"
 #include "Grid_types.hh"
 #include "Box_types.hh"
-#include "Octagonal_Shape_types.hh"
 
 namespace Parma_Polyhedra_Library {
 
@@ -310,7 +309,6 @@ public:
   <CODE>C_Polyhedron</CODE>,
   <CODE>NNC_Polyhedron</CODE>,
   <CODE>Grid</CODE>,
-  <CODE>Octagonal_Shape\<T\></CODE>,
   <CODE>Box\<T\></CODE>.
 
   An object of the class <CODE>Partially_Reduced_Product\<D1, D2, R\></CODE>
@@ -569,25 +567,6 @@ public:
   */
   template <typename Interval>
   Partially_Reduced_Product(const Box<Interval>& box,
-                            Complexity_Class complexity = ANY_COMPLEXITY);
-
-  //! Builds a product out of an octagonal shape.
-  /*!
-    Builds a product containing \p os.
-    The product inherits the space dimension of the octagonal shape.
-
-    \param os
-    The octagonal shape representing the product to be built.
-
-    \param complexity
-    The complexity is ignored.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p os exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename U>
-  Partially_Reduced_Product(const Octagonal_Shape<U>& os,
                             Complexity_Class complexity = ANY_COMPLEXITY);
 
   //! Ordinary copy constructor.

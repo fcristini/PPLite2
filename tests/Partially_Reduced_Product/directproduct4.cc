@@ -28,15 +28,10 @@ site: http://bugseng.com/products/ppl/ . */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Octagonal_Shape_Class 0
 #define Box_Class 0
 
 #if Box_Class
 typedef TBox Poly;
-#endif
-
-#if Octagonal_Shape_Class
-typedef TOctagonal_Shape Poly;
 #endif
 
 #if NNC_Poly_Class
@@ -316,18 +311,7 @@ test10() {
   Product known_dp(3);
   known_dp.refine_with_congruence((2*A - 2*B %= 1) / 0);
 
-#if Octagonal_Shape_Class
-  #ifdef PH_IS_FIRST
-    bool ok = (dp.domain2() == known_dp.domain2()
-               && dp.domain1().is_universe());
-  #else
-    bool ok = (dp.domain1() == known_dp.domain1()
-               && dp.domain2().is_universe());
-  #endif
-#else
   bool ok = (dp == known_dp);
-#endif
-
 
   print_constraints(dp, "*** dp constraints ***");
   print_congruences(dp, "*** dp congruences ***");

@@ -86,7 +86,6 @@ foldspacedims1 \
 frequency1 \
 frombox1 \
 fromgrid1 \
-fromoctagonalshape1 \
 frompolyhedron1 \
 generalizedaffineimage1 generalizedaffineimage2 generalizedaffineimage3 \
 generalizedaffinepreimage1 generalizedaffinepreimage2 \
@@ -200,8 +199,6 @@ frequency1_SOURCES = frequency1.cc
 frombox1_SOURCES = frombox1.cc
 
 fromgrid1_SOURCES = fromgrid1.cc
-
-fromoctagonalshape1_SOURCES = fromoctagonalshape1.cc
 
 frompolyhedron1_SOURCES = frompolyhedron1.cc
 

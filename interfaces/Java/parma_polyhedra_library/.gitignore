@@ -6,9 +6,6 @@ Rational_Box.java
 C_Polyhedron.java
 Grid.java
 NNC_Polyhedron.java
-Octagonal_Shape_double.java
-Octagonal_Shape_mpq_class.java
-Octagonal_Shape_mpz_class.java
 Pointset_Powerset_C_Polyhedron.java
 Pointset_Powerset_C_Polyhedron_Iterator.java
 Pointset_Powerset_NNC_Polyhedron.java

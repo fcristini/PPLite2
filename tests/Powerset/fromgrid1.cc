@@ -95,74 +95,6 @@ test03() {
   return ok;
 }
 
-// Constructs the powerset of octagonal_shapes from a grid.
-bool
-test07() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<TOctagonal_Shape> pps(gr);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2);
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TOctagonal_Shape>::const_iterator i = pps.begin();
-  TOctagonal_Shape osi = i->pointset();
-  print_constraints(osi, "*** osi ***");
-
-  return ok;
-}
-
-// Constructs the powerset of octagonal_shapes from an empty grid.
-bool
-test08() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2, EMPTY);
-
-  Pointset_Powerset<TOctagonal_Shape> pps(gr);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of octagonal_shapes from a powerset of grids.
-bool
-test09() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<Grid> pps_gr(gr);
-
-  Pointset_Powerset<TOctagonal_Shape> pps(pps_gr);
-
-  Pointset_Powerset<TOctagonal_Shape> known_pps(2);
-
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TOctagonal_Shape>::const_iterator i = pps.begin();
-  TOctagonal_Shape osi = i->pointset();
-  print_constraints(osi, "*** osi ***");
-
-  return ok;
-}
-
 // Constructs the powerset of boxes from a grid.
 bool
 test10() {
@@ -351,9 +283,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test07);
-  DO_TEST(test08);
-  DO_TEST(test09);
   DO_TEST(test10);
   DO_TEST(test11);
   DO_TEST(test12);

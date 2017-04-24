@@ -1448,7 +1448,7 @@ ppl_Polyhedron_bounded_H79_extrapolation_assign
 
   The powerset domains can be instantiated by taking as a base domain
   any fixed semantic geometric description
-  (C and NNC polyhedra, BD and octagonal shapes, boxes and grids).
+  (C and NNC polyhedra, boxes and grids).
   An element of the powerset domain represents a disjunctive collection
   of base objects (its disjuncts), all having the same space dimension.
 

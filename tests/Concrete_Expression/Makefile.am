@@ -59,8 +59,6 @@ C_Expr \
 linearform1 \
 linearize \
 digitalfilters1 \
-octagonalshape1 \
-octagonalshape2 \
 polyhedron1 \
 polyhedron2
 
@@ -147,10 +145,6 @@ digitalfilters1_SOURCES = digitalfilters1.cc
 linearform1_SOURCES = linearform1.cc
 
 linearize_SOURCES = linearize.cc
-
-octagonalshape1_SOURCES = octagonalshape1.cc
-
-octagonalshape2_SOURCES = octagonalshape2.cc
 
 polyhedron1_SOURCES = polyhedron1.cc
 

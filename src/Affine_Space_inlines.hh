@@ -65,13 +65,6 @@ Affine_Space::Affine_Space(Generator_System& gs, Recycle_Input)
   Affine_Space(gs).m_swap(*this);
 }
 
-template <typename U>
-inline
-Affine_Space::Affine_Space(const Octagonal_Shape<U>& os,
-                           Complexity_Class complexity)
-  : gr(os, complexity) {
-}
-
 inline
 Affine_Space::~Affine_Space() {
 }

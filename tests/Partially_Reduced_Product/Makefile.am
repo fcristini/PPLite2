@@ -76,7 +76,6 @@ dropsomenonintegerpoints1 \
 equals1 \
 frombox1 \
 fromgrid1 \
-fromoctagonalshape1 \
 frompolyhedron1 \
 fromproduct1 \
 generalizedaffineimage1 \
@@ -154,8 +153,6 @@ equals1_SOURCES = equals1.cc
 frombox1_SOURCES = frombox1.cc
 
 fromgrid1_SOURCES = fromgrid1.cc
-
-fromoctagonalshape1_SOURCES = fromoctagonalshape1.cc
 
 frompolyhedron1_SOURCES = frompolyhedron1.cc
 

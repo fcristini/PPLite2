@@ -32,7 +32,7 @@ site: http://bugseng.com/products/ppl/ . */
   The Parma Polyhedra Library comes equipped with an interface for the
   Java language.
   The Java interface provides access to the numerical abstractions
-  (convex polyhedra, BD shapes, octagonal shapes, etc.) implemented
+  (convex polyhedra, etc.) implemented
   by the PPL library.
   A general introduction to the numerical abstractions,
   their representation in the PPL and the operations provided
@@ -84,11 +84,6 @@ site: http://bugseng.com/products/ppl/ . */
     - The simple domains are:
       - convex polyhedra, which consist of C_Polyhedron and
         NNC_Polyhedron;<BR>
-      - weakly relational, which consist of 
-        Octagonal_Shape_N
-        where N is one of the numeric types
-        signed_char, short, int, long, long_long,
-        mpz_class, mpq_class;<BR>
       - boxes which consist of
         Int8_Box, Int16_Box, Int32_Box, Int64_Box,
         Uint8_Box, Uint16_Box, Uint32_Box, Uint64_Box,

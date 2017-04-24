@@ -75,7 +75,6 @@ frombox1 \
 fromcongruences1 \
 fromconstraints1 \
 fromgrid1 \
-fromoctagonalshape1 \
 frompolyhedron1 \
 fromspacedimension1 \
 intersection1 \
@@ -144,8 +143,6 @@ fromcongruences1_SOURCES = fromcongruences1.cc
 fromconstraints1_SOURCES = fromconstraints1.cc
 
 fromgrid1_SOURCES = fromgrid1.cc
-
-fromoctagonalshape1_SOURCES = fromoctagonalshape1.cc
 
 frompolyhedron1_SOURCES = frompolyhedron1.cc
 

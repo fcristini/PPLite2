@@ -59,7 +59,6 @@ frequency1
 frombox1
 frombox2
 fromgrid1
-fromoctagonalshape1
 generalizedaffineimage1
 generalizedaffineimage2
 generalizedaffinepreimage1
@@ -128,7 +127,6 @@ nnc_expandspacedim1
 nnc_foldspacedims1
 nnc_frombox1
 nnc_fromgrid1
-nnc_fromoctagonalshape1
 nnc_generalizedaffineimage1
 nnc_generalizedaffinepreimage1
 nnc_generators1

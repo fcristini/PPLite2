@@ -29,7 +29,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "NNC_Polyhedron_defs.hh"
 #include "Grid_defs.hh"
 #include "Rational_Box.hh"
-#include "Octagonal_Shape_defs.hh"
 #include <algorithm>
 
 namespace Parma_Polyhedra_Library {
@@ -48,15 +47,6 @@ max_space_dimension() {
     d = std::min(d, Grid::max_space_dimension());
     // FIXME: what about all other boxes?
     d = std::min(d, Rational_Box::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<int8_t>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<int16_t>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<int32_t>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<int64_t>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<float>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<double>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<long double>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<mpz_class>::max_space_dimension());
-    d = std::min(d, Octagonal_Shape<mpq_class>::max_space_dimension());
     computed = true;
   }
   return d;

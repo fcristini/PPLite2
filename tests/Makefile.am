@@ -30,7 +30,6 @@ Powerset \
 Partially_Reduced_Product \
 Box \
 MIP_Problem \
-Octagonal_Shape \
 Polyhedron \
 Grid \
 Watchdog

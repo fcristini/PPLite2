@@ -311,7 +311,7 @@ m4_define(`m4_category_pps', `dnl
 <H2>Extra Predicates Specifically for the Pointset Powerset Domains</H2>
   The powerset domains can be instantiated by taking as a base domain
   any fixed semantic geometric description
-  (C and NNC polyhedra, BD and octagonal shapes, boxes and grids).
+  (C and NNC polyhedra, boxes and grids).
   An element of the powerset domain represents a disjunctive collection
   of base objects (its disjuncts), all having the same space dimension.
   For more information on this construct,

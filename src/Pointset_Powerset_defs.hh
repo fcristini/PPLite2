@@ -53,7 +53,6 @@ site: http://bugseng.com/products/ppl/ . */
   <CODE>C_Polyhedron</CODE>,
   <CODE>NNC_Polyhedron</CODE>,
   <CODE>Grid</CODE>,
-  <CODE>Octagonal_Shape\<T\></CODE>,
   <CODE>Box\<T\></CODE>.
 */
 template <typename PSET>
@@ -190,27 +189,6 @@ public:
     allowed space dimension.
   */
   explicit Pointset_Powerset(const Grid& gr,
-                             Complexity_Class complexity = ANY_COMPLEXITY);
-
-  //! Builds a pointset_powerset out of an octagonal shape.
-  /*!
-    If the octagonal shape is nonempty, builds a powerset
-    containing a single disjunct approximating the octagonal
-    shape. Builds the empty powerset otherwise. The powerset
-    inherits the space dimension of the octagonal shape.
-
-    \param os
-    The octagonal shape to be used to build the powerset.
-
-    \param complexity
-    This argument is ignored.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p os exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename T>
-  explicit Pointset_Powerset(const Octagonal_Shape<T>& os,
                              Complexity_Class complexity = ANY_COMPLEXITY);
 
   //! Builds a pointset_powerset out of a box.

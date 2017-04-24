@@ -19,7 +19,7 @@ To be more precise, the Parma Polyhedra Library (PPL) can handle:
 
   + some special classes of polyhedra shapes that offer interesting
     complexity/precision tradeoffs: boxes, bounded difference shapes
-    and octagonal shapes defined over a wide choice of integer,
+    defined over a wide choice of integer,
     rational or floating point coefficients;
 
   + all grids (or, equivalently, lattices): a grid is defined by a set
@@ -944,14 +944,6 @@ ppl-1.2
 |   |-- OR_Matrix_inlines.hh
 |   |-- OR_Matrix_templates.hh
 |   |-- OR_Matrix_types.hh
-|   |-- Octagonal_Shape.cc
-|   |-- Octagonal_Shape_defs.hh
-|   |-- Octagonal_Shape_inlines.hh
-|   |-- Octagonal_Shape_templates.hh
-|   |-- Octagonal_Shape_types.hh
-|   |-- Og_Status.cc
-|   |-- Og_Status_idefs.hh
-|   |-- Og_Status_inlines.hh
 |   |-- Opposite_Floating_Point_Expression_defs.hh
 |   |-- Opposite_Floating_Point_Expression_inlines.hh
 |   |-- Opposite_Floating_Point_Expression_types.hh
@@ -1223,8 +1215,6 @@ ppl-1.2
 |   |   |-- digitalfilters1.cc
 |   |   |-- linearform1.cc
 |   |   |-- linearize.cc
-|   |   |-- octagonalshape1.cc
-|   |   |-- octagonalshape2.cc
 |   |   |-- polyhedron1.cc
 |   |   |-- polyhedron2.cc
 |   |   `-- run_tests
@@ -1272,7 +1262,6 @@ ppl-1.2
 |   |   |-- frequency1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
 |   |   |-- frompolyhedron1.cc
 |   |   |-- generalizedaffineimage1.cc
 |   |   |-- generalizedaffineimage2.cc
@@ -1335,78 +1324,6 @@ ppl-1.2
 |   |   `-- mipproblem4.cc
 |   |-- Makefile.am
 |   |-- Makefile.in
-|   |-- Octagonal_Shape
-|   |   |-- Makefile.am
-|   |   |-- Makefile.in
-|   |   |-- addspacedims1.cc
-|   |   |-- affinedimension1.cc
-|   |   |-- affineimage1.cc
-|   |   |-- affineimage2.cc
-|   |   |-- affinepreimage1.cc
-|   |   |-- affinepreimage2.cc
-|   |   |-- ascii_dump_load1.cc
-|   |   |-- bhmz05widening1.cc
-|   |   |-- bhz03widening1.cc
-|   |   |-- bounded1.cc
-|   |   |-- boundedaffineimage1.cc
-|   |   |-- boundedaffinepreimage1.cc
-|   |   |-- bounds1.cc
-|   |   |-- cc76extrapolation1.cc
-|   |   |-- cc76narrowing1.cc
-|   |   |-- chinainit.cc
-|   |   |-- concatenate1.cc
-|   |   |-- congruences1.cc
-|   |   |-- constrains1.cc
-|   |   |-- constraints1.cc
-|   |   |-- contains1.cc
-|   |   |-- containsintegerpoint1.cc
-|   |   |-- difference1.cc
-|   |   |-- discrete1.cc
-|   |   |-- disjoint1.cc
-|   |   |-- dropsomenonintegerpoints1.cc
-|   |   |-- empty1.cc
-|   |   |-- expandspacedim1.cc
-|   |   |-- foldspacedims1.cc
-|   |   |-- frequency1.cc
-|   |   |-- frombox1.cc
-|   |   |-- fromgensys1.cc
-|   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
-|   |   |-- frompolyhedron1.cc
-|   |   |-- fromspacedim1.cc
-|   |   |-- generalizedaffineimage1.cc
-|   |   |-- generalizedaffineimage2.cc
-|   |   |-- generalizedaffineimage3.cc
-|   |   |-- generalizedaffineimage4.cc
-|   |   |-- generalizedaffineimage5.cc
-|   |   |-- generalizedaffinepreimage1.cc
-|   |   |-- generalizedaffinepreimage2.cc
-|   |   |-- generalizedaffinepreimage3.cc
-|   |   |-- generalizedaffinepreimage4.cc
-|   |   |-- integerupperboundifexact1.cc
-|   |   |-- intersection1.cc
-|   |   |-- limitedbhmz05extrapolation1.cc
-|   |   |-- limitedcc76extrapolation1.cc
-|   |   |-- mapspacedims1.cc
-|   |   |-- max_min1.cc
-|   |   |-- max_min2.cc
-|   |   |-- maxspacedim1.cc
-|   |   |-- membytes1.cc
-|   |   |-- minconstraints1.cc
-|   |   |-- relatwithcons1.cc
-|   |   |-- relatwithcons2.cc
-|   |   |-- relatwithcons3.cc
-|   |   |-- relatwithgen1.cc
-|   |   |-- removespacedims1.cc
-|   |   |-- run_tests
-|   |   |-- simplifyusingcontext1.cc
-|   |   |-- timeelapse1.cc
-|   |   |-- unconstrain1.cc
-|   |   |-- universe1.cc
-|   |   |-- upperbound1.cc
-|   |   |-- upperboundifexact1.cc
-|   |   |-- wrap1.cc
-|   |   `-- writeoctagon1.cc
 |   |-- PIP_Problem
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in
@@ -1440,7 +1357,6 @@ ppl-1.2
 |   |   |-- equals1.cc
 |   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
 |   |   |-- frompolyhedron1.cc
 |   |   |-- fromproduct1.cc
 |   |   |-- generalizedaffineimage1.cc
@@ -1520,7 +1436,6 @@ ppl-1.2
 |   |   |-- frombox1.cc
 |   |   |-- frombox2.cc
 |   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
 |   |   |-- generalizedaffineimage1.cc
 |   |   |-- generalizedaffineimage2.cc
 |   |   |-- generalizedaffinepreimage1.cc
@@ -1622,7 +1537,6 @@ ppl-1.2
 |   |   |-- fromcongruences1.cc
 |   |   |-- fromconstraints1.cc
 |   |   |-- fromgrid1.cc
-|   |   |-- fromoctagonalshape1.cc
 |   |   |-- frompolyhedron1.cc
 |   |   |-- fromspacedimension1.cc
 |   |   |-- intersection1.cc

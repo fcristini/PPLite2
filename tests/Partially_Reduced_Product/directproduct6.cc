@@ -31,15 +31,10 @@ for the product domains */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Octagonal_Shape_Class 0
 #define Box_Class 0
 
 #if Box_Class
 typedef TBox Poly;
-#endif
-
-#if Octagonal_Shape_Class
-typedef TOctagonal_Shape Poly;
 #endif
 
 #if NNC_Poly_Class
