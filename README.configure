@@ -290,15 +290,9 @@ by default.  Currently this set is given by
 
   Polyhedron (which stands for both C_Polyhedron and NNC_Polyhedron),
   Grid,
-  Rational_Box,
   Constraints_Product<C_Polyhedron, Grid>,
   Pointset_Powerset<C_Polyhedron>,
-  Pointset_Powerset<NNC_Polyhedron>,
-
-plus, if the host architecture supports double precision floating point
-numbers conforming to the IEEE 754 standard,
-
-  Double_Box.
+  Pointset_Powerset<NNC_Polyhedron>
 
 To enable a different set of instantiations, the configure option
 
@@ -388,7 +382,7 @@ argument. Reasonable default values for the row representation are
 provided for each library entity, automatically leading to significant
 memory space savings even in old client/library code, e.g., when
 dealing with constraint systems describing weakly relational
-abstractions such as boxes.
+abstractions.
 
 If desired, these default values can be customized to user's needs by
 changing just a few lines of library code. For instance, the

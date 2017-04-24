@@ -28,7 +28,6 @@ bhz03widening1
 bounded1
 boundedaffineimage1
 boundedaffinepreimage1
-boundingbox1
 bounds1
 certificate1
 concatenate1
@@ -38,8 +37,6 @@ congruences2
 constraints1
 contains1
 containsintegerpoint1
-coveringbox1
-coveringbox2
 discrete1
 disjoint1
 dropnonintegerpoints1
@@ -100,7 +97,6 @@ widening3
 wrap1
 writecongruencesystem
 approximatepartition1
-frombox1
 simplifyusingcontext1
 upperbound1
 upperbound2

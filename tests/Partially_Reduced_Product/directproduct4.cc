@@ -28,11 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Box_Class 0
-
-#if Box_Class
-typedef TBox Poly;
-#endif
 
 #if NNC_Poly_Class
 typedef NNC_Polyhedron Poly;
@@ -101,7 +96,6 @@ test02() {
   return ok;
 }
 
-#if !Box_Class
 // generalized_affine_image(v, EQUAL, e)
 bool
 test03() {
@@ -318,14 +312,12 @@ test10() {
 
   return ok;
 }
-#endif
 
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
-#if !Box_Class
   DO_TEST(test03);
   DO_TEST(test04);
   DO_TEST(test05);
@@ -334,5 +326,4 @@ BEGIN_MAIN
   DO_TEST(test08);
   DO_TEST(test09);
   DO_TEST(test10);
-#endif
 END_MAIN

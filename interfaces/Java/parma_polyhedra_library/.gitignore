@@ -1,8 +1,6 @@
 *.class
 *.stamp
 Constraints_Product_C_Polyhedron_Grid.java
-Double_Box.java
-Rational_Box.java
 C_Polyhedron.java
 Grid.java
 NNC_Polyhedron.java

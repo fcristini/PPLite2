@@ -84,7 +84,6 @@ equals1 \
 expandspacedim1 \
 foldspacedims1 \
 frequency1 \
-frombox1 \
 fromgrid1 \
 frompolyhedron1 \
 generalizedaffineimage1 generalizedaffineimage2 generalizedaffineimage3 \
@@ -195,8 +194,6 @@ equals1_SOURCES = equals1.cc
 expandspacedim1_SOURCES = expandspacedim1.cc
 
 frequency1_SOURCES = frequency1.cc
-
-frombox1_SOURCES = frombox1.cc
 
 fromgrid1_SOURCES = fromgrid1.cc
 

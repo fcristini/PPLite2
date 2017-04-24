@@ -40,7 +40,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "BHRZ03_Certificate_types.hh"
 #include "Scalar_Products_types.hh"
 #include "MIP_Problem_types.hh"
-#include "Box_types.hh"
 #include "termination_types.hh"
 
 #include "Expression_Adapter_defs.hh"
@@ -829,13 +828,10 @@ private:
   friend class BHRZ03_Certificate;
   friend class Scalar_Products;
   friend class MIP_Problem;
-  friend class Box_Helpers;
   friend class Congruence_System;
   friend class Termination_Helpers;
   template <typename T>
   friend class Linear_System;
-  template <typename T>
-  friend class Box;
   template <typename T>
   friend class Expression_Adapter;
   template <typename T>

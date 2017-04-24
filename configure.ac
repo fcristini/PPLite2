@@ -1305,7 +1305,6 @@ fi
 # Define the list of instantiations that are enabled by default.
 # Different instantiations are separated by a '@' character.
 di="        Polyhedron @ Grid"
-di="${di} @ Rational_Box"
 di="${di} @ Constraints_Product<C_Polyhedron, Grid>"
 di="${di} @ Pointset_Powerset<C_Polyhedron>"
 di="${di} @ Pointset_Powerset<NNC_Polyhedron>"
@@ -1313,15 +1312,7 @@ default_instantiations="${di}"
 
 # Define the list of all instantiations.
 # Different instantiations are separated by a '@' character.
-ai="        Int8_Box @ Int16_Box @ Int32_Box @ Int64_Box"
-ai="${ai} @ Uint8_Box @ Uint16_Box @ Uint32_Box @ Uint64_Box"
-ai="${ai} @ Z_Box @ Rational_Box"
-ai="${ai} @ Polyhedron @ Grid"
-ai="${ai} @ Pointset_Powerset<Int8_Box> @ Pointset_Powerset<Int16_Box>"
-ai="${ai} @ Pointset_Powerset<Int32_Box> @ Pointset_Powerset<Int64_Box>"
-ai="${ai} @ Pointset_Powerset<Uint8_Box> @ Pointset_Powerset<Uint16_Box>"
-ai="${ai} @ Pointset_Powerset<Uint32_Box> @ Pointset_Powerset<Uint64_Box>"
-ai="${ai} @ Pointset_Powerset<Rational_Box> @ Pointset_Powerset<Z_Box>"
+ai="        Polyhedron @ Grid"
 ai="${ai} @ Pointset_Powerset<C_Polyhedron>"
 ai="${ai} @ Pointset_Powerset<NNC_Polyhedron>"
 ai="${ai} @ Pointset_Powerset<Grid>"
@@ -1329,19 +1320,6 @@ ai="${ai} @ Constraints_Product<C_Polyhedron, Grid>"
 ai="${ai} @ Constraints_Product<NNC_Polyhedron, Grid>"
 ai="${ai} @ Constraints_Product<Grid, C_Polyhedron>"
 ai="${ai} @ Constraints_Product<Grid, NNC_Polyhedron>"
-if test $ac_supported_float = 1
-then
-  ai="${ai} @ Pointset_Powerset<Float_Box>"
-fi
-if test $ac_supported_double = 1
-then
-  ai="${ai} @ Pointset_Powerset<Double_Box>"
-fi
-if test $ac_supported_long_double = 1
-then
-  ai="${ai} @ Long_Double_Box"
-  ai="${ai} @ Pointset_Powerset<Long_Double_Box>"
-fi
 available_instantiations=${ai}
 
 enableval=not_specified
@@ -1635,7 +1613,6 @@ AC_CONFIG_FILES(Makefile
                 src/version.hh
                 src/ppl-config.cc
                 tests/Makefile
-                tests/Box/Makefile
                 tests/Concrete_Expression/Makefile
                 tests/CO_Tree/Makefile
                 tests/Grid/Makefile

@@ -30,11 +30,6 @@ using namespace Parma_Polyhedra_Library::IO_Operators;
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Box_Class 0
-
-#if Box_Class
-typedef TBox Poly;
-#endif
 
 #if NNC_Poly_Class
 typedef NNC_Polyhedron Poly;
@@ -159,7 +154,7 @@ test07() {
   dp.refine_with_constraint(A < 3);
   dp.refine_with_congruence((A %= 0) / 3);
 
-#if NNC_Poly_Class || Box_Class
+#if NNC_Poly_Class
   bool ok = !dp.is_topologically_closed();
 #else
   dp.refine_with_constraint(A <= 3);
@@ -323,11 +318,7 @@ test14() {
   dp2.refine_with_congruence((A %= 0) / 2);
   dp2.refine_with_congruence((A %= 0) / 4);
 
-#if Box_Class
-  bool ok = !dp1.is_disjoint_from(dp2);
-#else
   bool ok = dp1.is_disjoint_from(dp2);
-#endif
 
   print_congruences(dp1, "*** dp1 congruences ***");
   print_constraints(dp1, "*** dp1 constraints ***");

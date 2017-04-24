@@ -73,8 +73,6 @@ test02() {
   return ok && dp.OK();
 }
 
-typedef Domain_Product<TBox, Grid>::Constraints_Product TBox_Grid;
-typedef Domain_Product<Grid, TBox>::Constraints_Product Grid_TBox;
 typedef Domain_Product<NNC_Polyhedron, Grid>::Constraints_Product NNCPoly_Grid;
 
 // Copy constructor.
@@ -104,76 +102,10 @@ test03() {
   return ok && prp.OK();
 }
 
-// Constructing an NNCPoly_Grid from a TBox_Grid.
-bool
-test04() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  TBox_Grid src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid prp(src, POLYNOMIAL_COMPLEXITY);
-
-  NNCPoly_Grid prp1(src);
-
-  NNCPoly_Grid known_prp(1);
-  known_prp.refine_with_constraint(A >= 0);
-  known_prp.refine_with_congruence(A %= 0);
-
-  bool ok = (prp == known_prp && prp1 == known_prp);
-
-  print_congruences(prp, "*** prp congruences ***");
-  print_constraints(prp, "*** prp constraints ***");
-  print_congruences(prp1, "*** prp1 congruences ***");
-  print_constraints(prp1, "*** prp1 constraints ***");
-
-  return ok && prp.OK();
-}
-
-// Constructing an NNCPoly_Grid from a Grid_TBox.
-bool
-test05() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  Grid_TBox src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid prp(src);
-
-  NNCPoly_Grid prp1(src);
-
-  NNCPoly_Grid known_prp(1);
-  known_prp.refine_with_constraint(A >= 0);
-  known_prp.refine_with_congruence(A %= 0);
-
-  bool ok = (prp == known_prp && prp1 == known_prp);
-
-  print_congruences(src, "*** src congruences ***");
-  print_constraints(src, "*** src constraints ***");
-  print_congruences(prp, "*** prp congruences ***");
-  print_constraints(prp, "*** prp constraints ***");
-  print_congruences(prp1, "*** prp1 congruences ***");
-  print_constraints(prp1, "*** prp1 constraints ***");
-  print_congruences(known_prp, "*** known_prp congruences ***");
-  print_constraints(known_prp, "*** known_prp constraints ***");
-
-  return ok && prp.OK();
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test04);
-  DO_TEST(test05);
 END_MAIN

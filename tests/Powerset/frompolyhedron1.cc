@@ -169,128 +169,6 @@ test05() {
   return ok;
 }
 
-// Constructs the powerset of boxes from a polyhedron.
-bool
-test14() {
-  Variable x(0);
-  Variable y(1);
-  Variable z(2);
-  Variable w(3);
-
-  C_Polyhedron ph(4);
-  ph.add_constraint(x >= 2);
-  ph.add_constraint(y >= 5);
-  ph.add_constraint(z >= 1);
-  ph.add_constraint(x + y + z <= 8);
-
-  C_Polyhedron ph1(ph);
-
-  // With both the default and polynomial complexities,
-  // the implied equalities x = 2, y = 5 and z = 1 are found.
-  Pointset_Powerset<TBox> pps(ph);
-  Pointset_Powerset<TBox> pps1(ph1, POLYNOMIAL_COMPLEXITY);
-
-  Pointset_Powerset<TBox> known_pps(4);
-  known_pps.add_constraint(x == 2);
-  known_pps.add_constraint(y == 5);
-  known_pps.add_constraint(z == 1);
-
-  bool ok = (pps == known_pps && pps1 == known_pps);
-
-  if (pps.size() > 0)
-    print_constraints(pps.begin()->pointset(), "*** box ***");
-
-  if (pps1.size() > 0)
-    print_constraints(pps1.begin()->pointset(), "*** box1 ***");
-
-  return ok && pps.OK() && pps1.OK();
-}
-
-// Constructs the powerset of boxes from a polyhedron whose constraints
-// are inconsistent (i.e., is empty but not marked as empty).
-bool
-test15() {
-  Variable x(0);
-  Variable y(1);
-  Variable z(2);
-  Variable w(3);
-
-  C_Polyhedron ph(4);
-  ph.add_constraint(x >= 2);
-  ph.add_constraint(y >= 5);
-  ph.add_constraint(z >= 1);
-  ph.add_constraint(x + y + z <= 7);
-
-  C_Polyhedron ph1(ph);
-
-  // With both the default and polynomial complexity,
-  // the built powerset is detected to be empty.
-  Pointset_Powerset<TBox> pps(ph);
-  Pointset_Powerset<TBox> pps1(ph1, POLYNOMIAL_COMPLEXITY);
-
-  Pointset_Powerset<TBox> known_pps(4, EMPTY);
-
-  bool ok = (pps == known_pps && pps1 == known_pps);
-
-  // These will print something only if test is going to fail.
-  if (pps.size() > 0)
-    print_constraints(pps.begin()->pointset(), "*** box ***");
-  if (pps1.size() > 0)
-    print_constraints(pps1.begin()->pointset(), "*** box1 ***");
-
-  return ok && pps.OK() && pps1.OK();
-}
-
-// Constructs the powerset of boxes from an empty polyhedron.
-bool
-test16() {
-  Variable x(0);
-  Variable y(1);
-
-  NNC_Polyhedron ph(2, EMPTY);
-
-  Pointset_Powerset<TBox> pps(ph);
-
-  Pointset_Powerset<TBox> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of boxes from a powerset of polyhedra.
-bool
-test17() {
-  Variable x(0);
-  Variable y(1);
-
-  Constraint_System cs;
-  cs.insert(2*x >= 1);
-  cs.insert(2*x + y <= 1);
-  cs.insert(y >= 0);
-  C_Polyhedron ph1(cs);
-  C_Polyhedron ph2(cs);
-
-  Pointset_Powerset<C_Polyhedron> pps1_c(ph1, POLYNOMIAL_COMPLEXITY);
-  Pointset_Powerset<C_Polyhedron> pps2_c(ph2);
-
-  Pointset_Powerset<TBox> pps1(pps1_c, POLYNOMIAL_COMPLEXITY);
-  Pointset_Powerset<TBox> pps2(pps2_c);
-
-  Pointset_Powerset<TBox> known_pps(2);
-  known_pps.add_constraint(2*x == 1);
-  known_pps.add_constraint(y == 0);
-
-  bool ok = (pps1 == known_pps && pps2 == known_pps);
-
-  if (pps1.size() > 0)
-    print_constraints(pps1.begin()->pointset(), "*** box1 ***");
-  if (pps2.size() > 0)
-    print_constraints(pps2.begin()->pointset(), "*** box2 ***");
-
-  return ok;
-}
-
 // Constructs the powerset of grids from a polyhedron.
 bool
 test18() {
@@ -426,10 +304,6 @@ BEGIN_MAIN
   DO_TEST(test03);
   DO_TEST(test04);
   DO_TEST(test05);
-  DO_TEST(test14);
-  DO_TEST(test15);
-  DO_TEST(test16);
-  DO_TEST(test17);
   DO_TEST(test18);
   DO_TEST(test19);
   DO_TEST(test20);

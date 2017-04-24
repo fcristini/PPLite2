@@ -27,7 +27,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Concrete_Expression_defs.hh"
 #include "Float_defs.hh"
 #include "Linear_Form_defs.hh"
-#include "Box_defs.hh"
 #include <map>
 
 namespace Parma_Polyhedra_Library {

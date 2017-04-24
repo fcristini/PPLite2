@@ -26,54 +26,7 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace {
 
-// geometrically_equals().
-bool
-test01() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1);
-  Constraint_System cs;
-  cs.insert(x >= 5);
-  cs.insert(x <= 3);
-  pps_box.add_constraints(cs);
-
-  Pointset_Powerset<TBox> pps_box1(1, EMPTY);
-
-  // pps_box.ascii_dump();
-  // pps_box1.ascii_dump();
-
-  bool ok = pps_box.geometrically_equals(pps_box1);
-  bool ok1 = pps_box.geometrically_equals(pps_box1);
-
-  return ok && ok1;
-}
-
-// geometrically_equals().
-bool
-test02() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1);
-  Constraint_System cs;
-  cs.insert(x >= 5);
-  cs.insert(x >= 8);
-  pps_box.add_constraints(cs);
-
-  Pointset_Powerset<TBox> pps_box1(1);
-  cs.clear();
-  cs.insert(x >= 8);
-  pps_box1.add_constraints(cs);
-
-  // pps_box.ascii_dump();
-  // pps_box1.ascii_dump();
-
-  bool ok = pps_box.geometrically_equals(pps_box1);
-  bool ok1 = pps_box.geometrically_equals(pps_box1);
-
-  return ok && ok1;
-}
-
 } // namespace
 
 BEGIN_MAIN
-  DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

@@ -86,17 +86,6 @@ NNC_Polyhedron::NNC_Polyhedron(Generator_System& gs, Recycle_Input)
                Recycle_Input()) {
 }
 
-template <typename Interval>
-inline
-NNC_Polyhedron::NNC_Polyhedron(const Box<Interval>& box, Complexity_Class)
-  : Polyhedron(NOT_NECESSARILY_CLOSED,
-               check_obj_space_dimension_overflow(box, NOT_NECESSARILY_CLOSED,
-                                                  "NNC_Polyhedron(box)",
-                                                  "the space dimension of box "
-                                                  "exceeds the maximum allowed "
-                                                  "space dimension")) {
-}
-
 inline
 NNC_Polyhedron::NNC_Polyhedron(const NNC_Polyhedron& y, Complexity_Class)
   : Polyhedron(y) {

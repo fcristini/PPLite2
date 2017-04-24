@@ -43,7 +43,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "C_Polyhedron_types.hh"
 #include "NNC_Polyhedron_types.hh"
 #include "Grid_types.hh"
-#include "Box_types.hh"
 
 namespace Parma_Polyhedra_Library {
 
@@ -308,8 +307,7 @@ public:
   two domain templates \p D1 and \p D2 are the simple pointset domains:
   <CODE>C_Polyhedron</CODE>,
   <CODE>NNC_Polyhedron</CODE>,
-  <CODE>Grid</CODE>,
-  <CODE>Box\<T\></CODE>.
+  <CODE>Grid</CODE>.
 
   An object of the class <CODE>Partially_Reduced_Product\<D1, D2, R\></CODE>
   represents the (partially reduced) product of two pointset domains \p D1
@@ -548,25 +546,6 @@ public:
   */
   explicit
   Partially_Reduced_Product(const Grid& gr,
-                            Complexity_Class complexity = ANY_COMPLEXITY);
-
-  //! Builds a product out of a box.
-  /*!
-    Builds a product containing \p box.
-    The product inherits the space dimension of the box.
-
-    \param box
-    The box representing the pair to be built.
-
-    \param complexity
-    The complexity is ignored.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p box exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename Interval>
-  Partially_Reduced_Product(const Box<Interval>& box,
                             Complexity_Class complexity = ANY_COMPLEXITY);
 
   //! Ordinary copy constructor.

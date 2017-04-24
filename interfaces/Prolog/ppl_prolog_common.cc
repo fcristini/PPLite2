@@ -1641,53 +1641,6 @@ term_to_relation_symbol(Prolog_term_ref t_r, const char* where) {
   return r;
 }
 
-Prolog_term_ref
-rational_term(const Rational_Box::interval_type::boundary_type& q) {
-  Prolog_term_ref t = Prolog_new_term_ref();
-  PPL_DIRTY_TEMP_COEFFICIENT(numerator);
-  PPL_DIRTY_TEMP_COEFFICIENT(denominator);
-  numerator = q.get_num();
-  denominator = q.get_den();
-  if (denominator == 1)
-    Prolog_put_Coefficient(t, numerator);
-  else
-    Prolog_construct_compound(t, a_slash,
-                              Coefficient_to_integer_term(numerator),
-                              Coefficient_to_integer_term(denominator));
-  return t;
-}
-
-Prolog_term_ref
-interval_term(const Rational_Box::interval_type& i) {
-  Prolog_term_ref t = Prolog_new_term_ref();
-  if (i.is_empty())
-    Prolog_put_atom(t, a_empty);
-  else {
-    // Lower bound.
-    const Prolog_atom& l_oc = i.lower_is_open() ? a_o : a_c;
-    Prolog_term_ref l_b = Prolog_new_term_ref();
-    if (i.lower_is_boundary_infinity())
-      Prolog_put_atom(l_b, a_minf);
-    else
-      Prolog_put_term(l_b, rational_term(i.lower()));
-    Prolog_term_ref l_t = Prolog_new_term_ref();
-    Prolog_construct_compound(l_t, l_oc, l_b);
-
-    // Upper bound.
-    const Prolog_atom& u_oc = i.upper_is_open() ? a_o : a_c;
-    Prolog_term_ref u_b = Prolog_new_term_ref();
-    if (i.upper_is_boundary_infinity())
-      Prolog_put_atom(u_b, a_pinf);
-    else
-      Prolog_put_term(u_b, rational_term(i.upper()));
-    Prolog_term_ref u_t = Prolog_new_term_ref();
-    Prolog_construct_compound(u_t, u_oc, u_b);
-
-    Prolog_construct_compound(t, a_i, l_t, u_t);
-  }
-  return t;
-}
-
 Prolog_atom
 term_to_complexity_class(Prolog_term_ref t, const char* where) {
   if (Prolog_is_atom(t)) {

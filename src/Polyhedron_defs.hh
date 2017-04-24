@@ -43,7 +43,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Poly_Gen_Relation_defs.hh"
 #include "BHRZ03_Certificate_types.hh"
 #include "H79_Certificate_types.hh"
-#include "Box_types.hh"
 #include "Interval_types.hh"
 #include "Linear_Form_types.hh"
 #include <vector>
@@ -485,24 +484,6 @@ protected:
     or if the system of generators is not empty but has no points.
   */
   Polyhedron(Topology topol, Generator_System& gs, Recycle_Input dummy);
-
-  //! Builds a polyhedron from a box.
-  /*!
-    This will use an algorithm whose complexity is polynomial and build
-    the smallest polyhedron with topology \p topol containing \p box.
-
-    \param topol
-    The topology of the polyhedron;
-
-    \param box
-    The box representing the polyhedron to be built;
-
-    \param complexity
-    This argument is ignored.
-  */
-  template <typename Interval>
-  Polyhedron(Topology topol, const Box<Interval>& box,
-             Complexity_Class complexity = ANY_COMPLEXITY);
 
   /*! \brief
     The assignment operator.
@@ -1069,16 +1050,6 @@ public:
   const Linear_Form< Interval<FP_Format, Interval_Info> >& left,
   const Linear_Form< Interval<FP_Format, Interval_Info> >& right,
   Relation_Symbol relsym);
-
-  //! Refines \p store with the constraints defining \p *this.
-  /*!
-    \param store
-    The interval floating point abstract store to refine.
-  */
-  template <typename FP_Format, typename Interval_Info>
-  void refine_fp_interval_abstract_store(
-       Box< Interval<FP_Format, Interval_Info> >& store)
-       const;
 
   /*! \brief
     Computes the \ref Cylindrification "cylindrification" of \p *this with
@@ -2615,7 +2586,6 @@ private:
   */
   static size_t simplify_num_saturators_size;
 
-  template <typename Interval> friend class Parma_Polyhedra_Library::Box;
   friend class Parma_Polyhedra_Library::Grid;
   friend class Parma_Polyhedra_Library::BHRZ03_Certificate;
   friend class Parma_Polyhedra_Library::H79_Certificate;

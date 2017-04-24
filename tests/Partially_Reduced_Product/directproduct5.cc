@@ -28,11 +28,6 @@ using namespace IO_Operators;
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Box_Class 0
-
-#if Box_Class
-typedef TBox Poly;
-#endif
 
 #if NNC_Poly_Class
 typedef NNC_Polyhedron Poly;
@@ -283,7 +278,6 @@ test08() {
   return ok;
 }
 
-#if !Box_Class
 // relation_with a generator
 bool
 test09() {
@@ -344,9 +338,7 @@ test11() {
 
   return ok;
 }
-#endif
 
-#if !Box_Class
 // A product in 3D; relation_with a constraint.
 bool
 test12() {
@@ -563,7 +555,6 @@ test17() {
 
   return ok;
 }
-#endif
 
 } // namespace
 
@@ -576,17 +567,13 @@ BEGIN_MAIN
   DO_TEST(test06);
   DO_TEST(test07);
   DO_TEST(test08);
-#if !Box_Class
   DO_TEST(test09);
   DO_TEST(test10);
   DO_TEST(test11);
-#endif
-#if !Box_Class
   DO_TEST(test12);
   DO_TEST(test13);
   DO_TEST(test14);
   DO_TEST(test15);
   DO_TEST(test16);
   DO_TEST(test17);
-#endif
 END_MAIN

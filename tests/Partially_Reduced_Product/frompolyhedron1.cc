@@ -77,44 +77,9 @@ test02() {
   return ok && dp.OK();
 }
 
-typedef Domain_Product<TBox, Grid>::Constraints_Product TBox_Grid;
-
-// TBox_Grid(nnc_polyhedron, POLYNOMIAL_COMPLEXITY).
-bool
-test03() {
-  Variable x(0);
-  Variable y(1);
-
-  C_Polyhedron ph(2);
-  ph.refine_with_constraint(3*x + y >= 2);
-  ph.refine_with_constraint(x <= 4);
-  ph.refine_with_constraint(y <= 4);
-
-  TBox_Grid pprp(ph, POLYNOMIAL_COMPLEXITY);
-
-  TBox_Grid nprp(ph);
-
-  TBox_Grid known_prp(2);
-  known_prp.refine_with_constraint(3*x >= -2);
-  known_prp.refine_with_constraint(x <= 4);
-  known_prp.refine_with_constraint(y >= -10);
-  known_prp.refine_with_constraint(y <= 4);
-
-  bool ok = (nprp == known_prp && pprp == known_prp);
-
-  print_constraints(ph, "*** ph ***");
-  print_constraints(nprp, "*** nprp ***");
-  print_congruences(nprp, "*** nprp ***");
-  print_constraints(pprp, "*** pprp ***");
-  print_congruences(pprp, "*** pprp ***");
-
-  return ok;
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
-  DO_TEST(test03);
 END_MAIN

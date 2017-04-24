@@ -28,7 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "ppl.hh"
 
 #include <jni.h>
-#include "interfaced_boxes.hh"
 #include "marked_pointers.hh"
 
 #define PPL_JAVA_UNEXPECTED \

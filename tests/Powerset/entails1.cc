@@ -45,29 +45,8 @@ test01() {
   return ok;
 }
 
-// Powerset of boxes: definitely_entails().
-bool
-test02() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-  cs.insert(x >= 0);
-  pps_box.add_disjunct(TBox(cs));
-
-  Pointset_Powerset<TBox> pps_box1(1, EMPTY);
-  Constraint_System cs1;
-  cs1.insert(x >= 0);
-  cs1.insert(x <= 2);
-  pps_box1.add_disjunct(TBox(cs1));
-
-  bool ok = pps_box1.definitely_entails(pps_box);
-
-  return ok;
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

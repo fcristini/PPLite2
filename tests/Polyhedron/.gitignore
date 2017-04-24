@@ -56,8 +56,6 @@ expandspacedim2
 foldspacedims1
 foldspacedims2
 frequency1
-frombox1
-frombox2
 fromgrid1
 generalizedaffineimage1
 generalizedaffineimage2
@@ -125,7 +123,6 @@ nnc_exceptions1
 nnc_exceptions3
 nnc_expandspacedim1
 nnc_foldspacedims1
-nnc_frombox1
 nnc_fromgrid1
 nnc_generalizedaffineimage1
 nnc_generalizedaffinepreimage1

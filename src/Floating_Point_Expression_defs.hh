@@ -27,7 +27,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Floating_Point_Expression_types.hh"
 #include "globals_defs.hh"
 #include "Linear_Form_types.hh"
-#include "Box_types.hh"
 #include <cmath>
 #include <map>
 
@@ -58,16 +57,6 @@ public:
 
   //! Alias for a linear form with template argument \p FP_Interval_Type.
   typedef Linear_Form<FP_Interval_Type> FP_Linear_Form;
-
-  //! Alias for a map that associates a variable index to an interval.
-  /*! \brief
-    Alias for a Box storing lower and upper bounds for floating point
-    variables.
-
-    The type a linear form abstract store associating each variable with an
-    interval that correctly approximates its value.
-  */
-  typedef Box<FP_Interval_Type> FP_Interval_Abstract_Store;
 
   //! Alias for a map that associates a variable index to a linear form.
   /*!

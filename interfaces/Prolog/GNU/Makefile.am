@@ -61,34 +61,8 @@ nodist_libppl_gprolog_la_SOURCES = \
 ../ppl_prolog_common.cc
 
 nodist_EXTRA_libppl_gprolog_la_SOURCES = \
-../ppl_prolog_Int8_Box.cc \
-../ppl_prolog_Int16_Box.cc \
-../ppl_prolog_Int32_Box.cc \
-../ppl_prolog_Int64_Box.cc \
-../ppl_prolog_Uint8_Box.cc \
-../ppl_prolog_Uint16_Box.cc \
-../ppl_prolog_Uint32_Box.cc \
-../ppl_prolog_Uint64_Box.cc \
-../ppl_prolog_Float_Box.cc \
-../ppl_prolog_Double_Box.cc \
-../ppl_prolog_Long_Double_Box.cc \
-../ppl_prolog_Rational_Box.cc \
-../ppl_prolog_Z_Box.cc \
 ../ppl_prolog_Polyhedron.cc \
 ../ppl_prolog_Grid.cc \
-../ppl_prolog_Pointset_Powerset_Int8_Box.cc \
-../ppl_prolog_Pointset_Powerset_Int16_Box.cc \
-../ppl_prolog_Pointset_Powerset_Int32_Box.cc \
-../ppl_prolog_Pointset_Powerset_Int64_Box.cc \
-../ppl_prolog_Pointset_Powerset_Uint8_Box.cc \
-../ppl_prolog_Pointset_Powerset_Uint16_Box.cc \
-../ppl_prolog_Pointset_Powerset_Uint32_Box.cc \
-../ppl_prolog_Pointset_Powerset_Uint64_Box.cc \
-../ppl_prolog_Pointset_Powerset_Float_Box.cc \
-../ppl_prolog_Pointset_Powerset_Double_Box.cc \
-../ppl_prolog_Pointset_Powerset_Long_Double_Box.cc \
-../ppl_prolog_Pointset_Powerset_Rational_Box.cc \
-../ppl_prolog_Pointset_Powerset_Z_Box.cc \
 ../ppl_prolog_Pointset_Powerset_C_Polyhedron.cc \
 ../ppl_prolog_Pointset_Powerset_NNC_Polyhedron.cc \
 ../ppl_prolog_Pointset_Powerset_Grid.cc \

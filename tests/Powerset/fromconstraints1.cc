@@ -64,30 +64,6 @@ test04() {
   return ps.OK() && ps.space_dimension() == 3;
 }
 
-// Construct powerset of boxes from a 0 dimension empty constraint system.
-bool
-test07() {
-  Constraint_System cs = Constraint_System::zero_dim_empty();
-  Pointset_Powerset<TBox> ps(cs);
-
-  print_constraints(ps, "*** ps ***");
-
-  return ps.OK() && ps.is_empty() && ps.space_dimension() == 0;
-}
-
-// Construct powerset of boxes from a non-empty constraint system.
-bool
-test08() {
-  Variable x(0);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  Pointset_Powerset<TBox> ps(cs);
-
-  return ps.OK() && ps.space_dimension() == 1;
-}
-
 // Construct powerset of grids from a 0 dimension empty constraint system.
 bool
 test09() {
@@ -138,8 +114,6 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test04);
-  DO_TEST(test07);
-  DO_TEST(test08);
   DO_TEST(test09);
   DO_TEST(test10);
   DO_TEST(test11);

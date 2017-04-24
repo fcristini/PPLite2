@@ -28,7 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "C_Polyhedron_defs.hh"
 #include "NNC_Polyhedron_defs.hh"
 #include "Grid_defs.hh"
-#include "Rational_Box.hh"
 #include <algorithm>
 
 namespace Parma_Polyhedra_Library {
@@ -45,8 +44,6 @@ max_space_dimension() {
     d = std::min(d, C_Polyhedron::max_space_dimension());
     d = std::min(d, NNC_Polyhedron::max_space_dimension());
     d = std::min(d, Grid::max_space_dimension());
-    // FIXME: what about all other boxes?
-    d = std::min(d, Rational_Box::max_space_dimension());
     computed = true;
   }
   return d;

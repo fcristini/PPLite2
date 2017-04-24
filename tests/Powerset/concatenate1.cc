@@ -46,30 +46,8 @@ test01() {
   return c_ps.OK();
 }
 
-// Powerset of boxes: concatenate_assign().
-bool
-test02() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 1);
-  cs.insert(x <= 3);
-  pps_box.add_disjunct(TBox(cs));
-
-  pps_box.concatenate_assign(pps_box);
-
-  return pps_box.OK();
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

@@ -28,23 +28,14 @@ using namespace Parma_Polyhedra_Library::IO_Operators;
 // #define PH_IS_NNC
 // #define PH_IS_FIRST
 
-// #define PH_IS_BOX
-
 #ifdef PH_IS_NNC
 #define PH_IS_BOX_OR_NNC
 #endif
-#ifdef PH_IS_BOX
-#define PH_IS_BOX_OR_NNC
-#endif
 
-#ifdef PH_IS_BOX
-typedef TBox Poly;
-#else
 #ifdef PH_IS_NNC
 typedef NNC_Polyhedron Poly;
 #else
 typedef C_Polyhedron Poly;
-#endif
 #endif
 
 #ifdef PH_IS_FIRST

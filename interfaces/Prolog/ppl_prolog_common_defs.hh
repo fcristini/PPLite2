@@ -27,7 +27,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_NO_AUTOMATIC_INITIALIZATION
 #include "ppl.hh"
 #include "ppl_prolog_sysdep.hh"
-#include "interfaced_boxes.hh"
 #include <set>
 #include <vector>
 #include <exception>
@@ -663,9 +662,6 @@ term_to_boolean(Prolog_term_ref t, const char* where);
 
 Prolog_atom
 term_to_universe_or_empty(Prolog_term_ref t, const char* where);
-
-Prolog_term_ref
-interval_term(const Parma_Polyhedra_Library::Rational_Box::interval_type& i);
 
 Prolog_atom
 term_to_complexity_class(Prolog_term_ref t, const char* where);

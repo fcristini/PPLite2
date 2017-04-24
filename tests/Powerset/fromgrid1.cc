@@ -95,74 +95,6 @@ test03() {
   return ok;
 }
 
-// Constructs the powerset of boxes from a grid.
-bool
-test10() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<TBox> pps(gr);
-
-  Pointset_Powerset<TBox> known_pps(2);
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBox>::const_iterator i = pps.begin();
-  TBox phi = i->pointset();
-  print_constraints(phi, "*** phi ***");
-
-  return ok;
-}
-
-// Constructs the powerset of boxes from an empty grid.
-bool
-test11() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2, EMPTY);
-
-  Pointset_Powerset<TBox> pps(gr);
-
-  Pointset_Powerset<TBox> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
-}
-
-// Constructs the powerset of boxes from a powerset of grids.
-bool
-test12() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2);
-  gr.add_congruence((2*x %= 1) / 0);
-  gr.add_congruence(y %= 0);
-
-  Pointset_Powerset<Grid> pps_gr(gr);
-
-  Pointset_Powerset<TBox> pps(pps_gr);
-
-  Pointset_Powerset<TBox> known_pps(2);
-
-  known_pps.add_constraint(2*x == 1);
-
-  bool ok = (pps == known_pps);
-
-  Pointset_Powerset<TBox>::const_iterator i = pps.begin();
-  TBox boxi = i->pointset();
-  print_constraints(boxi, "*** boxi ***");
-
-  return ok;
-}
-
 // Constructs the powerset of grids from a grid.
 bool
 test13() {
@@ -190,23 +122,6 @@ test13() {
   print_congruences(gri2, "*** gri2 ***");
 
   return ok && pps1.OK();
-}
-
-// Constructs the powerset of boxes from an empty grid.
-bool
-test14() {
-  Variable x(0);
-  Variable y(1);
-
-  Grid gr(2, EMPTY);
-
-  Pointset_Powerset<TBox> pps(gr);
-
-  Pointset_Powerset<TBox> known_pps(2, EMPTY);
-
-  bool ok = (pps == known_pps);
-
-  return ok;
 }
 
 // Constructs the powerset of grids from a powerset of grids.
@@ -283,11 +198,7 @@ BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
   DO_TEST(test03);
-  DO_TEST(test10);
-  DO_TEST(test11);
-  DO_TEST(test12);
   DO_TEST(test13);
-  DO_TEST(test14);
   DO_TEST(test15);
   DO_TEST(test16);
 END_MAIN

@@ -28,11 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Box_Class 0
-
-#if Box_Class
-typedef TBox Poly;
-#endif
 
 #if NNC_Poly_Class
 typedef NNC_Polyhedron Poly;
@@ -82,13 +77,8 @@ test02() {
   Variable C(2);
 
   Product dp(3);
-#if Box_Class
-  dp.refine_with_constraint(A <= 9);
-  dp.refine_with_constraint(A >= 9);
-#else
   dp.refine_with_constraint(A - C >= 9);
   dp.refine_with_constraint(A - C <= 9);
-#endif
   dp.refine_with_constraint(B >= 2);
 
   bool ok;

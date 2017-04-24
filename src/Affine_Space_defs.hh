@@ -35,7 +35,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Congruence_System_inlines.hh"
 #include "Poly_Con_Relation_defs.hh"
 #include "Poly_Gen_Relation_defs.hh"
-#include "Box_types.hh"
 #include "Polyhedron_types.hh"
 #include "Grid_defs.hh"
 #include <iosfwd>
@@ -461,27 +460,6 @@ public:
     Thrown if \p num_dimensions exceeds the maximum allowed space dimension.
   */
   Affine_Space(Generator_System& gs, Recycle_Input dummy);
-
-  //! Builds an affine space out of a box.
-  /*!
-    The affine space inherits the space dimension of the box.
-    The built affine space is the most precise affine space that
-    includes the box.
-
-    \param box
-    The box representing the affine space to be built.
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p box exceeds the maximum
-    allowed space dimension.
-  */
-  template <typename Interval>
-  explicit Affine_Space(const Box<Interval>& box,
-                        Complexity_Class complexity = ANY_COMPLEXITY);
 
   /*! \brief
     Builds an affine space from a polyhedron using algorithms whose complexity

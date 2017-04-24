@@ -139,18 +139,6 @@ Pointset_Powerset<PSET>
 }
 
 template <typename PSET>
-template <typename Interval>
-Pointset_Powerset<PSET>::Pointset_Powerset(const Box<Interval>& box,
-                                           Complexity_Class)
-  : Base(), space_dim(box.space_dimension()) {
-  Pointset_Powerset& x = *this;
-  if (!box.is_empty()) {
-    x.sequence.push_back(Determinate<PSET>(PSET(box)));
-  }
-  PPL_ASSERT_HEAVY(OK());
-}
-
-template <typename PSET>
 inline
 Pointset_Powerset<PSET>::Pointset_Powerset(const Constraint_System& cs)
   : Base(Determinate<PSET>(cs)), space_dim(cs.space_dimension()) {

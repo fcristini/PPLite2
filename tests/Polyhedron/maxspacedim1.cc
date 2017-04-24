@@ -108,8 +108,6 @@ test01() {
   test01_DO_CLASS(C_Polyhedron);
   test01_DO_CLASS(NNC_Polyhedron);
   test01_DO_CLASS(Grid);
-  // FIXME: what about all other boxes?
-  test01_DO_CLASS(Rational_Box);
   test01_DO_CONSTR_CLASS(Pointset_Powerset, C_Polyhedron);
   test01_DO_CONSTR_CLASS(Pointset_Powerset, NNC_Polyhedron);
   test01_DO_CONSTR_CLASS(Pointset_Powerset, Grid);

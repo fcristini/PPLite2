@@ -87,17 +87,6 @@ C_Polyhedron::C_Polyhedron(Generator_System& gs, Recycle_Input)
                Recycle_Input()) {
 }
 
-template <typename Interval>
-inline
-C_Polyhedron::C_Polyhedron(const Box<Interval>& box, Complexity_Class)
-  : Polyhedron(NECESSARILY_CLOSED,
-               check_obj_space_dimension_overflow(box, NECESSARILY_CLOSED,
-                                                  "C_Polyhedron(box)",
-                                                  "the space dimension of box "
-                                                  "exceeds the maximum allowed "
-                                                  "space dimension")) {
-}
-
 inline
 C_Polyhedron::C_Polyhedron(const C_Polyhedron& y, Complexity_Class)
   : Polyhedron(y) {

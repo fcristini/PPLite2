@@ -94,7 +94,6 @@ identified by their C++ class name, together with the class template
 parameters, if any. These classes include the <EM>simple classes</EM>:
   - \link Parma_Polyhedra_Library::C_Polyhedron \c C_Polyhedron \endlink,
   - \link Parma_Polyhedra_Library::NNC_Polyhedron \c NNC_Polyhedron \endlink,
-  - \link Parma_Polyhedra_Library::Box \c Box\<ITV\> \endlink, and
   - \link Parma_Polyhedra_Library::Grid \c Grid \endlink,
 
 where:
@@ -198,12 +197,6 @@ will throw an exception if supplied with a non-trivial strict inequality
 constraint or a proper congruence; some other operations
 (e.g., \c refine_with_constraint or \c refine_with_congruence)
 will compute an over-approximation.
-
-Similarly, the semantic GD of rational boxes (i.e., multi-dimensional
-intervals) having integral values as interval boundaries provides optimal
-support for all interval constraints: even though the interval constraint
-\f$2x \leq 5\f$ cannot be represented exactly, it will be optimally
-approximated by the constraint \f$x \leq 3\f$.
 
 \note
 When providing an upward approximation for a constraint or congruence,
@@ -1631,7 +1624,7 @@ meet-preserving enlargement simplification of its first argument
 using the second argument as context.
 
 The concept of meet-preserving enlargement and simplification also
-applies to the other basic domains (boxes, grids).
+applies to the other basic domains (grids).
 See below for a definition of the concept of
 \ref Powerset_Meet_Preserving_Simplification "meet-preserving simplification for powerset domains".
 
@@ -1827,17 +1820,6 @@ where \f$n > 0\f$ can be represented by a sequence of \f$n\f$ intervals
 \f$\cB\f$ in \f$\Rset\f$ and  \f$\cP\f$ is a closed polyhedron
 if every bound in the intervals in \f$\cB\f$
 is either closed and bounded or open and unbounded.
-
-\anchor CC76_interval_widening
-\subsection Widening_and_Extrapolation_Operators_on_Boxes Widening and Extrapolation Operators on Boxes
-
-The library provides a widening operator for boxes.
-Given two sequences of intervals defining two \f$n\f$-dimensional boxes, the
-<EM>CC76-widening</EM> applies, for each corresponding interval and bound, the
-interval constraint widening defined in \ref CC76 "[CC76]".
-For extra precision, this incorporates the widening with thresholds
-as defined in \ref BCCetal02 "[BCCetal02]" with
-\f$\{-2, -1, 0, 1, 2\}\f$ as the set of default threshold values.
 
 \section Weakly_Relational_Shapes Weakly-Relational Shapes
 
@@ -2241,7 +2223,7 @@ where \f$\vect{w} \in \cL\f$ and
 \f]
 
 Observe that the above definition is also applied to other simple objects in
-the library like polyhedra and boxes
+the library like polyhedra
 and in such cases the definition of frequency can be simplified.
 For instance, the frequency for an object \f$\cP \in \Pset_n\f$ is
 defined if and only if there is a unique value \f$c\f$ such that
@@ -2872,8 +2854,7 @@ for the disjunct domain template \p PSET and component domain
 templates \p D1 and \p D2:
 <CODE>C_Polyhedron</CODE>,
 <CODE>NNC_Polyhedron</CODE>,
-<CODE>Grid</CODE>,
-<CODE>Box<T></CODE>.
+<CODE>Grid</CODE>.
 
 \subsection On_Object_Orientation_and_Polymorphism_A_Disclaimer On Object-Orientation and Polymorphism: A Disclaimer
 

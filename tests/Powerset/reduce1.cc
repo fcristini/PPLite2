@@ -48,28 +48,6 @@ test01() {
   return ok;
 }
 
-// Powerset of boxes: omega_reduce().
-bool
-test02() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 0);
-  cs.insert(x <= 3);
-  pps_box.add_disjunct(TBox(cs));
-  pps_box.omega_reduce();
-
-  bool ok = (pps_box.size() == 1);
-
-  return ok;
-}
-
 /* test07() in difference1.cc includes a use of pairwise_reduce
    for C polyhedra. */
 
@@ -77,5 +55,4 @@ test02() {
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

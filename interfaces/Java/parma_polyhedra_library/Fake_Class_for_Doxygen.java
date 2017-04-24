@@ -1173,7 +1173,7 @@ public class C_Polyhedron extends Polyhedron {
 /*! \ingroup PPL_Java_interface
   The powerset domains can be instantiated by taking as a base domain
   any fixed semantic geometric description
-  (C and NNC polyhedra, boxes and grids).
+  (C and NNC polyhedra and grids).
   An element of the powerset domain represents a disjunctive collection
   of base objects (its disjuncts), all having the same space dimension.
 

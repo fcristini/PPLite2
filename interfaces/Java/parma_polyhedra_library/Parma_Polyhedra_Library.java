@@ -84,11 +84,6 @@ site: http://bugseng.com/products/ppl/ . */
     - The simple domains are:
       - convex polyhedra, which consist of C_Polyhedron and
         NNC_Polyhedron;<BR>
-      - boxes which consist of
-        Int8_Box, Int16_Box, Int32_Box, Int64_Box,
-        Uint8_Box, Uint16_Box, Uint32_Box, Uint64_Box,
-        Float_Box, Double_Box, Long_Double_Box,
-        Z_Box, Rational_Box; and<BR>
       - the Grid domain.
     - The powerset domains are Pointset_Powerset_S where S is
       a simple domain.

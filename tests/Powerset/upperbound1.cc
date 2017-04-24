@@ -90,75 +90,9 @@ test02() {
   return ok && ok1;
 }
 
-// Powerset of boxes: upper_bound_assign().
-bool
-test03() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 1);
-  cs.insert(x <= 3);
-
-  Pointset_Powerset<TBox> pps_box1(1, EMPTY);
-  pps_box1.add_disjunct(TBox(cs));
-  pps_box.upper_bound_assign(pps_box1);
-
-  cs.clear();
-  cs.insert(x >= 0);
-  cs.insert(x <= 3);
-
-  Pointset_Powerset<TBox> pps_box2(1, EMPTY);
-  pps_box2.add_disjunct(TBox(cs));
-
-  bool ok = pps_box.definitely_entails(pps_box2);
-  bool ok1 = !pps_box2.definitely_entails(pps_box);
-
-  return ok && ok1;
-}
-
-// Powerset of boxes: least_upper_bound_assign().
-bool
-test04() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 1);
-  cs.insert(x <= 3);
-
-  Pointset_Powerset<TBox> pps_box1(1, EMPTY);
-  pps_box1.add_disjunct(TBox(cs));
-  pps_box.least_upper_bound_assign(pps_box1);
-
-  cs.clear();
-  cs.insert(x >= 0);
-  cs.insert(x <= 3);
-
-  Pointset_Powerset<TBox> pps_box2(1, EMPTY);
-  pps_box2.add_disjunct(TBox(cs));
-
-  bool ok = pps_box.definitely_entails(pps_box2);
-  bool ok1 = !pps_box2.definitely_entails(pps_box);
-
-  return ok && ok1;
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
   DO_TEST(test02);
-  DO_TEST(test03);
-  DO_TEST(test04);
 END_MAIN

@@ -94,42 +94,6 @@ test04() {
   return b;
 }
 
-// Powerset of boxes: !empty().
-bool
-test05() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  Pointset_Powerset<TBox> pps_box1;
-  pps_box1 = pps_box;
-
-  bool ok = !pps_box.empty();
-  return ok;
-}
-
-// Powerset of boxes: empty().
-bool
-test06() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  Pointset_Powerset<TBox> pps_box1(1, EMPTY);
-  swap(pps_box, pps_box1);
-
-  bool ok = (pps_box.empty() && !pps_box1.empty());
-  return ok;
-}
-
 } // namespace
 
 BEGIN_MAIN
@@ -137,6 +101,4 @@ BEGIN_MAIN
   DO_TEST(test02);
   DO_TEST(test03);
   DO_TEST(test04);
-  DO_TEST(test05);
-  DO_TEST(test06);
 END_MAIN

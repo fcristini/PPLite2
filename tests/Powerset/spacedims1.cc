@@ -29,93 +29,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace {
 
-// Powerset of C polyhedra: add_space_dimensions_and_embed(),
-// add_space_dimensions_and_project().
-bool
-test01() {
-  Variable x(0);
-
-  C_Polyhedron ph1(1);
-  ph1.add_constraint(x == 1);
-
-  C_Polyhedron ph2(1);
-  ph2.add_constraint(x <= 2);
-  Pointset_Powerset<C_Polyhedron> ps(1, EMPTY);
-
-  ps.add_disjunct(ph1);
-  ps.add_disjunct(ph2);
-
-  dimension_type m = 2;
-
-  ps.add_space_dimensions_and_embed(m);
-  bool ok = (ps.space_dimension() == 3 && ps.affine_dimension() == 3);
-
-  ps.add_space_dimensions_and_project(m);
-  bool ok1 = (ps.space_dimension() == 5 && ps.affine_dimension() == 3);
-
-  ps.remove_higher_space_dimensions(4);
-  bool ok2 = (ps.space_dimension() == 4 && ps.affine_dimension() == 3);
-
-  Pointset_Powerset<Rational_Box> psb(7, EMPTY);
-  Rational_Box b(7);
-  b.add_constraint(x >= 1);
-  b.add_constraint(x <= 0);
-  psb.add_disjunct(b);
-  bool ok3 = (psb.space_dimension() == 7 && psb.affine_dimension() == 0);
-
-  Pointset_Powerset<Grid> psg(7, EMPTY);
-  Grid g(7);
-  g.add_congruence((x %= 0) / 2);
-  g.add_congruence((x %= 1) / 2);
-  psg.add_disjunct(g);
-  bool ok4 = (psg.space_dimension() == 7 && psg.affine_dimension() == 0);
-
-  return ok && ok1 && ok2 && ok3 && ok4 && ps.OK();
-}
-
-// Powerset of C polyhedra: remove_higher_space_dimensions().
-bool
-test02() {
-  Variable x(0);
-
-  C_Polyhedron ph1(1);
-  ph1.add_constraint(x == 1);
-
-  C_Polyhedron ph2(1);
-  ph2.add_constraint(x <= 2);
-  Pointset_Powerset<C_Polyhedron> ps(1, EMPTY);
-
-  ps.add_disjunct(ph1);
-  ps.add_disjunct(ph2);
-
-  dimension_type m = 2;
-
-  ps.add_space_dimensions_and_embed(m);
-  bool ok = (ps.space_dimension() == 3 && ps.affine_dimension() == 3);
-
-  ps.add_space_dimensions_and_project(m);
-  bool ok1 = (ps.space_dimension() == 5 && ps.affine_dimension() == 3);
-
-  ps.remove_higher_space_dimensions(4);
-  bool ok2 = (ps.space_dimension() == 4 && ps.affine_dimension() == 3);
-
-  Pointset_Powerset<Rational_Box> psb(7, EMPTY);
-  Rational_Box b(7);
-  b.add_constraint(x >= 1);
-  b.add_constraint(x <= 0);
-  psb.add_disjunct(b);
-  bool ok3 = (psb.space_dimension() == 7 && psb.affine_dimension() == 0);
-
-  Pointset_Powerset<Grid> psg(7, EMPTY);
-  Grid g(7);
-  g.add_congruence((x %= 0) / 2);
-  g.add_congruence((x %= 1) / 2);
-  psg.add_disjunct(g);
-  bool ok4 = (psg.space_dimension() == 7 && psg.affine_dimension() == 0);
-
-  return ok && ok1 && ok2 && ok3 && ok4 && ps.OK();
-}
-
 // Powerset of C polyhedra: remove_space_dimensions().
 bool
 test03() {
@@ -205,8 +118,6 @@ test05() {
 } // namespace
 
 BEGIN_MAIN
-  DO_TEST(test01);
-  DO_TEST(test02);
   DO_TEST(test03);
   DO_TEST(test04);
   DO_TEST(test05);

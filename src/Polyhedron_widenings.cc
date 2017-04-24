@@ -25,7 +25,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "ppl-config.h"
 #include "Polyhedron_defs.hh"
 #include "BHRZ03_Certificate_defs.hh"
-#include "Rational_Box.hh"
 #include "Scalar_Products_defs.hh"
 #include "Scalar_Products_inlines.hh"
 #include "assertions.hh"
@@ -380,18 +379,6 @@ PPL::Polyhedron::limited_H79_extrapolation_assign(const Polyhedron& y,
   x.H79_widening_assign(y, tp);
   x.add_recycled_constraints(new_cs);
   PPL_ASSERT_HEAVY(OK());
-}
-
-void
-PPL::Polyhedron::bounded_H79_extrapolation_assign(const Polyhedron& y,
-                                                  const Constraint_System& cs,
-                                                  unsigned* tp) {
-  Rational_Box x_box(*this, ANY_COMPLEXITY);
-  const Rational_Box y_box(y, ANY_COMPLEXITY);
-  x_box.CC76_widening_assign(y_box);
-  limited_H79_extrapolation_assign(y, cs, tp);
-  Constraint_System x_box_cs = x_box.constraints();
-  add_recycled_constraints(x_box_cs);
 }
 
 bool
@@ -921,17 +908,4 @@ PPL::Polyhedron
   x.BHRZ03_widening_assign(y, tp);
   x.add_recycled_constraints(new_cs);
   PPL_ASSERT_HEAVY(OK());
-}
-
-void
-PPL::Polyhedron
-::bounded_BHRZ03_extrapolation_assign(const Polyhedron& y,
-                                      const Constraint_System& cs,
-                                      unsigned* tp) {
-  Rational_Box x_box(*this, ANY_COMPLEXITY);
-  const Rational_Box y_box(y, ANY_COMPLEXITY);
-  x_box.CC76_widening_assign(y_box);
-  limited_BHRZ03_extrapolation_assign(y, cs, tp);
-  Constraint_System x_box_cs = x_box.constraints();
-  add_recycled_constraints(x_box_cs);
 }

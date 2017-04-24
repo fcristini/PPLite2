@@ -148,7 +148,6 @@ iterator_to_const_types.hh \
 distances_types.hh \
 Interval_Info_types.hh \
 Interval_types.hh \
-Box_types.hh \
 Constraint_types.hh \
 Generator_types.hh \
 Grid_Generator_types.hh \
@@ -242,13 +241,8 @@ Interval_Info_inlines.hh \
 Interval_defs.hh \
 Interval_inlines.hh \
 Interval_templates.hh \
-Box_defs.hh \
-Box_Status_inlines.hh \
-Box_inlines.hh \
-Box_templates.hh \
 Integer_Interval.hh \
 Rational_Interval.hh \
-Rational_Box.hh \
 Variable_defs.hh \
 Variable_inlines.hh \
 Variables_Set_defs.hh \
@@ -463,17 +457,14 @@ Threshold_Watcher_templates.hh
 
 NESTED_INCLUDE_FILES = \
 Ph_Status_idefs.hh \
-Grid_Status_idefs.hh \
-Box_Status_idefs.hh
+Grid_Status_idefs.hh
 
 libppl_la_SOURCES = \
 assertions.cc \
-Box.cc \
 checked.cc \
 Checked_Number.cc \
 Float.cc \
 fpu-ia32.cc \
-Box_Status.cc \
 Concrete_Expression.cc \
 Constraint.cc \
 Constraint_System.cc \

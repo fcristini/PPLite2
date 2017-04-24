@@ -669,7 +669,6 @@ ppl-1.2
 |   |       |-- smm.clpq
 |   |       |-- sumto.clpq
 |   |       `-- tak.clpq
-|   |-- interfaced_boxes.hh
 |   |-- marked_pointers.hh
 |   |-- ppl_interface_generator_common.m4
 |   |-- ppl_interface_generator_common_dat.m4
@@ -733,14 +732,6 @@ ppl-1.2
 |   |-- Bit_Row_inlines.hh
 |   |-- Bit_Row_types.hh
 |   |-- Boundary_defs.hh
-|   |-- Box.cc
-|   |-- Box_Status.cc
-|   |-- Box_Status_idefs.hh
-|   |-- Box_Status_inlines.hh
-|   |-- Box_defs.hh
-|   |-- Box_inlines.hh
-|   |-- Box_templates.hh
-|   |-- Box_types.hh
 |   |-- COPYING.cc.dist
 |   |-- COPYING.hh.dist
 |   |-- CO_Tree.cc
@@ -1006,7 +997,6 @@ ppl-1.2
 |   |-- Ptr_Iterator_defs.hh
 |   |-- Ptr_Iterator_inlines.hh
 |   |-- Ptr_Iterator_types.hh
-|   |-- Rational_Box.hh
 |   |-- Rational_Interval.hh
 |   |-- Result_defs.hh
 |   |-- Result_inlines.hh
@@ -1130,78 +1120,6 @@ ppl-1.2
 |   `-- wrap_string.hh
 |-- test-driver
 |-- tests
-|   |-- Box
-|   |   |-- Makefile.am
-|   |   |-- Makefile.in
-|   |   |-- addconstraints1.cc
-|   |   |-- addspacedims1.cc
-|   |   |-- affinedimension1.cc
-|   |   |-- affineimage1.cc
-|   |   |-- affinepreimage1.cc
-|   |   |-- ascii_dump_load1.cc
-|   |   |-- bgp99extrapolation1.cc
-|   |   |-- bhz03widening1.cc
-|   |   |-- bounded1.cc
-|   |   |-- boundedaffineimage1.cc
-|   |   |-- boundedaffinepreimage1.cc
-|   |   |-- cc76narrowing1.cc
-|   |   |-- cc76widening.cc
-|   |   |-- concatenate1.cc
-|   |   |-- congruences1.cc
-|   |   |-- constrains1.cc
-|   |   |-- constraints1.cc
-|   |   |-- contains1.cc
-|   |   |-- containsintegerpoint1.cc
-|   |   |-- difference1.cc
-|   |   |-- discrete1.cc
-|   |   |-- disjoint1.cc
-|   |   |-- empty1.cc
-|   |   |-- equality1.cc
-|   |   |-- expandspacedim1.cc
-|   |   |-- foldspacedims1.cc
-|   |   |-- frequency1.cc
-|   |   |-- frombox1.cc
-|   |   |-- fromgensys1.cc
-|   |   |-- fromgrid1.cc
-|   |   |-- frompartiallyreducedproduct1.cc
-|   |   |-- frompolyhedron1.cc
-|   |   |-- frompolyhedron2.cc
-|   |   |-- fromspacedim1.cc
-|   |   |-- generalizedaffineimage1.cc
-|   |   |-- generalizedaffineimage2.cc
-|   |   |-- generalizedaffinepreimage1.cc
-|   |   |-- geomcovers1.cc
-|   |   |-- intersection1.cc
-|   |   |-- interval1.cc
-|   |   |-- limitedcc76extrapolation1.cc
-|   |   |-- mapspacedims1.cc
-|   |   |-- max_min1.cc
-|   |   |-- maxspacedim1.cc
-|   |   |-- membytes1.cc
-|   |   |-- minconstraints1.cc
-|   |   |-- propagateconstraints1.cc
-|   |   |-- propagateconstraints2.cc
-|   |   |-- refinewithcongruence1.cc
-|   |   |-- refinewithcongruences1.cc
-|   |   |-- refinewithconstraint1.cc
-|   |   |-- refinewithconstraint2.cc
-|   |   |-- refinewithconstraints1.cc
-|   |   |-- refinewithconstraints2.cc
-|   |   |-- relations1.cc
-|   |   |-- relations2.cc
-|   |   |-- relations3.cc
-|   |   |-- relations4.cc
-|   |   |-- removespacedims1.cc
-|   |   |-- run_tests
-|   |   |-- simplifyusingcontext1.cc
-|   |   |-- timeelapse1.cc
-|   |   |-- topclosed1.cc
-|   |   |-- unconstrain1.cc
-|   |   |-- universe1.cc
-|   |   |-- upperbound1.cc
-|   |   |-- upperboundifexact1.cc
-|   |   |-- wrap1.cc
-|   |   `-- writebox1.cc
 |   |-- CO_Tree
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in
@@ -1260,7 +1178,6 @@ ppl-1.2
 |   |   |-- expandspacedim1.cc
 |   |   |-- foldspacedims1.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
 |   |   |-- frompolyhedron1.cc
 |   |   |-- generalizedaffineimage1.cc
@@ -1355,7 +1272,6 @@ ppl-1.2
 |   |   |-- disjoint1.cc
 |   |   |-- dropsomenonintegerpoints1.cc
 |   |   |-- equals1.cc
-|   |   |-- frombox1.cc
 |   |   |-- fromgrid1.cc
 |   |   |-- frompolyhedron1.cc
 |   |   |-- fromproduct1.cc
@@ -1433,8 +1349,6 @@ ppl-1.2
 |   |   |-- foldspacedims1.cc
 |   |   |-- foldspacedims2.cc
 |   |   |-- frequency1.cc
-|   |   |-- frombox1.cc
-|   |   |-- frombox2.cc
 |   |   |-- fromgrid1.cc
 |   |   |-- generalizedaffineimage1.cc
 |   |   |-- generalizedaffineimage2.cc
@@ -1533,7 +1447,6 @@ ppl-1.2
 |   |   |-- empty1.cc
 |   |   |-- entails1.cc
 |   |   |-- equals1.cc
-|   |   |-- frombox1.cc
 |   |   |-- fromcongruences1.cc
 |   |   |-- fromconstraints1.cc
 |   |   |-- fromgrid1.cc

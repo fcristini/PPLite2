@@ -70,72 +70,6 @@ test01() {
   return ok && ok1;
 }
 
-// Powerset of boxes: affine_image() and intersection_assign().
-bool
-test02() {
-  Variable x(0);
-  Constraint_System cs;
-  Pointset_Powerset<TBox> ps1(1, EMPTY);
-
-  cs.clear();
-  cs.insert(x > 0);
-  cs.insert(x <= 1);
-  ps1.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 0);
-  cs.insert(x < 1);
-  ps1.add_disjunct(TBox(cs));
-
-  Pointset_Powerset<TBox> ps2(ps1);
-  ps2.affine_image(x, 2*x+1, 2);
-
-  print_constraints(ps1, "*** ps1 ***");
-  print_constraints(ps2, "*** ps2 ***");
-
-  ps1.intersection_assign(ps2);
-
-  Pointset_Powerset<TBox> known_result(1, EMPTY);
-  TBox box(1);
-  box.add_constraint(2*x >= 1);
-  box.add_constraint(2*x <= 2);
-  known_result.add_disjunct(box);
-
-  bool ok = (ps1 == known_result);
-
-  print_constraints(ps1, "*** ps1.intersect_assign(ps2) ***");
-  print_constraints(known_result, "*** known_result ***");
-
-  return ok;
-}
-
-// Powerset of Boxes: affine_image().
-bool
-test03() {
-  Variable x(0);
-  Variable y(1);
-  Variable z(2);
-
-  Pointset_Powerset<TBox> ps(3, EMPTY);
-  for (int i = -10; i <= 9; ++i) {
-    TBox pps_box(3, UNIVERSE);
-    pps_box.add_constraint(i <= x);
-    pps_box.add_constraint(x <= i+1);
-    const TBox::interval_type& ix = pps_box.get_interval(x);
-    TBox::interval_type iy = ix*ix;
-    pps_box.set_interval(y, iy);
-    ps.add_disjunct(pps_box);
-  }
-
-  print_constraints(ps, "*** ps ***");
-
-  ps.affine_image(z, y+2*x+1, 2);
-
-  print_constraints(ps, "*** ps ***");
-
-  return ps.OK();
-}
-
 // Powerset of polyhedra: generalized_affine_image(
 //                          const Linear_Expression&,
 //                          Relation_Symbol relsym,
@@ -233,8 +167,6 @@ test05() {
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
-  DO_TEST(test03);
   DO_TEST(test04);
   DO_TEST(test05);
 END_MAIN

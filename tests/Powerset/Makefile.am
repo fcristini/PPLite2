@@ -71,7 +71,6 @@ disjunct1 \
 empty1 \
 entails1 \
 equals1 \
-frombox1 \
 fromcongruences1 \
 fromconstraints1 \
 fromgrid1 \
@@ -135,8 +134,6 @@ empty1_SOURCES = empty1.cc
 entails1_SOURCES = entails1.cc
 
 equals1_SOURCES = equals1.cc
-
-frombox1_SOURCES = frombox1.cc
 
 fromcongruences1_SOURCES = fromcongruences1.cc
 

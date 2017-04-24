@@ -337,10 +337,6 @@ catch (const std::exception& e) {                                       \
 #define C_Polyhedron NNC_Polyhedron
 #endif
 
-#ifndef BOX_INSTANCE
-#define BOX_INSTANCE rt_r_oc
-#endif
-
 namespace Parma_Polyhedra_Library {
 
 namespace Test {
@@ -448,9 +444,6 @@ typedef Interval_Info_Bitset<unsigned int,
 
 typedef Interval<mpq_class, Rational_Real_Open_Interval_Info> rt_r_oc;
 
-//! The incarnation of Box under test.
-typedef Box<BOX_INSTANCE> TBox;
-
 // For floating point analysis.
 #ifdef ANALYZER_FP_FORMAT
 #ifdef ANALYZED_FP_FORMAT
@@ -460,9 +453,6 @@ typedef Interval<ANALYZER_FP_FORMAT,
 
 //! The type of an interval linear form.
 typedef Linear_Form<FP_Interval> FP_Linear_Form;
-
-//! The type of an interval abstract store.
-typedef Box<FP_Interval> FP_Interval_Abstract_Store;
 
 //! The type of a linear form abstract store.
 typedef std::map<dimension_type, FP_Linear_Form>
@@ -477,130 +467,9 @@ has_exact_coefficient_type(const Shape&) {
   return std::numeric_limits<typename Shape::coefficient_type>::is_exact;
 }
 
-template <typename Interval>
-inline bool
-has_exact_coefficient_type(const Box<Interval>&) {
-  return std::numeric_limits<typename Interval::boundary_type>::is_exact;
-}
-
 bool
 check_distance(const Checked_Number<mpq_class, Extended_Number_Policy>& d,
                const char* max_d_s, const char* d_name);
-
-
-template <typename Interval>
-bool
-check_result_i(const Box<Interval>& computed_result,
-               const Rational_Box& known_result,
-               const char* max_r_d_s,
-               const char* max_e_d_s,
-               const char* max_l_d_s) {
-  Rational_Box q_computed_result(computed_result);
-  // Handle in a more efficient way the case where equality is expected.
-  if (max_r_d_s == 0 && max_e_d_s == 0 && max_l_d_s == 0) {
-    if (q_computed_result != known_result) {
-      using IO_Operators::operator<<;
-      nout << "Equality does not hold:"
-           << "\ncomputed result is\n"
-           << q_computed_result
-           << "\nknown result is\n"
-           << known_result
-           << std::endl;
-      return false;
-    }
-    else
-      return true;
-  }
-
-  if (!q_computed_result.contains(known_result)) {
-    using IO_Operators::operator<<;
-    nout << "Containment does not hold:"
-         << "\ncomputed result is\n"
-         << q_computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-    nout << "Individual dimensions where containment does not hold"
-         << "\n(Variable: computed-result known-result):\n";
-    for (dimension_type i = 0; i < computed_result.space_dimension(); ++i) {
-      if (!q_computed_result.get_interval(Variable(i))
-          .contains(known_result.get_interval(Variable(i)))) {
-        using IO_Operators::operator<<;
-        nout << Variable(i) << ": "
-             << q_computed_result.get_interval(Variable(i))
-             << ' '
-             << known_result.get_interval(Variable(i))
-             << std::endl;
-      }
-    }
-    return false;
-  }
-
-  Checked_Number<mpq_class, Extended_Number_Policy> r_d;
-  rectilinear_distance_assign(r_d, known_result, q_computed_result, ROUND_UP);
-  Checked_Number<mpq_class, Extended_Number_Policy> e_d;
-  euclidean_distance_assign(e_d, known_result, q_computed_result, ROUND_UP);
-  Checked_Number<mpq_class, Extended_Number_Policy> l_d;
-  l_infinity_distance_assign(l_d, known_result, q_computed_result, ROUND_UP);
-  bool ok_r = check_distance(r_d, max_r_d_s, "rectilinear");
-  bool ok_e = check_distance(e_d, max_e_d_s, "euclidean");
-  bool ok_l = check_distance(l_d, max_l_d_s, "l_infinity");
-  bool ok = ok_r && ok_e && ok_l;
-  if (!ok) {
-    using IO_Operators::operator<<;
-    nout << "Computed result is\n"
-         << q_computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-  }
-  return ok;
-}
-
-template <typename Interval>
-bool
-check_result(const Box<Interval>& computed_result,
-             const Rational_Box& known_result,
-             const char* max_r_d_s,
-             const char* max_e_d_s,
-             const char* max_l_d_s) {
-  return std::numeric_limits<typename Interval::boundary_type>::is_integer
-    ? check_result_i(computed_result, known_result,
-                     "+inf", "+inf", "+inf")
-    : check_result_i(computed_result, known_result,
-                     max_r_d_s, max_e_d_s, max_l_d_s);
-}
-
-template <typename Interval>
-bool
-check_result(const Box<Interval>& computed_result,
-             const Box<Interval>& known_result) {
-  if (computed_result == known_result)
-    return true;
-  else {
-    using IO_Operators::operator<<;
-    nout << "Equality does not hold:"
-         << "\ncomputed result is\n"
-         << computed_result
-         << "\nknown result is\n"
-         << known_result
-         << std::endl;
-    return false;
-  }
-}
-
-template <typename Interval>
-bool
-check_result(const Box<Interval>& computed_result,
-             const Rational_Box& known_result) {
-  return std::numeric_limits<typename Interval::boundary_type>::is_integer
-    ? check_result_i(computed_result, known_result, "+inf", "+inf", "+inf")
-    : check_result_i(computed_result, known_result, 0, 0, 0);
-}
-
-bool
-check_result(const Rational_Box& computed_result,
-             const Rational_Box& known_result);
 
 bool
 check_result(const Generator& computed_result,
@@ -795,17 +664,6 @@ print_constraints(const Affine_Space& affs,
                   const std::string& intro = "",
                   std::ostream& s = nout);
 #endif
-
-template <typename Interval>
-void
-print_constraints(const Box<Interval>& box,
-                  const std::string& intro = "",
-                  std::ostream& s = nout) {
-  if (!intro.empty())
-    s << intro << std::endl;
-  using IO_Operators::operator<<;
-  s << box << std::endl;
-}
 
 template <typename PH>
 void

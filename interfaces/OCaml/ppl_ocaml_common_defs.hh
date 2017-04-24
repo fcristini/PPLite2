@@ -25,7 +25,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_ppl_ocaml_common_defs_hh 1
 
 #include "ppl.hh"
-#include "interfaced_boxes.hh"
 #include "marked_pointers.hh"
 
 // Note: throw exception if the error is at the OCaml interface level.

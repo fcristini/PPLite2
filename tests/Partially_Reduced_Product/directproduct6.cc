@@ -31,11 +31,6 @@ for the product domains */
 // ONE AND ONLY ONE OF THESE MUST BE 1
 #define NNC_Poly_Class 1
 #define C_Poly_Class 0
-#define Box_Class 0
-
-#if Box_Class
-typedef TBox Poly;
-#endif
 
 #if NNC_Poly_Class
 typedef NNC_Polyhedron Poly;
@@ -122,15 +117,8 @@ test05() {
   Variable B(1);
 
   Product dp(2);
-#if Box_Class
-  dp.refine_with_constraint(A >= 1);
-  dp.refine_with_constraint(A <= 1);
-  dp.refine_with_constraint(B >= 1);
-  dp.refine_with_constraint(B <= 0);
-#else
   dp.refine_with_constraint(A - B >= 1);
   dp.refine_with_constraint(A - B <= 1);
-#endif
   dp.refine_with_congruence(3*B %= 2);
 
   Linear_Expression le = A - B;
@@ -264,15 +252,8 @@ test11() {
   Variable B(1);
 
   Product dp(2);
-#if Box_Class
-  dp.refine_with_constraint(A >= 2);
-  dp.refine_with_constraint(A <= 2);
-  dp.refine_with_constraint(B >= 1);
-  dp.refine_with_constraint(B <= 1);
-#else
   dp.refine_with_constraint(A - B >= 1);
   dp.refine_with_constraint(A - B <= 1);
-#endif
   dp.refine_with_congruence(3*B %= 2);
 ;
   Linear_Expression le = A - B;
@@ -346,15 +327,8 @@ test13() {
   dp.refine_with_constraint(A - B > 0);
   dp.refine_with_constraint(A - B < 1);
 #else
-#if !Box_Class
   dp.refine_with_constraint(A - B >= 0);
   dp.refine_with_constraint(A - B <= 1);
-#else
-  dp.refine_with_constraint(A >= 2);
-  dp.refine_with_constraint(A <= 2);
-  dp.refine_with_constraint(B <= 2);
-  dp.refine_with_constraint(B >= 1);
-#endif
 #endif
   dp.refine_with_congruence(3*B %= 2);
 
@@ -391,7 +365,6 @@ test13() {
   return ok;
 }
 
-#if !Box_Class
 // Non-empty product. bounded_affine_image/3
 bool
 test14() {
@@ -511,43 +484,8 @@ test17() {
 
   return ok;
 }
-#endif
 
-typedef Domain_Product<TBox, Grid>::Direct_Product TBox_Grid;
-typedef Domain_Product<Grid, TBox>::Direct_Product Grid_TBox;
 typedef Domain_Product<NNC_Polyhedron, Grid>::Direct_Product NNCPoly_Grid;
-
-// TBox_Grid(nnc_polyhedron, POLYNOMIAL_COMPLEXITY).
-bool
-test18() {
-  Variable x(0);
-  Variable y(1);
-
-  C_Polyhedron ph(2);
-  ph.refine_with_constraint(3*x + y >= 2);
-  ph.refine_with_constraint(x <= 4);
-  ph.refine_with_constraint(y <= 4);
-
-  TBox_Grid pdp(ph, POLYNOMIAL_COMPLEXITY);
-
-  TBox_Grid ndp(ph);
-
-  TBox_Grid known_dp(2);
-  known_dp.refine_with_constraint(3*x >= -2);
-  known_dp.refine_with_constraint(x <= 4);
-  known_dp.refine_with_constraint(y >= -10);
-  known_dp.refine_with_constraint(y <= 4);
-
-  bool ok = (ndp == known_dp && pdp == known_dp);
-
-  print_constraints(ph, "*** ph ***");
-  print_constraints(ndp, "*** ndp ***");
-  print_congruences(ndp, "*** ndp ***");
-  print_constraints(pdp, "*** pdp ***");
-  print_congruences(pdp, "*** pdp ***");
-
-  return ok;
-}
 
 // Copy constructor.
 bool
@@ -565,66 +503,6 @@ test19() {
 
   NNCPoly_Grid known_dp(1);
   known_dp.refine_with_constraint(A >= 0);
-
-  bool ok = (dp == known_dp && dp1 == known_dp);
-
-  print_congruences(dp, "*** dp congruences ***");
-  print_constraints(dp, "*** dp constraints ***");
-  print_congruences(dp1, "*** dp1 congruences ***");
-  print_constraints(dp1, "*** dp1 constraints ***");
-
-  return ok && dp.OK();
-}
-
-// Constructing an NNCPoly_Grid from a TBox_Grid.
-bool
-test20() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  TBox_Grid src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid dp(src, POLYNOMIAL_COMPLEXITY);
-
-  NNCPoly_Grid dp1(src);
-
-  NNCPoly_Grid known_dp(1);
-  known_dp.refine_with_constraint(A >= 0);
-  known_dp.refine_with_congruence(A %= 0);
-
-  bool ok = (dp == known_dp && dp1 == known_dp);
-
-  print_congruences(dp, "*** dp congruences ***");
-  print_constraints(dp, "*** dp constraints ***");
-  print_congruences(dp1, "*** dp1 congruences ***");
-  print_constraints(dp1, "*** dp1 constraints ***");
-
-  return ok && dp.OK();
-}
-
-// Constructing an NNCPoly_Grid from a Grid_TBox.
-bool
-test21() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  Grid_TBox src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid dp(src, POLYNOMIAL_COMPLEXITY);
-
-  NNCPoly_Grid dp1(src);
-
-  NNCPoly_Grid known_dp(1);
-  known_dp.refine_with_constraint(A >= 0);
-  known_dp.refine_with_congruence(A %= 0);
 
   bool ok = (dp == known_dp && dp1 == known_dp);
 
@@ -673,15 +551,10 @@ BEGIN_MAIN
   DO_TEST(test11);
   DO_TEST(test12);
   DO_TEST(test13);
-#if !Box_Class
   DO_TEST(test14);
   DO_TEST(test15);
   DO_TEST(test16);
   DO_TEST(test17);
-#endif
-  DO_TEST(test18);
   DO_TEST(test19);
-  DO_TEST(test20);
-  DO_TEST(test21);
   DO_TEST(test22);
 END_MAIN

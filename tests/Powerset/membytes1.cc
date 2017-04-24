@@ -44,26 +44,8 @@ test01() {
   return ok && ok1;
 }
 
-// Powerset of boxes: total_memory_in_bytes() and external_memory_in_bytes().
-bool
-test02() {
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-
-  bool ok = pps_box.is_bottom();
-
-  pps_box.add_disjunct(TBox(1, UNIVERSE));
-
-  bool ok1 = pps_box.is_top();
-
-  pps_box.total_memory_in_bytes();
-  pps_box.external_memory_in_bytes();
-
-  return ok && ok1;
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

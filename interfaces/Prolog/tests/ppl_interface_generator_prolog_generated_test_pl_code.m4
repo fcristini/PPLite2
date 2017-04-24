@@ -1171,13 +1171,6 @@ m4_define(`ppl_@CLASS@_@AFFIMAGE@_code',
        ppl_@CLASS@_@AFFIMAGE@(PS, Var, Var, 2),
        ppl_@CLASS@_@AFFIMAGE@(PS, Var, 2*Var, 1)
      ),
-dnl  FIXME: This fails with Uint??_Box domains for many of the tests
-dnl      (predicate_exists(ppl_@CLASS@_equals_@CLASS@)
-dnl      ->
-dnl        ppl_@CLASS@_equals_@CLASS@(PS, PS_Copy)
-dnl      ;
-dnl        true
-dnl      ),
      ppl_@CLASS@_OK(PS),
      ppl_delete_@CLASS@(PS),
      ppl_delete_@CLASS@(PS_Copy)

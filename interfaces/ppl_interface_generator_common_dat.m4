@@ -447,7 +447,6 @@ shape,
 wr_shape,
 polyhedron,
 grid,
-box,
 pointset_powerset,
 product')
 
@@ -463,17 +462,13 @@ pointset_powerset,
 product')
 
 m4_define(`m4_all_group',
-  `Polyhedron, Grid, m4_box_group,
+  `Polyhedron, Grid,
    Pointset_Powerset, m4_product_group')
 m4_define(`m4_simple_pps_group', `m4_simple_group, Pointset_Powerset')
 m4_define(`m4_simple_group', `Grid, m4_shape_group')
-m4_define(`m4_shape_group', `Polyhedron, m4_wr_shape_group, m4_box_group')
+m4_define(`m4_shape_group', `Polyhedron, m4_wr_shape_group')
 m4_define(`m4_polyhedron_group', Polyhedron)
 m4_define(`m4_grid_group', Grid)
-m4_define(`m4_box_group',
-  `Rational_Box, Z_Box, Float_Box, Double_Box, Long_Double_Box,
-   Int8_Box, Int16_Box, Int32_Box, Int64_Box,
-   Uint8_Box, Uint16_Box, Uint32_Box, Uint64_Box')
 m4_define(`m4_pointset_powerset_group', Pointset_Powerset)
 m4_define(`m4_product_group',
   `Direct_Product, Smash_Product, Constraints_Product,
@@ -683,20 +678,15 @@ dnl The widening operators.
 m4_define(`m4_widen_replacements', `')
 m4_define(`m4_Polyhedron_widen_replacements', `BHRZ03, H79')
 m4_define(`m4_Grid_widen_replacements', `congruence, generator')
-m4_define(`m4_box_widen_replacements', `CC76')
 m4_define(`m4_Pointset_Powerset_widen_replacements', `BHZ03')
 dnl The a replacement defines the certificates for the widenings
 m4_define(`m4_Polyhedron_a_widen_replacements', `BHRZ03, H79')
 m4_define(`m4_Grid_a_widen_replacements', `Grid, Grid')
-dnl FIXME: This is not in the C++ box domain and will fail if used.
-m4_define(`m4_box_a_widen_replacements', `CC76')
 
 dnl ---------------------------------------------------------------------
 dnl pattern == extrapolation
 dnl ---------------------------------------------------------------------
 m4_define(`m4_extrapolation_replacements', `NONE')
-m4_define(`m4_box_extrapolation_replacements',
-  `CC76')
 
 dnl ---------------------------------------------------------------------
 dnl pattern == widenexp
@@ -706,7 +696,6 @@ m4_define(`m4_widenexpn_replacements', `m4_widen_replacements')
 m4_define(`m4_Polyhedron_widenexpn_replacements',
   `m4_Polyhedron_widen_replacements')
 m4_define(`m4_Grid_widenexpn_replacements', `m4_Grid_widen_replacements')
-m4_define(`m4_box_widenexpn_replacements', `m4_box_widen_replacements')
 m4_define(`m4_Pointset_Powerset_widenexpn_replacements',
   `m4_Pointset_Powerset_widen_replacements')
 

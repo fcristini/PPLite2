@@ -56,40 +56,8 @@ test01() {
   return ok && ok1 && ok2;
 }
 
-// Powerset of boxes: collapse().
-bool
-test02() {
-  Variable x(0);
-  Pointset_Powerset<TBox> pps_box(1, EMPTY);
-  Constraint_System cs;
-
-  cs.insert(x >= 0);
-  cs.insert(x <= 2);
-  pps_box.add_disjunct(TBox(cs));
-
-  cs.clear();
-  cs.insert(x >= 1);
-  cs.insert(x <= 3);
-  pps_box.add_disjunct(TBox(cs));
-
-  pps_box.collapse();
-
-  cs.clear();
-  cs.insert(x >= 0);
-  cs.insert(x <= 3);
-  Pointset_Powerset<TBox> pps_box_expected(1, EMPTY);
-  pps_box_expected.add_disjunct(TBox(cs));
-
-  bool ok = pps_box.definitely_entails(pps_box_expected);
-  bool ok1 = pps_box_expected.definitely_entails(pps_box);
-  bool ok2 = (pps_box.size() == 1);
-
-  return ok && ok1 && ok2;
-}
-
 } // namespace
 
 BEGIN_MAIN
   DO_TEST(test01);
-  DO_TEST(test02);
 END_MAIN

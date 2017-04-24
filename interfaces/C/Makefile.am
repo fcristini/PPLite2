@@ -153,34 +153,8 @@ ppl_c_implementation_common.cc
 nodist_libppl_c_la_SOURCES =
 
 nodist_EXTRA_libppl_c_la_SOURCES = \
-ppl_c_Int8_Box.cc \
-ppl_c_Int16_Box.cc \
-ppl_c_Int32_Box.cc \
-ppl_c_Int64_Box.cc \
-ppl_c_Uint8_Box.cc \
-ppl_c_Uint16_Box.cc \
-ppl_c_Uint32_Box.cc \
-ppl_c_Uint64_Box.cc \
-ppl_c_Float_Box.cc \
-ppl_c_Double_Box.cc \
-ppl_c_Long_Double_Box.cc \
-ppl_c_Rational_Box.cc \
-ppl_c_Z_Box.cc \
 ppl_c_Polyhedron.cc \
 ppl_c_Grid.cc \
-ppl_c_Pointset_Powerset_Int8_Box.cc \
-ppl_c_Pointset_Powerset_Int16_Box.cc \
-ppl_c_Pointset_Powerset_Int32_Box.cc \
-ppl_c_Pointset_Powerset_Int64_Box.cc \
-ppl_c_Pointset_Powerset_Uint8_Box.cc \
-ppl_c_Pointset_Powerset_Uint16_Box.cc \
-ppl_c_Pointset_Powerset_Uint32_Box.cc \
-ppl_c_Pointset_Powerset_Uint64_Box.cc \
-ppl_c_Pointset_Powerset_Float_Box.cc \
-ppl_c_Pointset_Powerset_Double_Box.cc \
-ppl_c_Pointset_Powerset_Long_Double_Box.cc \
-ppl_c_Pointset_Powerset_Rational_Box.cc \
-ppl_c_Pointset_Powerset_Z_Box.cc \
 ppl_c_Pointset_Powerset_C_Polyhedron.cc \
 ppl_c_Pointset_Powerset_NNC_Polyhedron.cc \
 ppl_c_Pointset_Powerset_Grid.cc \

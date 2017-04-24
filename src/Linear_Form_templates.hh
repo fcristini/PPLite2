@@ -26,7 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 #include "Linear_Form_defs.hh"
 #include "Linear_Expression_defs.hh"
-#include "Box_defs.hh"
 #include <stdexcept>
 #include <iostream>
 #include <cmath>

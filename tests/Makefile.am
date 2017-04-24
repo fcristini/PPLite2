@@ -28,7 +28,6 @@ CO_Tree \
 PIP_Problem \
 Powerset \
 Partially_Reduced_Product \
-Box \
 MIP_Problem \
 Polyhedron \
 Grid \

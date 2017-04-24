@@ -154,26 +154,6 @@ public:
   explicit NNC_Polyhedron(const C_Polyhedron& y,
                           Complexity_Class complexity = ANY_COMPLEXITY);
 
-  //! Builds an NNC polyhedron out of a box.
-  /*!
-    The polyhedron inherits the space dimension of the box
-    and is the most precise that includes the box.
-
-    \param box
-    The box representing the polyhedron to be built;
-
-    \param complexity
-    This argument is ignored as the algorithm used has
-    polynomial complexity.
-
-    \exception std::length_error
-    Thrown if the space dimension of \p box exceeds the maximum allowed
-    space dimension.
-  */
-  template <typename Interval>
-  explicit NNC_Polyhedron(const Box<Interval>& box,
-                          Complexity_Class complexity = ANY_COMPLEXITY);
-
   //! Builds an NNC polyhedron out of a grid.
   /*!
     The polyhedron inherits the space dimension of the grid

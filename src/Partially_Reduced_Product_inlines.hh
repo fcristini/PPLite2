@@ -115,15 +115,6 @@ Partially_Reduced_Product<D1, D2, R>
 }
 
 template <typename D1, typename D2, typename R>
-template <typename Interval>
-inline
-Partially_Reduced_Product<D1, D2, R>
-::Partially_Reduced_Product(const Box<Interval>& box, Complexity_Class)
-  : d1(box), d2(box) {
-  set_reduced_flag();
-}
-
-template <typename D1, typename D2, typename R>
 inline
 Partially_Reduced_Product<D1, D2, R>
 ::Partially_Reduced_Product(const Partially_Reduced_Product& y,

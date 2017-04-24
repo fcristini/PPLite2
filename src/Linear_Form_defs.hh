@@ -27,7 +27,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Linear_Form_types.hh"
 #include "Linear_Expression_types.hh"
 #include "Variable_defs.hh"
-#include "Box_types.hh"
 #include "Float_defs.hh"
 #include <vector>
 

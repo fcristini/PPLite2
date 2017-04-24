@@ -100,15 +100,8 @@ test05() {
   Variable B(1);
 
   Product prp(2);
-#if Box_Class
-  prp.refine_with_constraint(A >= 1);
-  prp.refine_with_constraint(A <= 1);
-  prp.refine_with_constraint(B >= 1);
-  prp.refine_with_constraint(B <= 0);
-#else
   prp.refine_with_constraint(A - B >= 1);
   prp.refine_with_constraint(A - B <= 1);
-#endif
   prp.refine_with_congruence(3*B %= 2);
 
   Linear_Expression le = A - B;
@@ -242,15 +235,8 @@ test11() {
   Variable B(1);
 
   Product prp(2);
-#if Box_Class
-  prp.refine_with_constraint(A >= 2);
-  prp.refine_with_constraint(A <= 2);
-  prp.refine_with_constraint(B >= 1);
-  prp.refine_with_constraint(B <= 1);
-#else
   prp.refine_with_constraint(A - B >= 1);
   prp.refine_with_constraint(A - B <= 1);
-#endif
   prp.refine_with_congruence(3*B %= 2);
 ;
   Linear_Expression le = A - B;
@@ -324,15 +310,8 @@ test13() {
   prp.refine_with_constraint(A - B > 0);
   prp.refine_with_constraint(A - B < 1);
 #else
-#if !Box_Class
   prp.refine_with_constraint(A - B >= 0);
   prp.refine_with_constraint(A - B <= 1);
-#else
-  prp.refine_with_constraint(A >= 2);
-  prp.refine_with_constraint(A <= 2);
-  prp.refine_with_constraint(B <= 2);
-  prp.refine_with_constraint(B >= 1);
-#endif
 #endif
   prp.refine_with_congruence(3*B %= 2);
 
@@ -369,7 +348,6 @@ test13() {
   return ok;
 }
 
-#if !Box_Class
 // Non-empty product. bounded_affine_image/3
 bool
 test14() {
@@ -489,43 +467,8 @@ test17() {
 
   return ok;
 }
-#endif
 
-typedef Domain_Product<TBox, Grid>::Direct_Product TBox_Grid;
-typedef Domain_Product<Grid, TBox>::Direct_Product Grid_TBox;
 typedef Domain_Product<NNC_Polyhedron, Grid>::Direct_Product NNCPoly_Grid;
-
-// TBox_Grid(nnc_polyhedron, POLYNOMIAL_COMPLEXITY).
-bool
-test18() {
-  Variable x(0);
-  Variable y(1);
-
-  C_Polyhedron ph(2);
-  ph.refine_with_constraint(3*x + y >= 2);
-  ph.refine_with_constraint(x <= 4);
-  ph.refine_with_constraint(y <= 4);
-
-  TBox_Grid pprp(ph, POLYNOMIAL_COMPLEXITY);
-
-  TBox_Grid nprp(ph);
-
-  TBox_Grid known_prp(2);
-  known_prp.refine_with_constraint(3*x >= -2);
-  known_prp.refine_with_constraint(x <= 4);
-  known_prp.refine_with_constraint(y >= -10);
-  known_prp.refine_with_constraint(y <= 4);
-
-  bool ok = (nprp == known_prp && pprp == known_prp);
-
-  print_constraints(ph, "*** ph ***");
-  print_constraints(nprp, "*** nprp ***");
-  print_congruences(nprp, "*** nprp ***");
-  print_constraints(pprp, "*** pprp ***");
-  print_congruences(pprp, "*** pprp ***");
-
-  return ok;
-}
 
 // Copy constructor.
 bool
@@ -550,70 +493,6 @@ test19() {
   print_constraints(prp, "*** prp constraints ***");
   print_congruences(prp1, "*** prp1 congruences ***");
   print_constraints(prp1, "*** prp1 constraints ***");
-
-  return ok && prp.OK();
-}
-
-// Constructing an NNCPoly_Grid from a TBox_Grid.
-bool
-test20() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  TBox_Grid src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid prp(src, POLYNOMIAL_COMPLEXITY);
-
-  NNCPoly_Grid prp1(src);
-
-  NNCPoly_Grid known_prp(1);
-  known_prp.refine_with_constraint(A >= 0);
-  known_prp.refine_with_congruence(A %= 0);
-
-  bool ok = (prp == known_prp && prp1 == known_prp);
-
-  print_congruences(prp, "*** prp congruences ***");
-  print_constraints(prp, "*** prp constraints ***");
-  print_congruences(prp1, "*** prp1 congruences ***");
-  print_constraints(prp1, "*** prp1 constraints ***");
-
-  return ok && prp.OK();
-}
-
-// Constructing an NNCPoly_Grid from a Grid_TBox.
-bool
-test21() {
-  Variable A(0);
-
-  const Constraint_System cs(A >= 0);
-  const Congruence_System cgs(A %= 0);
-
-  Grid_TBox src(1);
-  src.refine_with_constraints(cs);
-  src.refine_with_congruences(cgs);
-
-  NNCPoly_Grid prp(src);
-
-  NNCPoly_Grid prp1(src);
-
-  NNCPoly_Grid known_prp(1);
-  known_prp.refine_with_constraint(A >= 0);
-  known_prp.refine_with_congruence(A %= 0);
-
-  bool ok = (prp == known_prp && prp1 == known_prp);
-
-  print_congruences(src, "*** src congruences ***");
-  print_constraints(src, "*** src constraints ***");
-  print_congruences(prp, "*** prp congruences ***");
-  print_constraints(prp, "*** prp constraints ***");
-  print_congruences(prp1, "*** prp1 congruences ***");
-  print_constraints(prp1, "*** prp1 constraints ***");
-  print_congruences(known_prp, "*** known_prp congruences ***");
-  print_constraints(known_prp, "*** known_prp constraints ***");
 
   return ok && prp.OK();
 }
@@ -673,16 +552,11 @@ BEGIN_MAIN
   DO_TEST(test11);
   DO_TEST(test12);
   DO_TEST(test13);
-#if !Box_Class
   DO_TEST(test14);
   DO_TEST(test15);
   DO_TEST(test16);
   DO_TEST(test17);
-#endif
-  DO_TEST(test18);
   DO_TEST(test19);
-  DO_TEST(test20);
-  DO_TEST(test21);
   DO_TEST(test22);
   DO_TEST(test23);
 END_MAIN

@@ -108,66 +108,6 @@ test03() {
   return ph == known_result;
 }
 
-// Tests -A <= -1/3 && A <= 2/3 && -B <= 0 && B <= 1/3
-// and refine_fp_interval_abstract_store.
-bool
-test04() {
-  Variable A(0);
-  Variable B(1);
-  FP_Interval tmp0(0);
-  tmp0.join_assign(10);
-  FP_Interval_Abstract_Store store(2);
-  store.set_interval(A, tmp0);
-  store.set_interval(B, tmp0);
-  FP_Linear_Form la(A);
-  FP_Linear_Form lb(B);
-
-  FP_Interval tmp(2);
-  tmp /= FP_Interval(3);
-
-  C_Polyhedron ph(2);
-  ph.generalized_refine_with_linear_form_inequality(
-    FP_Linear_Form(tmp), la, GREATER_THAN);
-  tmp = -1;
-  tmp /= FP_Interval(3);
-  ph.generalized_refine_with_linear_form_inequality(
-    FP_Linear_Form(tmp), -la, GREATER_OR_EQUAL);
-  tmp = 1;
-  tmp /= FP_Interval(3);
-  ph.generalized_refine_with_linear_form_inequality(
-    lb, FP_Linear_Form(tmp), LESS_OR_EQUAL);
-  tmp = 0;
-  ph.generalized_refine_with_linear_form_inequality(
-    -lb, FP_Linear_Form(tmp), LESS_THAN);
-
-  C_Polyhedron known_result1(2);
-  known_result1.add_constraint(3*A >= 1);
-  known_result1.add_constraint(3*A <= 2);
-  known_result1.add_constraint(B >= 0);
-  known_result1.add_constraint(3*B <= 1);
-  print_constraints(known_result1, "*** known_result1 ***");
-
-  Box<FP_Interval> box(ph);
-  print_constraints(ph, "*** ph ***");
-  print_constraints(box, "*** box ***");
-
-  bool ok1 = ph.contains(known_result1);
-
-  ph.refine_fp_interval_abstract_store(store);
-  nout << "*** FP_Interval_Abstract_Store ***" << endl;
-
-  nout << "tmp0 = " << tmp0 << endl;
-
-  nout << "A = " << store.get_interval(A) << endl;
-  bool ok2 = tmp0.contains(store.get_interval(A));
-
-  nout << "B = " << store.get_interval(B) << endl;
-  bool ok3 = tmp0.contains(store.get_interval(B));
-
-  return ok1 && ok2 && ok3;
-
-}
-
 // Tests (2/3)*B + [-0.5, 0.5] >= (1/3)*A
 // where A = B = [-1, 1].
 bool
@@ -229,7 +169,6 @@ BEGIN_MAIN
   DO_TEST(test02);
   DO_TEST(test03);
   if (sizeof(ANALYZER_FP_FORMAT) == 4) {
-    DO_TEST_F32(test04);
 #ifdef NDEBUG
     DO_TEST_F16(test05);
 #else
@@ -237,11 +176,9 @@ BEGIN_MAIN
 #endif
   }
   else if (sizeof(ANALYZER_FP_FORMAT) == 8) {
-    DO_TEST_F64(test04);
     DO_TEST_F64A(test05);
   }
   else {
-    DO_TEST_F64(test04);
     DO_TEST_F64(test05);
   }
 END_MAIN

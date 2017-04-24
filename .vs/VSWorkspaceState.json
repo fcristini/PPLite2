@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\tests",
-    "\\tests\\Powerset"
+    "\\tests\\Grid"
   ],
-  "SelectedNode": "\\tests\\Powerset\\frompolyhedron1.cc",
+  "SelectedNode": "\\tests\\Grid\\isuniverse1.cc",
   "PreviewInSolutionExplorer": false
 }
