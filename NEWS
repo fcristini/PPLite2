@@ -1266,7 +1266,6 @@ o  We now require GMP 4.1.3 or higher.
 
 o  The following classes have been renamed as indicated:
 
-     AskTell            -> Ask_Tell
      BoundingBox        -> Bounding_Box
      ConSys             -> Constraint_System
      GenSys             -> Generator_System

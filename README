@@ -760,10 +760,6 @@ ppl-1.2
 |   |-- Coefficient_inlines.hh
 |   |-- Coefficient_traits_template.hh
 |   |-- Coefficient_types.hh
-|   |-- Concrete_Expression.cc
-|   |-- Concrete_Expression_defs.hh
-|   |-- Concrete_Expression_inlines.hh
-|   |-- Concrete_Expression_types.hh
 |   |-- Congruence.cc
 |   |-- Congruence_System.cc
 |   |-- Congruence_System_defs.hh
@@ -1114,18 +1110,6 @@ ppl-1.2
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in
 |   |   `-- cotree1.cc
-|   |-- Concrete_Expression
-|   |   |-- C_Expr.cc
-|   |   |-- C_Expr_defs.hh
-|   |   |-- C_Expr_inlines.hh
-|   |   |-- Makefile.am
-|   |   |-- Makefile.in
-|   |   |-- digitalfilters1.cc
-|   |   |-- linearform1.cc
-|   |   |-- linearize.cc
-|   |   |-- polyhedron1.cc
-|   |   |-- polyhedron2.cc
-|   |   `-- run_tests
 |   |-- Grid
 |   |   |-- Makefile.am
 |   |   |-- Makefile.in

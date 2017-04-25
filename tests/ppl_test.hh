@@ -630,19 +630,6 @@ print_congruences(const Pointset_Powerset<PH>& pps,
   s << pps << std::endl;
 }
 
-/*
-template <typename PH>
-void
-print_constraints(const Pointset_Ask_Tell<PH>& pat,
-                  const std::string& intro = "",
-                  std::ostream& s = nout) {
-  if (!intro.empty())
-    s << intro << std::endl;
-  using IO_Operators::operator<<;
-  s << pat << std::endl;
-}
-*/
-
 void
 print_congruence(const Congruence& c,
                  const std::string& intro = "",

@@ -1613,7 +1613,6 @@ AC_CONFIG_FILES(Makefile
                 src/version.hh
                 src/ppl-config.cc
                 tests/Makefile
-                tests/Concrete_Expression/Makefile
                 tests/CO_Tree/Makefile
                 tests/Grid/Makefile
                 tests/MIP_Problem/Makefile
@@ -1657,7 +1656,6 @@ AC_CONFIG_FILES(Makefile
                 interfaces/Prolog/YAP/Makefile
                 interfaces/Prolog/tests/Makefile
                 )
-#               tests/Ask_Tell/Makefile
 AC_OUTPUT
 
 if test x"$gmp_supports_exceptions" = xno

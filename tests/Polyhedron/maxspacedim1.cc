@@ -111,9 +111,6 @@ test01() {
   test01_DO_CONSTR_CLASS(Pointset_Powerset, C_Polyhedron);
   test01_DO_CONSTR_CLASS(Pointset_Powerset, NNC_Polyhedron);
   test01_DO_CONSTR_CLASS(Pointset_Powerset, Grid);
-  //test01_DO_CONSTR_CLASS(Pointset_Ask_Tell, C_Polyhedron);
-  //test01_DO_CONSTR_CLASS(Pointset_Ask_Tell, NNC_Polyhedron);
-  //test01_DO_CONSTR_CLASS(Pointset_Ask_Tell, Grid);
 
   nout << "Parma_Polyhedra_Library::max_space_dimension() = "
        << max_space_dimension() << endl;

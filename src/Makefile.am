@@ -433,14 +433,6 @@ Threshold_Watcher_templates.hh
 #Any_Pointset_types.hh \
 #Any_Pointset_defs.hh \
 #Any_Pointset_inlines.hh \
-#Ask_Tell_types.hh \
-#Ask_Tell_defs.hh \
-#Ask_Tell_inlines.hh \
-#Ask_Tell_templates.hh \
-#Pointset_Ask_Tell_types.hh \
-#Pointset_Ask_Tell_defs.hh \
-#Pointset_Ask_Tell_inlines.hh \
-#Pointset_Ask_Tell_templates.hh
 
 NESTED_INCLUDE_FILES = \
 Ph_Status_idefs.hh \
