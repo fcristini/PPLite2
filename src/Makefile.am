@@ -130,9 +130,6 @@ Has_Assign_Or_Swap.hh \
 assign_or_swap.hh \
 mp_std_bits_defs.hh \
 mp_std_bits_inlines.hh \
-Concrete_Expression_types.hh \
-Concrete_Expression_defs.hh \
-Concrete_Expression_inlines.hh \
 Temp_defs.hh \
 Temp_inlines.hh \
 Temp_templates.hh \
@@ -455,7 +452,6 @@ checked.cc \
 Checked_Number.cc \
 Float.cc \
 fpu-ia32.cc \
-Concrete_Expression.cc \
 Constraint.cc \
 Constraint_System.cc \
 Congruence.cc \
