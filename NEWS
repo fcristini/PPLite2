@@ -287,20 +287,6 @@ o  Corrected an efficiency bug in method
 o  Corrected a bug affecting the input routine of ppl_lpsol, whereby
    the inhomogeneous term of the objective function was disregarded.
 
-o  Corrected a bug affecting methods
-
-     Interval::CC76_widening_assign(const From&, Iterator, Iterator)
-
-   whereby a lower bound would not be computed correctly when the two
-   iterators specify an empty list of stop points.
-
-o  Fixed a bug affecting
-
-     Interval::Interval(const char* s)
-
-   whereby a wrong interval would be constructed if `s' denotes a number
-   that can only be represented as an infinity.
-
 o  Fixed a bug whereby the argument of all the methods
 
      unconstrain(Variable var)
@@ -574,20 +560,6 @@ o  The Parma Polyhedra Library is now released under the terms of the
 
 New and renamed classes
 -----------------------
-
-o  A generic implementation of intervals has been added.  The template
-   class Interval is parametric on the type used to represent the
-   interval boundaries (all native integer and floating point types
-   are supported as well as unbounded integers and rational numbers
-   provided by GMP).  Another class template type parameter allows for
-   the control of a number of other features of the class (such as the
-   ability to represent: open as well as closed boundaries, empty
-   intervals in addition to nonempty ones, intervals of extended
-   number families that contain positive and negative infinities,
-   plain intervals of real numbers and intervals of integer numbers).
-   The Interval class still needs a lot of work and both its
-   implementation and its interface are likely to change significantly:
-   it is released as a kind of technology preview.
 
 o  The class LP_Problem has been renamed MIP_Problem and now supports
    the solution of Mixed Integer (Linear) Programming problems.

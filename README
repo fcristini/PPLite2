@@ -882,14 +882,6 @@ ppl-1.2
 |   |-- Init_defs.hh
 |   |-- Init_inlines.hh
 |   |-- Init_types.hh
-|   |-- Integer_Interval.hh
-|   |-- Interval_Info_defs.hh
-|   |-- Interval_Info_inlines.hh
-|   |-- Interval_Info_types.hh
-|   |-- Interval_defs.hh
-|   |-- Interval_inlines.hh
-|   |-- Interval_templates.hh
-|   |-- Interval_types.hh
 |   |-- Linear_Expression.cc
 |   |-- Linear_Expression_Impl.cc
 |   |-- Linear_Expression_Impl_defs.hh
@@ -997,7 +989,6 @@ ppl-1.2
 |   |-- Ptr_Iterator_defs.hh
 |   |-- Ptr_Iterator_inlines.hh
 |   |-- Ptr_Iterator_types.hh
-|   |-- Rational_Interval.hh
 |   |-- Result_defs.hh
 |   |-- Result_inlines.hh
 |   |-- Rounding_Dir_defs.hh
@@ -1087,7 +1078,6 @@ ppl-1.2
 |   |-- globals_inlines.hh
 |   |-- globals_types.hh
 |   |-- initializer.hh
-|   |-- intervals_defs.hh
 |   |-- iterator_to_const_defs.hh
 |   |-- iterator_to_const_inlines.hh
 |   |-- iterator_to_const_types.hh

@@ -102,9 +102,6 @@ where:
     <CODE>signed char</CODE>, \c short, \c int, \c long, \c long long
     (or any of the C99 exact width integer equivalents \c int8_t, int16_t,
     and so forth); and
-  - \c ITV is an instance of the
-    \link Parma_Polyhedra_Library::Interval \c Interval \endlink
-    template class.
 
 Other semantic GDs, the <EM>compound classes</EM>, can be constructed
 (also recursively) from all the GDs classes.

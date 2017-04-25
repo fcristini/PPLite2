@@ -364,39 +364,6 @@ public:
   void relative_error(Floating_Point_Format analyzed_format,
                       Linear_Form& result) const;
 
-  /*! \brief
-    Makes \p result become an interval that overapproximates all the
-    possible values of \p *this.
-
-    \param oracle The FP_Oracle to be queried.
-    \param result The linear form that will store the result.
-
-    \return <CODE>true</CODE> if the operation was successful,
-    <CODE>false</CODE> otherwise (the possibility of failure
-    depends on the oracle's implementation).
-
-    \par Template type parameters
-
-    - The class template parameter \p Target specifies the implementation
-    of Concrete_Expression to be used.
-
-    This method makes <CODE>result</CODE> become
-    \f$\iota(lf)\rho^{\#}\f$, that is an interval defined as:
-    \f[
-    \iota\left(i + \sum_{v \in \cV}i_{v}v\right)\rho^{\#}
-    \defeq
-    i \asifp \left(\bigoplus_{v \in \cV}{}^{\#}i_{v} \amifp
-    \rho^{\#}(v)\right)
-    \f]
-    where \f$\rho^{\#}(v)\f$ is an interval (provided by the oracle)
-    that correctly approximates the value of \f$v\f$.
-
-    The result is undefined if \p C is not the type of an interval with
-    floating point boundaries.
-  */
-  template <typename Target>
-  bool intervalize(const FP_Oracle<Target,C>& oracle, C& result) const;
-
 private:
   //! The generic coefficient equal to the singleton zero.
   static C zero;

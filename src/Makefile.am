@@ -146,8 +146,6 @@ c_streambuf_types.hh \
 globals_types.hh \
 iterator_to_const_types.hh \
 distances_types.hh \
-Interval_Info_types.hh \
-Interval_types.hh \
 Constraint_types.hh \
 Generator_types.hh \
 Grid_Generator_types.hh \
@@ -235,14 +233,6 @@ iterator_to_const_inlines.hh \
 distances_defs.hh \
 distances_inlines.hh \
 Boundary_defs.hh \
-intervals_defs.hh \
-Interval_Info_defs.hh \
-Interval_Info_inlines.hh \
-Interval_defs.hh \
-Interval_inlines.hh \
-Interval_templates.hh \
-Integer_Interval.hh \
-Rational_Interval.hh \
 Variable_defs.hh \
 Variable_inlines.hh \
 Variables_Set_defs.hh \

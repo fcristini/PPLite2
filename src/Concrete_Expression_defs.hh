@@ -26,7 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 #include "Concrete_Expression_types.hh"
 #include "globals_defs.hh"
-#include "Interval_defs.hh"
 
 namespace Parma_Polyhedra_Library {
 
@@ -187,11 +186,6 @@ class Integer_Constant_Common {
 //! Base class for floating-point constant concrete expression.
 template <typename Target>
 class Floating_Point_Constant_Common {
-};
-
-//! Base class for references to some approximable.
-template <typename Target>
-class Approximable_Reference_Common {
 };
 
 } // namespace Parma_Polyhedra_Library

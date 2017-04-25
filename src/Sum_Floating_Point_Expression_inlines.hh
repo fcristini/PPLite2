@@ -29,42 +29,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::Sum_Floating_Point_Expression(
-         Floating_Point_Expression<FP_Interval_Type, FP_Format>* const x,
-         Floating_Point_Expression<FP_Interval_Type, FP_Format>* const y)
-  : first_operand(x), second_operand(y) {
-  assert(x != 0);
-  assert(y != 0);
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::~Sum_Floating_Point_Expression() {
-  delete first_operand;
-  delete second_operand;
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::m_swap(Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  using std::swap;
-  swap(first_operand, y.first_operand);
-  swap(second_operand, y.second_operand);
-}
-
-/*! \relates Sum_Floating_Point_Expression */
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-swap(Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>& x,
-     Sum_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  x.m_swap(y);
-}
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Sum_Floating_Point_Expression_inlines_hh)

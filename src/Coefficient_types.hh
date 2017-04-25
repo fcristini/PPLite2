@@ -155,7 +155,7 @@ namespace Parma_Polyhedra_Library {
 /*! \ingroup PPL_CXX_interface
   Objects of type Coefficient are used to implement the integral valued
   coefficients occurring in linear expressions, constraints, generators,
-  intervals, bounding boxes and so on.  Depending on the chosen
+  bounding boxes and so on.  Depending on the chosen
   configuration options (see file <CODE>README.configure</CODE>),
   a Coefficient may actually be:
     - The GMP_Integer type, which in turn is an alias for the

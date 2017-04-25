@@ -146,80 +146,6 @@ test04() {
   return ok;
 }
 
-// Test operator+=(FP_Linear_Form& f, Variable v):
-// in this case the dimension of v is strictly greater than
-// the dimension of f.
-bool
-test05() {
-  Variable A(0);
-  Variable B(1);
-
-  FP_Linear_Form f = A;
-  FP_Interval x(FP_Interval::boundary_type(2));
-  x /= FP_Interval(FP_Interval::boundary_type(3));
-  f *= x;
-
-  FP_Linear_Form known_result = f + B;
-
-  f += B;
-
-  bool ok = (f == known_result);
-
-  nout << "*** known_result ***" << endl
-       << known_result << endl;
-
-  return ok;
-}
-
-bool
-test06() {
-  Variable A(0);
-  Variable B(1);
-  Variable C(16);
-  Variable D(120);
-
-  FP_Linear_Form f = A + 2*B + 16*C + 120*D;
-
-  FP_Linear_Form known_result = A;
-  known_result += FP_Interval(2) * FP_Linear_Form(B);
-  known_result += FP_Interval(16) * FP_Linear_Form(C);
-  known_result += FP_Interval(120) * FP_Linear_Form(D);
-
-  bool ok = (f == known_result);
-
-  nout << "*** known_result ***" << endl
-       << known_result << endl;
-
-  return ok;
-}
-
-// Tests operator==(const Linear_Form<C>& x, const Linear_Form<C>& y).
-bool
-test07() {
-  Variable A(0);
-  Variable B(1);
-  Variable C(2);
-  FP_Linear_Form f1 = A;
-  FP_Linear_Form f2;
-  bool known_result = false;
-
-  bool result1 = (f1 == f2);
-
-  f2 += FP_Interval(FP_Interval::boundary_type(1));
-  bool result2 = (f1 == f2);
-
-  bool result3 = (f2 == f1);
-
-  f1 += FP_Interval(FP_Interval::boundary_type(1));
-  bool result4 = (f2 == f1);
-
-  nout << "*** known_result ***" << endl
-       << known_result << endl;
-
-  return (known_result == (result1 || result2 || result3 || result4));
-}
-
-
 // Tests overflows of space dimension.
 bool
 test08() {
@@ -293,39 +219,6 @@ test08() {
   return ok1 && ok2 && ok3 && ok4 && ok5 && ok6;
 }
 
-bool
-test09() {
-  Variable A(0);
-  FP_Linear_Form f;
-  bool ok1 = !f.overflows();
-  f += A;
-  bool ok2 = !f.overflows();
-  FP_Interval max(std::numeric_limits<ANALYZER_FP_FORMAT>::max());
-  f *= max;
-  f *= max;
-  bool ok3 = f.overflows();
-  return ok1 && ok2 && ok3;
-}
-
-bool
-test10() {
-  Variable x5(5);
-  Variable x2(2);
-  FP_Interval x5_coefficient;
-  x5_coefficient.lower() = FP_Interval::boundary_type(2);
-  x5_coefficient.upper() = FP_Interval::boundary_type(3);
-  FP_Interval inhomogeneous_term;
-  inhomogeneous_term.lower() = FP_Interval::boundary_type(4);
-  inhomogeneous_term.upper() = FP_Interval::boundary_type(8);
-  FP_Linear_Form lf(x2);
-  lf = -lf;
-  lf += FP_Linear_Form(x2);
-  FP_Linear_Form lx5(x5);
-  lx5 *= x5_coefficient;
-  lf += lx5;
-  return lf.space_dimension() == 6;
-}
-
 } // namespace
 
 BEGIN_MAIN
@@ -333,10 +226,5 @@ BEGIN_MAIN
   DO_TEST(test02);
   DO_TEST(test03);
   DO_TEST(test04);
-  DO_TEST(test05);
-  DO_TEST(test06);
-  DO_TEST(test07);
   DO_TEST(test08);
-  DO_TEST(test09);
-  DO_TEST(test10);
 END_MAIN

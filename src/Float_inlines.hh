@@ -525,18 +525,6 @@ msb_position(const unsigned long long v) {
   return static_cast<unsigned int>(sizeof_to_bits(sizeof(v))) - 1U - clz(v);
 }
 
-template <typename FP_Interval_Type>
-inline void
-affine_form_image(std::map<dimension_type,
-                           Linear_Form<FP_Interval_Type> >& lf_store,
-                  const Variable var,
-                  const Linear_Form<FP_Interval_Type>& lf) {
-  // Assign the new linear form for var.
-  lf_store[var.id()] = lf;
-  // Now invalidate all linear forms in which var occurs.
-  discard_occurrences(lf_store, var);
-}
-
 #if PPL_SUPPORTED_FLOAT
 inline
 Float<float>::Float() {

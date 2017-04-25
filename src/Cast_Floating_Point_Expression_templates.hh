@@ -27,21 +27,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-bool Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::linearize(const FP_Interval_Abstract_Store& int_store,
-            const FP_Linear_Form_Abstract_Store& lf_store,
-            FP_Linear_Form& result) const {
-  if (!expr->linearize(int_store, lf_store, result)) {
-    return false;
-  }
-  FP_Linear_Form rel_error;
-  relative_error(result, rel_error);
-  result += rel_error;
-  result += this->absolute_error;
-  return !this->overflows(result);
-}
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Cast_Floating_Point_Expression_templates_hh)

@@ -28,37 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>::
-Cast_Floating_Point_Expression(
-Floating_Point_Expression<FP_Interval_Type, FP_Format>* const e)
-  : expr(e) {
-  assert(e != 0);
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>::
-~Cast_Floating_Point_Expression() {
-  delete expr;
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::m_swap(Cast_Floating_Point_Expression& y) {
-  swap(expr, y.expr);
-}
-
-/*! \relates Cast_Floating_Point_Expression */
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-swap(Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>& x,
-     Cast_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  x.m_swap(y);
-}
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Cast_Floating_Point_Expression_inlines_hh)

@@ -132,18 +132,6 @@ Cast_Operator<C_Expr>::argument() const {
 }
 
 inline
-Integer_Constant<C_Expr>::
-Integer_Constant(Concrete_Expression_Type type,
-                 const Integer_Interval& val)
-  : Concrete_Expression<C_Expr>(type, INT_CON),
-    value(val) {
-}
-
-inline
-Integer_Constant<C_Expr>::~Integer_Constant<C_Expr>() {
-}
-
-inline
 Floating_Point_Constant<C_Expr>::
 Floating_Point_Constant(const char* value_string,
                         const unsigned int string_size)
@@ -159,26 +147,6 @@ Floating_Point_Constant<C_Expr>::~Floating_Point_Constant<C_Expr>() {
 
 inline Concrete_Expression_Type
 Floating_Point_Constant<C_Expr>::type() const {
-  return expr_type;
-}
-
-inline
-Approximable_Reference<C_Expr>::
-Approximable_Reference(Concrete_Expression_Type type,
-                       const Integer_Interval& val,
-                       dimension_type index)
-  : Concrete_Expression<C_Expr>(type, APPROX_REF),
-    value(val),
-    dimensions() {
-  dimensions.insert(index);
-}
-
-inline
-Approximable_Reference<C_Expr>::~Approximable_Reference<C_Expr>() {
-}
-
-inline Concrete_Expression_Type
-Approximable_Reference<C_Expr>::type() const {
   return expr_type;
 }
 

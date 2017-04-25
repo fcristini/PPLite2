@@ -113,7 +113,6 @@ FILE_PATTERNS          = *_types.hh \
                          C_Integer.hh \
                          Coefficient_traits_template.hh \
                          Has_Assign_Or_Swap.hh \
-                         Integer_Interval.hh \
                          Slow_Copy.hh \
                          algorithms.hh \
                          assert.hh \

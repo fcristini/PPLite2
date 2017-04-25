@@ -393,66 +393,9 @@ set_handlers();
 //! Utility typedef to allow a macro argument to denote the long double type.
 typedef long double long_double;
 
-struct Floating_Real_Open_Interval_Info_Policy {
-  const_bool_nodef(store_special, false);
-  const_bool_nodef(store_open, true);
-  const_bool_nodef(cache_empty, true);
-  const_bool_nodef(cache_singleton, true);
-  const_bool_nodef(cache_normalized, false);
-  const_int_nodef(next_bit, 0);
-  const_bool_nodef(may_be_empty, true);
-  const_bool_nodef(may_contain_infinity, false);
-  const_bool_nodef(check_empty_result, false);
-  const_bool_nodef(check_inexact, false);
-};
-
-struct Floating_Real_Closed_Interval_Info_Policy {
-  const_bool_nodef(store_special, false);
-  const_bool_nodef(store_open, false);
-  const_bool_nodef(cache_empty, false);
-  const_bool_nodef(cache_singleton, true);
-  const_bool_nodef(cache_normalized, false);
-  const_int_nodef(next_bit, 0);
-  const_bool_nodef(may_be_empty, false);
-  const_bool_nodef(may_contain_infinity, false);
-  const_bool_nodef(check_empty_result, false);
-  const_bool_nodef(check_inexact, false);
-};
-
-typedef Interval_Info_Bitset<unsigned int,
-                             Floating_Real_Open_Interval_Info_Policy> Floating_Real_Open_Interval_Info;
-
-typedef Interval<float, Floating_Real_Open_Interval_Info> fl_r_oc;
-typedef Interval<double, Floating_Real_Open_Interval_Info> db_r_oc;
-typedef Interval<long double, Floating_Real_Open_Interval_Info> ld_r_oc;
-
-struct Rational_Real_Open_Interval_Info_Policy {
-  const_bool_nodef(store_special, true);
-  const_bool_nodef(store_open, true);
-  const_bool_nodef(cache_empty, true);
-  const_bool_nodef(cache_singleton, true);
-  const_bool_nodef(cache_normalized, false);
-  const_int_nodef(next_bit, 0);
-  const_bool_nodef(may_be_empty, true);
-  const_bool_nodef(may_contain_infinity, false);
-  const_bool_nodef(check_empty_result, false);
-  const_bool_nodef(check_inexact, false);
-};
-
-typedef Interval_Info_Bitset<unsigned int,
-                             Rational_Real_Open_Interval_Info_Policy> Rational_Real_Open_Interval_Info;
-
-typedef Interval<mpq_class, Rational_Real_Open_Interval_Info> rt_r_oc;
-
 // For floating point analysis.
 #ifdef ANALYZER_FP_FORMAT
 #ifdef ANALYZED_FP_FORMAT
-//! The type of an interval with floating point boundaries.
-typedef Interval<ANALYZER_FP_FORMAT,
-                 Floating_Real_Open_Interval_Info> FP_Interval;
-
-//! The type of an interval linear form.
-typedef Linear_Form<FP_Interval> FP_Linear_Form;
 
 //! The type of a linear form abstract store.
 typedef std::map<dimension_type, FP_Linear_Form>

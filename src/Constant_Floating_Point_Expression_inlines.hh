@@ -28,53 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>::
-Constant_Floating_Point_Expression(const char* str_value)
-  : value(str_value) {}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>::
-Constant_Floating_Point_Expression(const boundary_type lb,
-                                   const boundary_type ub) {
-  assert(lb <= ub);
-  value.build(i_constraint(GREATER_OR_EQUAL, lb),
-              i_constraint(LESS_OR_EQUAL, ub));
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>::
-~Constant_Floating_Point_Expression() {}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::m_swap(Constant_Floating_Point_Expression& y) {
-  using std::swap;
-  swap(value, y.value);
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline bool
-Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::linearize(const FP_Interval_Abstract_Store&,
-            const FP_Linear_Form_Abstract_Store&,
-            FP_Linear_Form& result) const {
-  result = FP_Linear_Form(value);
-  return true;
-}
-
-/*! \relates Constant_Floating_Point_Expression */
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-swap(Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>& x,
-     Constant_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  x.m_swap(y);
-}
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Constant_Floating_Point_Expression_inlines_hh)

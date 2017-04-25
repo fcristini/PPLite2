@@ -57,12 +57,6 @@ class Integer_Constant;
 template <typename Target>
 class Floating_Point_Constant;
 
-/*! \brief A concrete expression representing a reference to some approximable.
-  \class Parma_Polyhedra_Library::Approximable_Reference
-*/
-template <typename Target>
-class Approximable_Reference;
-
 class Concrete_Expression_Type;
 
 /*! \brief
@@ -70,8 +64,8 @@ class Concrete_Expression_Type;
 
   The values should be defined by the particular instance
   and uniquely identify one of: Binary_Operator, Unary_Operator,
-  Cast_Operator, Integer_Constant, Floating_Point_Constant, or
-  Approximable_Reference.  For example, the Binary_Operator kind
+  Cast_Operator, Integer_Constant or Floating_Point_Constant.
+  For example, the Binary_Operator kind
   integer constant should be defined by an instance as the member
   <CODE>Binary_Operator\<T\>::%KIND</CODE>.
 */

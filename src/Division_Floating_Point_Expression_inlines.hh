@@ -28,42 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::Division_Floating_Point_Expression(
-         Floating_Point_Expression<FP_Interval_Type, FP_Format>* const num,
-         Floating_Point_Expression<FP_Interval_Type, FP_Format>* const den)
-  : first_operand(num), second_operand(den) {
-  assert(num != 0);
-  assert(den != 0);
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline
-Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::~Division_Floating_Point_Expression() {
-  delete first_operand;
-  delete second_operand;
-}
-
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>
-::m_swap(Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  using std::swap;
-  swap(first_operand, y.first_operand);
-  swap(second_operand, y.second_operand);
-}
-
-/*! \relates Division_Floating_Point_Expression */
-template <typename FP_Interval_Type, typename FP_Format>
-inline void
-swap(Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>& x,
-     Division_Floating_Point_Expression<FP_Interval_Type, FP_Format>& y) {
-  x.m_swap(y);
-}
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Division_Floating_Point_Expression_inlines_hh)

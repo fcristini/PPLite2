@@ -5,9 +5,6 @@ Enhancements for PPL 1.1 or later versions
 - Make all the *affine*image() methods uniform as far as the
   specification is concerned.
 - Add the domains of bounded integers and affine spaces.
-- Intervals are best instantiated with checked numbers with
-  particular policies: review all the interfaced boxes,
-  augment the testsuite, and update the documentation.
 - Make the library thread-safe.
 - Modify the Makefile.am's to extend silent mode to our own rules.
 - Reduce the number of FIXMEs to no more than 20.

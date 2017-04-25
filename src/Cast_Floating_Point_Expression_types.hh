@@ -15,9 +15,6 @@ PURPOSE. */
 
 namespace Parma_Polyhedra_Library {
 
-template <typename FP_Interval_Type, typename FP_Format>
-class Cast_Floating_Point_Expression;
-
 } // namespace Parma_Polyhedra_Library
 
 #endif // !defined(PPL_Cast_Floating_Point_Expression_types_hh)
