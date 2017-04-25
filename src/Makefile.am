@@ -183,9 +183,6 @@ C_Polyhedron_types.hh \
 NNC_Polyhedron_types.hh \
 Grid_types.hh \
 Ptr_Iterator_types.hh \
-DB_Row_types.hh \
-DB_Matrix_types.hh \
-OR_Matrix_types.hh \
 fpu_types.hh \
 Float_defs.hh \
 Float_inlines.hh \
@@ -337,15 +334,6 @@ Widening_Function_defs.hh \
 Widening_Function_inlines.hh \
 Ptr_Iterator_defs.hh \
 Ptr_Iterator_inlines.hh \
-DB_Row_defs.hh \
-DB_Row_inlines.hh \
-DB_Row_templates.hh \
-DB_Matrix_defs.hh \
-DB_Matrix_inlines.hh \
-DB_Matrix_templates.hh \
-OR_Matrix_defs.hh \
-OR_Matrix_inlines.hh \
-OR_Matrix_templates.hh \
 Determinate_types.hh \
 Determinate_defs.hh \
 Determinate_inlines.hh \

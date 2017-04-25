@@ -772,14 +772,6 @@ ppl-1.2
 |   |-- Constraint_defs.hh
 |   |-- Constraint_inlines.hh
 |   |-- Constraint_types.hh
-|   |-- DB_Matrix_defs.hh
-|   |-- DB_Matrix_inlines.hh
-|   |-- DB_Matrix_templates.hh
-|   |-- DB_Matrix_types.hh
-|   |-- DB_Row_defs.hh
-|   |-- DB_Row_inlines.hh
-|   |-- DB_Row_templates.hh
-|   |-- DB_Row_types.hh
 |   |-- Dense_Row.cc
 |   |-- Dense_Row_defs.hh
 |   |-- Dense_Row_inlines.hh
@@ -896,10 +888,6 @@ ppl-1.2
 |   |-- NNC_Polyhedron_inlines.hh
 |   |-- NNC_Polyhedron_types.hh
 |   |-- Numeric_Format_defs.hh
-|   |-- OR_Matrix_defs.hh
-|   |-- OR_Matrix_inlines.hh
-|   |-- OR_Matrix_templates.hh
-|   |-- OR_Matrix_types.hh
 |   |-- PIP_Problem.cc
 |   |-- PIP_Problem_defs.hh
 |   |-- PIP_Problem_inlines.hh
