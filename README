@@ -985,8 +985,6 @@ ppl-1.2
 |   |-- Variables_Set_defs.hh
 |   |-- Variables_Set_inlines.hh
 |   |-- Variables_Set_types.hh
-|   |-- WRD_coefficient_types_defs.hh
-|   |-- WRD_coefficient_types_inlines.hh
 |   |-- Watchdog.cc
 |   |-- Watchdog_defs.hh
 |   |-- Watchdog_inlines.hh
