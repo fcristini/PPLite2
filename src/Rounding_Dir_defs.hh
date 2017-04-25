@@ -25,7 +25,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_Rounding_defs_hh 1
 
 #include "Result_defs.hh"
-#include "fpu_defs.hh"
 
 namespace Parma_Polyhedra_Library {
 
@@ -110,9 +109,6 @@ bool round_inverse(Rounding_Dir dir);
 
 /*! \ingroup PPL_CXX_interface */
 bool round_strict_relation(Rounding_Dir dir);
-
-/*! \ingroup PPL_CXX_interface */
-fpu_rounding_direction_type round_fpu_dir(Rounding_Dir dir);
 
 //@} // Functions Inspecting and/or Combining Rounding_Dir Values
 

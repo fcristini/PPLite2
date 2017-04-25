@@ -25,27 +25,9 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_math_utilities_defs_hh 1
 
 #include "Coefficient_types.hh"
-#include "Checked_Number_defs.hh"
 #include <gmpxx.h>
 
 namespace Parma_Polyhedra_Library {
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-//! Extract the numerator and denominator components of \p from.
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native_Or_Checked<T>::value, void>::type
-numer_denom(const T& from,
-            Coefficient& numer, Coefficient& denom);
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-//! Divides \p x by \p y into \p to, rounding the result towards plus infinity.
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native_Or_Checked<T>::value, void>::type
-div_round_up(T& to,
-             Coefficient_traits::const_reference x,
-             Coefficient_traits::const_reference y);
 
 #ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
 //! Assigns to \p x the minimum between \p x and \p y.
@@ -60,20 +42,6 @@ min_assign(N& x, const N& y);
 template <typename N>
 void
 max_assign(N& x, const N& y);
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-//! Returns <CODE>true</CODE> if and only if \p x is an even number.
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native_Or_Checked<T>::value, bool>::type
-is_even(const T& x);
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-//! Returns <CODE>true</CODE> if and only if \f$x = -y\f$.
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native_Or_Checked<T>::value, bool>::type
-is_additive_inverse(const T& x, const T& y);
 
 #ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
 /*! \brief

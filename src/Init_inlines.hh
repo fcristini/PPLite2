@@ -24,23 +24,16 @@ site: http://bugseng.com/products/ppl/ . */
 #ifndef PPL_Init_inlines_hh
 #define PPL_Init_inlines_hh 1
 
-#include "fpu_defs.hh"
 #include "Rounding_Dir_defs.hh"
 
 namespace Parma_Polyhedra_Library {
 
 inline void
 set_rounding_for_PPL() {
-#if PPL_CAN_CONTROL_FPU
-    fpu_set_rounding_direction(round_fpu_dir(ROUND_DIRECT));
-#endif
 }
 
 inline void
 restore_pre_PPL_rounding() {
-#if PPL_CAN_CONTROL_FPU
-  fpu_set_rounding_direction(Init::old_rounding_direction);
-#endif
 }
 
 } // namespace Parma_Polyhedra_Library

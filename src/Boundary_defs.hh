@@ -24,8 +24,6 @@ site: http://bugseng.com/products/ppl/ . */
 #ifndef PPL_Boundary_defs_hh
 #define PPL_Boundary_defs_hh 1
 
-#include "Checked_Number_defs.hh"
-
 namespace Parma_Polyhedra_Library {
 
 namespace Boundary_NS {

@@ -114,7 +114,6 @@ minconstraints1 minconstraints2 \
 mingenerators1 mingenerators2 \
 nncminimize1 nncminimize2 \
 nncpostimeelapse1 \
-numberinput1 \
 onepoint \
 permute \
 polydifference1 polydifference2 \
@@ -362,8 +361,6 @@ minconstraints2_SOURCES = minconstraints2.cc
 
 mingenerators1_SOURCES = mingenerators1.cc
 mingenerators2_SOURCES = mingenerators2.cc
-
-numberinput1_SOURCES = numberinput1.cc
 
 nncminimize1_SOURCES = nncminimize1.cc
 nncminimize2_SOURCES = nncminimize2.cc

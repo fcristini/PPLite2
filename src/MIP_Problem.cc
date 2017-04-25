@@ -24,7 +24,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "ppl-config.h"
 #include "MIP_Problem_defs.hh"
 #include "globals_defs.hh"
-#include "Checked_Number_defs.hh"
 #include "Linear_Expression_defs.hh"
 #include "Constraint_defs.hh"
 #include "Constraint_System_defs.hh"
@@ -994,13 +993,6 @@ namespace {
 inline void
 assign(double& d, const mpz_class& c) {
   d = c.get_d();
-}
-
-template <typename T, typename Policy>
-inline void
-assign(double& d,
-       const Parma_Polyhedra_Library::Checked_Number<T, Policy>& c) {
-  d = raw_value(c);
 }
 
 } // namespace

@@ -26,16 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-#if defined(PPL_CHECKED_INTEGERS) || defined(PPL_NATIVE_INTEGERS)
-void
-Coefficient_constants_initialize() {
-}
-
-void
-Coefficient_constants_finalize() {
-}
-#endif
-
 #ifdef PPL_GMP_INTEGERS
 const Coefficient* Coefficient_zero_p = 0;
 const Coefficient* Coefficient_one_p = 0;

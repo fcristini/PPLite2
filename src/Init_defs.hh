@@ -25,7 +25,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_Init_defs_hh 1
 
 #include "Init_types.hh"
-#include "fpu_types.hh"
 
 namespace Parma_Polyhedra_Library {
 
@@ -88,7 +87,6 @@ private:
 
   //! Count the number of objects created.
   static unsigned int count;
-  static fpu_rounding_direction_type old_rounding_direction;
 
   friend void set_rounding_for_PPL();
   friend void restore_pre_PPL_rounding();

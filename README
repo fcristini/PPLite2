@@ -681,7 +681,6 @@ ppl-1.2
 |   |-- ac_check_ciao.m4
 |   |-- ac_check_classpath.m4
 |   |-- ac_check_cxx11.m4
-|   |-- ac_check_fpu_control.m4
 |   |-- ac_check_gmp.m4
 |   |-- ac_check_sicstus_prolog.m4
 |   |-- ac_check_swi_prolog.m4
@@ -746,11 +745,6 @@ ppl-1.2
 |   |-- C_Polyhedron_defs.hh
 |   |-- C_Polyhedron_inlines.hh
 |   |-- C_Polyhedron_types.hh
-|   |-- Checked_Number.cc
-|   |-- Checked_Number_defs.hh
-|   |-- Checked_Number_inlines.hh
-|   |-- Checked_Number_templates.hh
-|   |-- Checked_Number_types.hh
 |   |-- Coefficient.cc
 |   |-- Coefficient_defs.hh
 |   |-- Coefficient_inlines.hh
@@ -1002,26 +996,10 @@ ppl-1.2
 |   |-- c_streambuf_defs.hh
 |   |-- c_streambuf_inlines.hh
 |   |-- c_streambuf_types.hh
-|   |-- checked.cc
-|   |-- checked_defs.hh
-|   |-- checked_ext_inlines.hh
-|   |-- checked_float_inlines.hh
-|   |-- checked_inlines.hh
-|   |-- checked_int_inlines.hh
-|   |-- checked_mpq_inlines.hh
-|   |-- checked_mpz_inlines.hh
-|   |-- checked_numeric_limits.hh
 |   |-- compiler.hh
 |   |-- distances_defs.hh
 |   |-- distances_inlines.hh
 |   |-- distances_types.hh
-|   |-- fpu-c99_inlines.hh
-|   |-- fpu-ia32.cc
-|   |-- fpu-ia32_inlines.hh
-|   |-- fpu-none_inlines.hh
-|   |-- fpu-sparc_inlines.hh
-|   |-- fpu_defs.hh
-|   |-- fpu_types.hh
 |   |-- globals.cc
 |   |-- globals_defs.hh
 |   |-- globals_inlines.hh
@@ -1308,7 +1286,6 @@ ppl-1.2
 |   |   |-- nncminimize1.cc
 |   |   |-- nncminimize2.cc
 |   |   |-- nncpostimeelapse1.cc
-|   |   |-- numberinput1.cc
 |   |   |-- onepoint.cc
 |   |   |-- permute.cc
 |   |   |-- polydifference1.cc

@@ -387,11 +387,6 @@ o  Implementation of general (C and NNC) polyhedra speeded up.
 
 o  Implementation of the MIP solver speeded up.
 
-o  When the PPL has been configured with
-   CPPFLAGS="-DPPL_ARM_CAN_CONTROL_FPU=1", the library initialization
-   procedure checks that the FPU can indeed be controlled and fails if
-   that is not the case.
-
 o  New configure option `--with-gmp-prefix' supersedes the (now removed)
    options `--with-libgmp-prefix' and `--with-libgmpxx-prefix'.
 
@@ -1182,25 +1177,6 @@ o  The `ppl_lpsol' demo has now two more options: with `--enumerate' it
 o  Manual pages have been added for the ppl_lpsol and ppl_lcdd
    programs.
 
-o  The "checked" native
-   coefficients selectable with the `--enable-coefficients' configure
-   options, are based on a very general and powerful notion of "number
-   family with a policy".  This is made available to the users of the
-   PPL via the wrapper template class Checked_Number<T, P>, where T is
-   the underlying numeric type (native integer or float of any width,
-   unbounded integer or rational) and `P' is a policy specifying
-   things such as whether to check for overflows and other
-   "exceptional" conditions and what to do in such cases.  The policy
-   also specifies whether T should be extended with representations
-   for infinities or NAN (Not A Number) and default rounding modes.
-   A complete set of arithmetic functions and operators are provided:
-   they either use the default rounding mode or accept a rounding mode
-   as an extra parameter and, depending on the policy, may return a result
-   that indicates the relation that exists between the true mathematical
-   result and the (possibly approximate) computed result. Input/output
-   functions with the same properties (controlled rounding and indications
-   of the approximations) are also provided.
-
 
 Bugfixes
 ========
@@ -1251,14 +1227,6 @@ NEWS for version 0.7  (released on December 24, 2004)
 
 New and Changed Features
 ========================
-
-o  The new configuration option `--enable-coefficients' allows for the
-   use of alternative (integral) coefficient types.  Besides GMP
-   integers, the user can now use checked native integers (8, 16, 32
-   or 64 bits wide).  The use of such native coefficients is
-   completely safe, since systematic (yet efficient) overflow
-   detection is performed and, in case of overflow, an exception is
-   raised.  GMP coefficients are used by default.
 
 o  Significant efficiency improvements have been achieved everywhere.
 

@@ -117,7 +117,6 @@ FILE_PATTERNS          = *_types.hh \
                          algorithms.hh \
                          assert.hh \
                          assign_or_swap.hh \
-                         checked_numeric_limits.hh \
                          compiler.hh \
                          initializer.hh \
                          linearize.hh \

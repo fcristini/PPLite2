@@ -92,22 +92,6 @@ ppl_config_LDADD = \
 @extra_libraries@ \
 libppl.la
 
-if USE_NATIVE_INTEGERS
-
-COEFFICIENT_TYPES_INCLUDE_FILES =
-
-COEFFICIENT_DEFS_INCLUDE_FILES =
-
-endif USE_NATIVE_INTEGERS
-
-if USE_CHECKED_INTEGERS
-
-COEFFICIENT_TYPES_INCLUDE_FILES =
-
-COEFFICIENT_DEFS_INCLUDE_FILES =
-
-endif USE_CHECKED_INTEGERS
-
 if USE_GMP_INTEGERS
 
 COEFFICIENT_TYPES_INCLUDE_FILES = \
@@ -134,7 +118,6 @@ Temp_defs.hh \
 Temp_inlines.hh \
 Temp_templates.hh \
 Coefficient_traits_template.hh \
-Checked_Number_types.hh \
 termination_types.hh \
 $(COEFFICIENT_TYPES_INCLUDE_FILES) \
 Coefficient_types.hh \
@@ -183,32 +166,15 @@ C_Polyhedron_types.hh \
 NNC_Polyhedron_types.hh \
 Grid_types.hh \
 Ptr_Iterator_types.hh \
-fpu_types.hh \
 Float_defs.hh \
 Float_inlines.hh \
 Float_templates.hh \
 C_Integer.hh \
-fpu_defs.hh \
-fpu-c99_inlines.hh \
-fpu-ia32_inlines.hh \
-fpu-none_inlines.hh \
-fpu-sparc_inlines.hh \
 Rounding_Dir_defs.hh \
 Rounding_Dir_inlines.hh \
 Result_defs.hh \
 Result_inlines.hh \
 Numeric_Format_defs.hh \
-checked_defs.hh \
-checked_inlines.hh \
-checked_int_inlines.hh \
-checked_float_inlines.hh \
-checked_mpz_inlines.hh \
-checked_mpq_inlines.hh \
-checked_ext_inlines.hh \
-Checked_Number_defs.hh \
-Checked_Number_inlines.hh \
-Checked_Number_templates.hh \
-checked_numeric_limits.hh \
 $(COEFFICIENT_DEFS_INCLUDE_FILES) \
 Coefficient_defs.hh \
 Coefficient_inlines.hh \
@@ -393,10 +359,7 @@ Grid_Status_idefs.hh
 
 libppl_la_SOURCES = \
 assertions.cc \
-checked.cc \
-Checked_Number.cc \
 Float.cc \
-fpu-ia32.cc \
 Constraint.cc \
 Constraint_System.cc \
 Congruence.cc \

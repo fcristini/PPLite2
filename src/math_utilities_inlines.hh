@@ -47,34 +47,6 @@ low_bits_mask(const unsigned n) {
   return ~((~static_cast<T>(0)) << n);
 }
 
-template <typename T>
-inline typename Enable_If<Is_Native_Or_Checked<T>::value, void>::type
-numer_denom(const T& from,
-            Coefficient& numer, Coefficient& denom) {
-  PPL_ASSERT(!is_not_a_number(from)
-         && !is_minus_infinity(from)
-         && !is_plus_infinity(from));
-  PPL_DIRTY_TEMP(mpq_class, q);
-  assign_r(q, from, ROUND_NOT_NEEDED);
-  numer = q.get_num();
-  denom = q.get_den();
-}
-
-template <typename T>
-inline typename Enable_If<Is_Native_Or_Checked<T>::value, void>::type
-div_round_up(T& to,
-             Coefficient_traits::const_reference x,
-             Coefficient_traits::const_reference y) {
-  PPL_DIRTY_TEMP(mpq_class, q_x);
-  PPL_DIRTY_TEMP(mpq_class, q_y);
-  // Note: this code assumes that a Coefficient is always convertible
-  // to an mpq_class without loss of precision.
-  assign_r(q_x, x, ROUND_NOT_NEEDED);
-  assign_r(q_y, y, ROUND_NOT_NEEDED);
-  div_assign_r(q_x, q_x, q_y, ROUND_NOT_NEEDED);
-  assign_r(to, q_x, ROUND_UP);
-}
-
 template <typename N>
 inline void
 min_assign(N& x, const N& y) {
@@ -89,22 +61,6 @@ max_assign(N& x, const N& y) {
   if (x < y) {
     x = y;
   }
-}
-
-template <typename T>
-inline typename Enable_If<Is_Native_Or_Checked<T>::value, bool>::type
-is_even(const T& x) {
-  T mod;
-  return umod_2exp_assign_r(mod, x, 1, ROUND_DIRECT | ROUND_STRICT_RELATION) == V_EQ
-    && mod == 0;
-}
-
-template <typename T>
-inline typename Enable_If<Is_Native_Or_Checked<T>::value, bool>::type
-is_additive_inverse(const T& x, const T& y) {
-  T negated_x;
-  return neg_assign_r(negated_x, x, ROUND_DIRECT | ROUND_STRICT_RELATION) == V_EQ
-    && negated_x == y;
 }
 
 inline bool

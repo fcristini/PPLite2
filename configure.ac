@@ -645,94 +645,14 @@ AM_CONDITIONAL(HOST_CPU_X86_64, test x$x86_64 = xyes)
 
 AM_CONDITIONAL(NO_UNDEFINED, test x$no_undefined = xyes)
 
+AC_MSG_RESULT([GMP mpz])
+coefficient_kind=unbounded
+coefficient_bits=0
+coefficient_mnemonic=mpz
 
-enableval=mpz
-AC_MSG_CHECKING([the type of integral values to use as coefficients])
-AC_ARG_ENABLE(coefficients,
-  AS_HELP_STRING([--enable-coefficients=TYPE],
-                 [select the type of the coefficients]))
-case "${enableval}" in
-native-int8)
-  AC_MSG_RESULT([native 8 bits integers])
-  coefficient_kind=native
-  coefficient_bits=8
-  coefficient_mnemonic=nint8
-  ;;
-native-int16)
-  AC_MSG_RESULT([native 16 bits integers])
-  coefficient_kind=native
-  coefficient_bits=16
-  coefficient_mnemonic=nint16
-  ;;
-native-int32)
-  AC_MSG_RESULT([native 32 bits integers])
-  coefficient_kind=native
-  coefficient_bits=32
-  coefficient_mnemonic=nint32
-  ;;
-native-int64)
-  AC_MSG_RESULT([native 64 bits integers])
-  coefficient_kind=native
-  coefficient_bits=64
-  coefficient_mnemonic=nint64
-  ;;
-checked-int8)
-  AC_MSG_RESULT([checked 8 bits integers])
-  coefficient_kind=checked
-  coefficient_bits=8
-  coefficient_mnemonic=int8
-  ;;
-checked-int16)
-  AC_MSG_RESULT([checked 16 bits integers])
-  coefficient_kind=checked
-  coefficient_bits=16
-  coefficient_mnemonic=int16
-  ;;
-checked-int32)
-  AC_MSG_RESULT([checked 32 bits integers])
-  coefficient_kind=checked
-  coefficient_bits=32
-  coefficient_mnemonic=int32
-  ;;
-checked-int64)
-  AC_MSG_RESULT([checked 64 bits integers])
-  coefficient_kind=checked
-  coefficient_bits=64
-  coefficient_mnemonic=int64
-  ;;
-mpz)
-  AC_MSG_RESULT([GMP mpz])
-  coefficient_kind=unbounded
-  coefficient_bits=0
-  coefficient_mnemonic=mpz
-  ;;
-*)
-  AC_MSG_ERROR([bad value ${enableval} for --enable-coefficients, checked-int32, checked-int64, checked-int16, checked-int8, mpz, native-int32, native-int64, native-int16 or native-int8])
-  ;;
-esac
-
-AM_CONDITIONAL(USE_NATIVE_INTEGERS, test x"$coefficient_kind" = xnative)
-AM_CONDITIONAL(USE_CHECKED_INTEGERS, test x"$coefficient_kind" = xchecked)
 AM_CONDITIONAL(USE_GMP_INTEGERS, test x"$coefficient_kind" = xunbounded)
-AM_CONDITIONAL(USE_INT8, test x"$coefficient_bits" = x8)
-AM_CONDITIONAL(USE_INT16, test x"$coefficient_bits" = x16)
-AM_CONDITIONAL(USE_INT32, test x"$coefficient_bits" = x32)
-AM_CONDITIONAL(USE_INT64, test x"$coefficient_bits" = x64)
 
-
-if test x"$coefficient_kind" = xnative
-then
-  coefficient_type="Parma_Polyhedra_Library::Checked_Number<int${coefficient_bits}_t, Checked_Number_Transparent_Policy<int${coefficient_bits}_t> >"
-  AC_DEFINE_UNQUOTED(PPL_COEFFICIENT_TYPE, $coefficient_type, [The integral type used to represent coefficients.])
-  AC_DEFINE_UNQUOTED(PPL_COEFFICIENT_BITS, $coefficient_bits, [The number of bits of coefficients; 0 if unbounded.])
-  AC_DEFINE(PPL_NATIVE_INTEGERS, 1, [Defined if the integral type to be used for coefficients is a native one.])
-elif test x"$coefficient_kind" = xchecked
-then
-  coefficient_type="Parma_Polyhedra_Library::Checked_Number<int${coefficient_bits}_t, Bounded_Integer_Coefficient_Policy>"
-  AC_DEFINE_UNQUOTED(PPL_COEFFICIENT_TYPE, $coefficient_type)
-  AC_DEFINE_UNQUOTED(PPL_COEFFICIENT_BITS, $coefficient_bits)
-  AC_DEFINE(PPL_CHECKED_INTEGERS, 1, [Defined if the integral type to be used for coefficients is a checked one.])
-elif test x"$coefficient_kind" = xunbounded
+if test x"$coefficient_kind" = xunbounded
 then
   AC_DEFINE(PPL_COEFFICIENT_TYPE, mpz_class)
   AC_DEFINE(PPL_COEFFICIENT_BITS, 0)
@@ -784,17 +704,6 @@ AC_LANG(C++)
 
 # The PPL uses <cmath> for sqrt and other functions in several places.
 AC_SEARCH_LIBS([sqrt], [m])
-
-if test x"$use_fpmath" = xyes
-then
-  # Check for the possibility to control the FPU.
-  AC_CHECK_FPU_CONTROL
-else
-  ac_cv_can_control_fpu=0
-fi
-AM_CONDITIONAL(CAN_CONTROL_FPU, test $ac_cv_can_control_fpu = 1)
-AC_DEFINE_UNQUOTED(PPL_CAN_CONTROL_FPU, $ac_cv_can_control_fpu,
-    [Not zero if the FPU can be controlled.])
 
 # Check whether for the C++ compiler the plain char type is signed.
 AC_CXX_PLAIN_CHAR_IS_SIGNED
@@ -1679,27 +1588,4 @@ then
 *** build a distribution out of a CVS working copy.  If this is not the case,
 *** then you need to add Perl to your development environment:
 *** see http://www.perl.org/ for more information.])
-fi
-
-if test x"$coefficient_kind" = xnative
-then
-  AC_MSG_WARN([USING NATIVE INTEGERS IS EXTREMELY DANGEROUS:
-*** CONSIDER ANY RESULT YOU WILL GET FROM THE LIBRARY AS PSEUDO-RANDOM!!!
-*** You have requested to use a native integral type to represent
-*** coefficients.  This means that arithmetic overflows will be possible
-*** and will not be detected.  The consequence of that is that nothing
-*** can be said about the behavior of the library:  whatever the
-*** documentation says, it does not apply to the version of the library
-*** you are about to build.  Just one arithmetic overflow is enough
-*** to invalidate any possible significance of the results.
-*** Please, do not assume that your computation will not overflow because
-*** only small coefficients are involved.  Do not do it because
-*** (1) coefficients may grow very rapidly depending on the polyhedra
-***     computations being performed;
-*** (2) the library may do internal polyhedra computations that you
-***     cannot easily anticipate;
-*** (3) the library has never had, among its design goals, the one of
-***     trying to keep the coefficients small.
-***
-*** Please, consider using a _checked_ native integral type instead.])
 fi

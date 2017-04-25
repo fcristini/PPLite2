@@ -359,10 +359,7 @@ compute_gcd:
       // gcd_assign(gcd, x_i) to take advantage of the fact that
       // `gcd' will decrease very rapidly (see D. Knuth, The Art of
       // Computer Programming, second edition, Section 4.5.2,
-      // Algorithm C, and the discussion following it).  Our
-      // implementation of gcd_assign(x, y, z) for checked numbers is
-      // optimized for the case where `z' is smaller than `y', so that
-      // on checked numbers we gain.  On the other hand, for the
+      // Algorithm C, and the discussion following it). For the
       // implementation of gcd_assign(x, y, z) on GMP's unbounded
       // integers we cannot make any assumption, so here we draw.
       // Overall, we win.

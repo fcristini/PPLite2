@@ -158,7 +158,6 @@ nnc_wrap2
 nnc_writepolyhedron1
 nncminimize1
 nncminimize2
-numberinput1
 onepoint
 permute
 polydifference1

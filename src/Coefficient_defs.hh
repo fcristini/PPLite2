@@ -26,11 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 #include "Coefficient_types.hh"
 
-#if defined(PPL_CHECKED_INTEGERS) || defined(PPL_NATIVE_INTEGERS)
-#include "Checked_Number_defs.hh"
-#include "checked_int_inlines.hh"
-#endif
-
 #ifdef PPL_GMP_INTEGERS
 #include "GMP_Integer_defs.hh"
 #endif

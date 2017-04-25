@@ -31,7 +31,6 @@ ppl_c.m4
 m4macros = \
 ac_check_ciao.m4 \
 ac_check_classpath.m4 \
-ac_check_fpu_control.m4 \
 ac_check_gmp.m4 \
 ac_check_sicstus_prolog.m4 \
 ac_check_swi_prolog.m4 \

@@ -457,26 +457,6 @@ struct Constant : public Constant_<long long, v, prefer_signed> {
 #endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
 
 #ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-/*! \brief
-  For native types, returns the total size in bytes of the memory
-  occupied by the type of the (unused) parameter, i.e., 0.
-*/
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native<T>::value, memory_size_type>::type
-total_memory_in_bytes(const T&);
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-/*! \brief
-  For native types, returns the size in bytes of the memory managed
-  by the type of the (unused) parameter, i.e., 0.
-*/
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-template <typename T>
-typename Enable_If<Is_Native<T>::value, memory_size_type>::type
-external_memory_in_bytes(const T&);
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
 //! Returns the total size in bytes of the memory occupied by \p x.
 #endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
 memory_size_type

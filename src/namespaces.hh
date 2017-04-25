@@ -59,13 +59,6 @@ namespace IO_Operators {
 } // namespace IO_Operators
 
 #ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
-//! Types and functions implementing checked numbers.
-/*! \ingroup PPL_CXX_interface */
-#endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)
-namespace Checked {
-} // namespace Checked
-
-#ifdef PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS
 //! %Implementation related data and functions.
 /*! \ingroup PPL_CXX_interface */
 #endif // defined(PPL_DOXYGEN_INCLUDE_IMPLEMENTATION_DETAILS)

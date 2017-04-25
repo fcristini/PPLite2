@@ -336,7 +336,6 @@ int main() {
   AC_MSG_RESULT([assuming is not]))
 
 if test x"$ac_cxx_long_double_binary_format" = x"unknown" \
-|| test $ac_cv_can_control_fpu = 0 \
 || test x"$ac_std_floor_long_double_is_buggy" = x"yes"
 then
   ac_supported_long_double=0

@@ -96,30 +96,6 @@ round_strict_relation(Rounding_Dir dir) {
   return (dir & ROUND_STRICT_RELATION) == ROUND_STRICT_RELATION;
 }
 
-#if PPL_CAN_CONTROL_FPU
-
-/*! \ingroup PPL_CXX_interface */
-inline fpu_rounding_direction_type
-round_fpu_dir(Rounding_Dir dir) {
-  switch (round_dir(dir)) {
-  case ROUND_UP:
-    return static_cast<fpu_rounding_direction_type>(PPL_FPU_UPWARD);
-  case ROUND_DOWN:
-    return static_cast<fpu_rounding_direction_type>(PPL_FPU_DOWNWARD);
-  case ROUND_IGNORE: // Fall through.
-  default:
-    PPL_UNREACHABLE;
-    return static_cast<fpu_rounding_direction_type>(PPL_FPU_UPWARD);
-  }
-}
-
-#undef PPL_FPU_DOWNWARD
-#undef PPL_FPU_TONEAREST
-#undef PPL_FPU_TOWARDZERO
-#undef PPL_FPU_UPWARD
-
-#endif
-
 /*! \ingroup PPL_CXX_interface */
 inline Rounding_Dir
 inverse(Rounding_Dir dir) {

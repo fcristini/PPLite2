@@ -26,33 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-#ifdef PPL_CHECKED_INTEGERS
-inline void
-Bounded_Integer_Coefficient_Policy::handle_result(Result r) {
-  // Note that the input functions can return VC_NAN.
-  if (result_overflow(r) || result_class(r) == VC_NAN) {
-    throw_result_exception(r);
-  }
-}
-#endif // PPL_CHECKED_INTEGERS
-
-
-#if defined(PPL_CHECKED_INTEGERS) || defined(PPL_NATIVE_INTEGERS)
-inline Coefficient_traits::const_reference
-Coefficient_zero() {
-  // FIXME: is there a way to avoid this static variable?
-  static Coefficient zero(0);
-  return zero;
-}
-
-inline Coefficient_traits::const_reference
-Coefficient_one() {
-  // FIXME: is there a way to avoid this static variable?
-  static Coefficient one(1);
-  return one;
-}
-#endif // defined(PPL_CHECKED_INTEGERS) || defined(PPL_NATIVE_INTEGERS)
-
 #ifdef PPL_GMP_INTEGERS
 inline Coefficient_traits::const_reference
 Coefficient_zero() {

@@ -410,21 +410,6 @@ has_exact_coefficient_type(const Shape&) {
   return std::numeric_limits<typename Shape::coefficient_type>::is_exact;
 }
 
-bool
-check_distance(const Checked_Number<mpq_class, Extended_Number_Policy>& d,
-               const char* max_d_s, const char* d_name);
-
-bool
-check_result(const Generator& computed_result,
-             const Generator& known_result,
-             const char* max_r_d_s,
-             const char* max_e_d_s,
-             const char* max_l_d_s);
-
-bool
-check_result(const Checked_Number<mpq_class, Extended_Number_Policy>& computed,
-             const Checked_Number<mpq_class, Extended_Number_Policy>& known,
-             const char* max_r_d_s);
 
 class FCAIBVP;
 
