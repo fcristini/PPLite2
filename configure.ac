@@ -654,8 +654,8 @@ AM_CONDITIONAL(USE_GMP_INTEGERS, test x"$coefficient_kind" = xunbounded)
 
 if test x"$coefficient_kind" = xunbounded
 then
-  AC_DEFINE(PPL_COEFFICIENT_TYPE, mpz_class)
-  AC_DEFINE(PPL_COEFFICIENT_BITS, 0, [This is zero because we are using the unbounded precision coefficients])
+  AC_DEFINE(PPL_COEFFICIENT_TYPE, mpz_class, [Use unbounded size integer as coefficient.])
+  AC_DEFINE(PPL_COEFFICIENT_BITS, 0, [This is zero because we are using the unbounded precision coefficients.])
   AC_DEFINE(PPL_GMP_INTEGERS, 1, [Defined if the integral type to be used for coefficients is GMP's one.])
 fi
 
