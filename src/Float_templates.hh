@@ -26,7 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_Float_templates_hh 1
 
 #include "Variable_defs.hh"
-#include "Linear_Form_defs.hh"
 #include <cmath>
 
 namespace Parma_Polyhedra_Library {

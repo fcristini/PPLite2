@@ -393,17 +393,6 @@ set_handlers();
 //! Utility typedef to allow a macro argument to denote the long double type.
 typedef long double long_double;
 
-// For floating point analysis.
-#ifdef ANALYZER_FP_FORMAT
-#ifdef ANALYZED_FP_FORMAT
-
-//! The type of a linear form abstract store.
-typedef std::map<dimension_type, FP_Linear_Form>
-                                 FP_Linear_Form_Abstract_Store;
-
-#endif // ANALYZED_FP_FORMAT
-#endif // ANALYZER_FP_FORMAT
-
 template <typename Shape>
 inline bool
 has_exact_coefficient_type(const Shape&) {

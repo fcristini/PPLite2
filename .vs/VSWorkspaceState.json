@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
     "\\tests",
-    "\\tests\\Grid"
+    "\\tests\\Polyhedron"
   ],
-  "SelectedNode": "\\src\\Result_defs.hh",
+  "SelectedNode": "\\tests\\Polyhedron\\onepoint.cc",
   "PreviewInSolutionExplorer": false
 }

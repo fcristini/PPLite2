@@ -43,7 +43,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Poly_Gen_Relation_defs.hh"
 #include "BHRZ03_Certificate_types.hh"
 #include "H79_Certificate_types.hh"
-#include "Linear_Form_types.hh"
 #include <vector>
 #include <iosfwd>
 
@@ -2571,10 +2570,6 @@ protected:
   void throw_dimension_incompatible(const char* method,
                                     const char* cgs_name,
                                     const Congruence_System& cgs) const;
-  template <typename C>
-  void throw_dimension_incompatible(const char* method,
-                                    const char* lf_name,
-                                    const Linear_Form<C>& lf) const;
   void throw_dimension_incompatible(const char* method,
                                     const char* var_name,
                                     Variable var) const;

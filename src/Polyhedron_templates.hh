@@ -26,7 +26,6 @@ site: http://bugseng.com/products/ppl/ . */
 
 #include "Generator_defs.hh"
 #include "MIP_Problem_defs.hh"
-#include "Linear_Form_defs.hh"
 // For static method overflows.
 #include <algorithm>
 #include <deque>
@@ -178,14 +177,6 @@ Polyhedron::map_space_dimensions(const Partial_Function& pfunc) {
   Polyhedron new_polyhedron(topology(), new_gensys);
   m_swap(new_polyhedron);
   PPL_ASSERT_HEAVY(OK(true));
-}
-
-template <typename C>
-void
-Polyhedron::throw_dimension_incompatible(const char* method,
-                                         const char* lf_name,
-                                         const Linear_Form<C>& lf) const {
-  throw_dimension_incompatible(method, lf_name, lf.space_dimension());
 }
 
 template <typename Input>

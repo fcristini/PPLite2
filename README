@@ -857,11 +857,6 @@ ppl-1.2
 |   |-- Linear_Expression_defs.hh
 |   |-- Linear_Expression_inlines.hh
 |   |-- Linear_Expression_types.hh
-|   |-- Linear_Form.cc
-|   |-- Linear_Form_defs.hh
-|   |-- Linear_Form_inlines.hh
-|   |-- Linear_Form_templates.hh
-|   |-- Linear_Form_types.hh
 |   |-- Linear_System_defs.hh
 |   |-- Linear_System_inlines.hh
 |   |-- Linear_System_templates.hh

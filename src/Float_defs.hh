@@ -28,7 +28,6 @@ site: http://bugseng.com/products/ppl/ . */
 #include "meta_programming.hh"
 #include "compiler.hh"
 #include "Variable_types.hh"
-#include "Linear_Form_types.hh"
 #include <set>
 #include <cmath>
 #include <map>

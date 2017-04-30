@@ -145,7 +145,6 @@ Expression_Hide_Inhomo_types.hh \
 Linear_Expression_Impl_types.hh \
 Linear_Expression_Interface_types.hh \
 Linear_System_types.hh \
-Linear_Form_types.hh \
 Bit_Row_types.hh \
 Bit_Matrix_types.hh \
 Constraint_System_types.hh \
@@ -231,9 +230,6 @@ Linear_Expression_Impl_defs.hh \
 Linear_Expression_Impl_inlines.hh \
 Linear_Expression_Impl_templates.hh \
 Linear_Expression_Interface_defs.hh \
-Linear_Form_defs.hh \
-Linear_Form_inlines.hh \
-Linear_Form_templates.hh \
 linearize.hh \
 Constraint_defs.hh \
 Constraint_inlines.hh \
@@ -374,7 +370,6 @@ Coefficient.cc \
 Linear_Expression.cc \
 Linear_Expression_Impl.cc \
 Linear_Expression_Interface.cc \
-Linear_Form.cc \
 Scalar_Products.cc \
 MIP_Problem.cc \
 PIP_Tree.cc \

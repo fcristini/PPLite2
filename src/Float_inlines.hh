@@ -25,7 +25,6 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_Float_inlines_hh 1
 
 #include "Variable_defs.hh"
-#include "Linear_Form_defs.hh"
 #include "assertions.hh"
 #include <climits>
 
