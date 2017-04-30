@@ -152,15 +152,7 @@ CLPQ_TESTS = $(CLPQ_TESTS_NONSTRICT) $(CLPQ_TESTS_STRICT)
 
 SCRIPT_CLPQ= $(srcdir)/../tests/script_clpq
 
-if USE_INT8
-
-SCRIPT_CLPQ2 = $(srcdir)/../tests/script_clpq2_int8
-
-else !USE_INT8
-
 SCRIPT_CLPQ2 = $(srcdir)/../tests/script_clpq2
-
-endif !USE_INT8
 
 COEFFICIENT_MNEMONIC = @coefficient_mnemonic@
 
