@@ -1792,17 +1792,6 @@ ppl_irrational_precision(Prolog_term_ref t_p) {
 }
 
 extern "C" Prolog_foreign_return_type
-ppl_set_irrational_precision(Prolog_term_ref t_p) {
-  try {
-    unsigned p
-      = term_to_unsigned<unsigned>(t_p, "ppl_set_irrational_precision/1");
-    set_irrational_precision(p);
-    return PROLOG_SUCCESS;
-  }
-  CATCH_ALL;
-}
-
-extern "C" Prolog_foreign_return_type
 ppl_set_timeout_exception_atom(Prolog_term_ref t_tea) {
   try {
     if (Prolog_is_atom(t_tea)) {

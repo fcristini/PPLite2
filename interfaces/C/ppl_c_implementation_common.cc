@@ -301,13 +301,6 @@ ppl_irrational_precision(unsigned* p) try {
 CATCH_ALL
 
 int
-ppl_set_irrational_precision(unsigned p) try {
-  set_irrational_precision(p);
-  return 0;
-}
-CATCH_ALL
-
-int
 ppl_version_major(void) try {
   return static_cast<int>(version_major());
 }

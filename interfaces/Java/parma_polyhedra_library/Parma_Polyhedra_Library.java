@@ -227,16 +227,6 @@ public class Parma_Polyhedra_Library {
     //! Returns the precision parameter for irrational calculations.
     public static native int irrational_precision();
 
-    //! Sets the precision parameter used for irrational calculations.
-    /*!
-      If \p p is less than or equal to <CODE>INT_MAX</CODE>, sets the
-      precision parameter used for irrational calculations to \p p.
-      Then, in the irrational calculations returning an unbounded rational,
-      (e.g., when computing a square root), the lesser between numerator
-      and denominator will be limited to 2**\p p.
-    */
-    public static native void set_irrational_precision(int p);
-
     //@} // Floating-point rounding and precision settings.
 
     //! \name Timeout handling

@@ -323,10 +323,8 @@ set_restore_irrational_precision :-
   ppl_irrational_precision(Default),
   Default == 128,
   Non_Default = 100,
-  ppl_set_irrational_precision(Non_Default),
   ppl_irrational_precision(Changed),
   Changed == Non_Default,
-  ppl_set_irrational_precision(Default),
   ppl_irrational_precision(Restored),
   Restored == Default.
 

@@ -1755,16 +1755,6 @@ CATCH_ALL
 
 extern "C"
 CAMLprim value
-ppl_set_irrational_precision(value p) try {
-  CAMLparam1(p);
-  unsigned cxx_p = value_to_unsigned<unsigned>(p);
-  set_irrational_precision(cxx_p);
-  CAMLreturn(Val_unit);
-}
-CATCH_ALL
-
-extern "C"
-CAMLprim value
 ppl_set_timeout(value time) try {
   CAMLparam1(time);
   // In case a timeout was already set.

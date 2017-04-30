@@ -75,10 +75,6 @@ PPL::Init::Init() {
     // ... the Watchdog subsystem is initialized, ...
     Watchdog::Watchdog::initialize();
 #endif // PPL_HAVE_DECL_SETITIMER && PPL_HAVE_DECL_SIGACTION
-
-    // The default is chosen to have a precision greater than most
-    // precise IEC 559 floating point (112 bits of mantissa).
-    set_irrational_precision(DEFAULT_IRRATIONAL_PRECISION);
   }
 }
 

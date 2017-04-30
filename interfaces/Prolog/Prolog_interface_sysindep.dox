@@ -453,14 +453,6 @@ that are included with all instantiations of the Prolog interfaces.
   <EM>Unifies <CODE>Precision</CODE> with the precision parameter for
   irrational calculations.</EM>
 
-<P><CODE> ppl_set_irrational_precision(+Precision) </CODE><BR>
-
-  <EM>Sets the precision parameter for irrational calculations to
-  <CODE>Precision</CODE>. In the following irrational calculations
-  returning an unbounded rational (e.g., when computing a square root),
-  the lesser between numerator and denominator will be limited to
-  <CODE>2**Precision</CODE>.</EM>
-
 
 \anchor mip_predicates
 <H3> Predicates for MIP_Problem </H3>
