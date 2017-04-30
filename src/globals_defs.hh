@@ -30,6 +30,7 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Slow_Copy.hh"
 #include "Temp_defs.hh"
 #include <exception>
+#include <iostream>
 #include <gmpxx.h>
 
 #ifndef PPL_PROFILE_ADD_WEIGHT

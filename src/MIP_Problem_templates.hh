@@ -25,6 +25,7 @@ site: http://bugseng.com/products/ppl/ . */
 #define PPL_MIP_Problem_templates_hh 1
 
 #include "Variables_Set_defs.hh"
+#include <sstream>
 
 namespace Parma_Polyhedra_Library {
 
