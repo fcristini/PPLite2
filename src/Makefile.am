@@ -345,9 +345,6 @@ Watchdog_inlines.hh \
 Threshold_Watcher_defs.hh \
 Threshold_Watcher_inlines.hh \
 Threshold_Watcher_templates.hh
-#Any_Pointset_types.hh \
-#Any_Pointset_defs.hh \
-#Any_Pointset_inlines.hh \
 
 NESTED_INCLUDE_FILES = \
 Ph_Status_idefs.hh \
@@ -417,7 +414,6 @@ wrap_string.cc \
 Time.cc \
 Watchdog.cc \
 Threshold_Watcher.cc
-#Pointset_Ask_Tell.cc
 
 if NO_UNDEFINED
 
