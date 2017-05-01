@@ -27,6 +27,7 @@ site: http://bugseng.com/products/ppl/ . */
 #include <algorithm>
 #include <memory>
 #include <map>
+#include <iomanip>
 
 #if 0
 #define NOISY_PIP_TREE_STRUCTURE 1
