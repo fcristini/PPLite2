@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\tests",
-    "\\tests\\Polyhedron"
+    "\\src"
   ],
-  "SelectedNode": "\\tests\\Polyhedron\\onepoint.cc",
+  "SelectedNode": "\\src\\MIP_Problem_templates.hh",
   "PreviewInSolutionExplorer": false
 }
