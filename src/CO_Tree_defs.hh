@@ -27,6 +27,7 @@ site: http://bugseng.com/products/ppl/ . */
 #include "CO_Tree_types.hh"
 
 #include "Coefficient_defs.hh"
+#include "C_Integer.hh"
 #include <memory>
 #include <cstddef>
 
