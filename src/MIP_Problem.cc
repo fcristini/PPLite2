@@ -32,6 +32,7 @@ site: http://bugseng.com/products/ppl/ . */
 #include "Scalar_Products_defs.hh"
 #include "Scalar_Products_inlines.hh"
 #include "math_utilities_defs.hh"
+#include "Checked_Compat.hh"
 
 // TODO: Remove this when the sparse working cost has been tested enough.
 #if PPL_USE_SPARSE_MATRIX
