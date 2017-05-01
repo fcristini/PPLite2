@@ -17,6 +17,15 @@ namespace Parma_Polyhedra_Library {
         return V_EQ;
     }
 
+    template <>
+    inline
+        Result assign_r<unsigned int, GMP_Integer>(unsigned int & to, GMP_Integer from, Rounding_Dir)
+    {
+        to = from.get_ui();
+        return V_EQ;
+    }
+
+
     template <typename To, typename Num, typename Den> inline
         Result div_assign_r(To & to, Num num, Den den, Rounding_Dir rd)
     {
