@@ -24,6 +24,7 @@ site: http://bugseng.com/products/ppl/ . */
 #ifndef PPL_CO_Tree_inlines_hh
 #define PPL_CO_Tree_inlines_hh 1
 
+#include "globals_defs.hh"
 #include <cstddef>
 #include <iostream>
 
