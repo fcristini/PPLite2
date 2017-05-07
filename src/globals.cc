@@ -25,6 +25,7 @@ site: http://bugseng.com/products/ppl/ . */
 #include "globals_defs.hh"
 #include "Constraint_defs.hh"
 #include "Generator_defs.hh"
+#include <sstream>
 
 namespace Parma_Polyhedra_Library {
 
