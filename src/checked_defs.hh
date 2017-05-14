@@ -691,9 +691,9 @@ extern Not_A_Number NOT_A_NUMBER;
 //////  */
 //////  static void handle_result(Result r);
 //////};
-//////
-//////} // namespace Parma_Polyhedra_Library
-//////
+
+} // namespace Parma_Polyhedra_Library
+
 //////#define CHECK_P(cond, check) ((cond) ? (check) : (assert(!(check)), false))
 //////
 //////#include "checked_inlines.hh"
