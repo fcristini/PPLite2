@@ -118,7 +118,6 @@ Temp_defs.hh \
 Temp_inlines.hh \
 Temp_templates.hh \
 Coefficient_traits_template.hh \
-Checked_Number_types.hh \
 termination_types.hh \
 $(COEFFICIENT_TYPES_INCLUDE_FILES) \
 Coefficient_types.hh \
