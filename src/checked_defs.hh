@@ -35,8 +35,7 @@ site: http://bugseng.com/products/ppl/ . */
 
 namespace Parma_Polyhedra_Library {
 
-namespace Checked {
-
+//////namespace Checked {
 
 // It is a pity that function partial specialization is not permitted
 // by C++.  To (partly) overcome this limitation, we use class
