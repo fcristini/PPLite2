@@ -118,6 +118,7 @@ Temp_defs.hh \
 Temp_inlines.hh \
 Temp_templates.hh \
 Coefficient_traits_template.hh \
+Checked_Number_types.hh \
 termination_types.hh \
 $(COEFFICIENT_TYPES_INCLUDE_FILES) \
 Coefficient_types.hh \
@@ -174,6 +175,17 @@ Rounding_Dir_inlines.hh \
 Result_defs.hh \
 Result_inlines.hh \
 Numeric_Format_defs.hh \
+checked_defs.hh \
+checked_inlines.hh \
+checked_int_inlines.hh \
+checked_float_inlines.hh \
+checked_mpz_inlines.hh \
+checked_mpq_inlines.hh \
+checked_ext_inlines.hh \
+Checked_Number_defs.hh \
+Checked_Number_inlines.hh \
+Checked_Number_templates.hh \
+checked_numeric_limits.hh \
 $(COEFFICIENT_DEFS_INCLUDE_FILES) \
 Coefficient_defs.hh \
 Coefficient_inlines.hh \
@@ -352,6 +364,8 @@ Grid_Status_idefs.hh
 
 libppl_la_SOURCES = \
 assertions.cc \
+checked.cc \
+Checked_Number.cc \
 Float.cc \
 Constraint.cc \
 Constraint_System.cc \
