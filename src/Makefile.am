@@ -182,9 +182,6 @@ checked_float_inlines.hh \
 checked_mpz_inlines.hh \
 checked_mpq_inlines.hh \
 checked_ext_inlines.hh \
-Checked_Number_defs.hh \
-Checked_Number_inlines.hh \
-Checked_Number_templates.hh \
 checked_numeric_limits.hh \
 $(COEFFICIENT_DEFS_INCLUDE_FILES) \
 Coefficient_defs.hh \
@@ -365,7 +362,6 @@ Grid_Status_idefs.hh
 libppl_la_SOURCES = \
 assertions.cc \
 checked.cc \
-Checked_Number.cc \
 Float.cc \
 Constraint.cc \
 Constraint_System.cc \
